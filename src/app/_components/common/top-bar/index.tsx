@@ -1,15 +1,16 @@
 'use client'
 
-import { COLOR_BLACK, COLOR_WHITE } from 'src/constants/color'
+import { COLOR_BLACK, COLOR_WHITE } from 'src/app/_constants/color'
 
 import { HtmlHTMLAttributes } from 'react'
-import Typography from 'src/elements/typography'
+import Typography from 'src/app/_components/element/typography'
+import { TOPBAR_HEIGHT } from 'src/app/_constants/size'
 import styled from 'styled-components'
 
 const Container = styled.header`
   position: sticky;
-  width: 100vw;
-  height: 6.4rem;
+  width: inherit;
+  height: ${TOPBAR_HEIGHT};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,7 @@ interface ITopBar extends HtmlHTMLAttributes<Headers> {
 const TopBar = (props: ITopBar) => {
   return (
     <Container>
-      <Typography size='2rem' color={COLOR_WHITE} fontWeight={700}>
+      <Typography fontSize='2rem' color={COLOR_WHITE} fontWeight={700}>
         {props.title}
       </Typography>
     </Container>

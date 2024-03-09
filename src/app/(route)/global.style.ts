@@ -11,6 +11,19 @@ const GlobalStyles = createGlobalStyle`
 html {
   font-size: 10px;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 `
 
 export default GlobalStyles
