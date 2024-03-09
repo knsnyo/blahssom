@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import GlobalStyles from 'src/app/(route)/global.style'
+import StoreProvider from 'src/app/(route)/provider'
 import StyledComponentsRegistry from 'src/app/(route)/registry'
 
 const inter = Inter({
@@ -15,8 +16,10 @@ const RootLayout = ({
   return (
     <html lang='en' className={inter.className}>
       <body>
-        <GlobalStyles />
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StoreProvider>
+          <GlobalStyles />
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </StoreProvider>
       </body>
     </html>
   )

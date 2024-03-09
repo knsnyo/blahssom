@@ -23,7 +23,7 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   prefixicon?: React.ReactNode
 }
 
-const Input = (props: IInput) => {
+const Input = ({ theme, prefixicon, ...props }: IInput) => {
   const ref = useRef<HTMLInputElement>(null)
 
   const onClick = () => {
@@ -31,13 +31,9 @@ const Input = (props: IInput) => {
   }
 
   return (
-    <Border theme={props?.theme ?? INPUT_THEME.DEFAULT} onClick={onClick}>
-      {props?.prefixicon}
-      <Container
-        theme={props.theme ?? INPUT_THEME.DEFAULT}
-        {...props}
-        ref={ref}
-      />
+    <Border theme={theme ?? INPUT_THEME.DEFAULT} onClick={onClick}>
+      {prefixicon}
+      <Container theme={theme ?? INPUT_THEME.DEFAULT} {...props} ref={ref} />
     </Border>
   )
 }

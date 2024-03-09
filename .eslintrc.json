@@ -19,7 +19,14 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+
   "rules": {
+    "import/prefer-default-export": "off",
     "no-use-before-define": "off",
     "react/jsx-no-useless-fragment": "off",
     "import/no-unresolved": "off",
@@ -32,6 +39,8 @@
       "error",
       "ignorePackages",
       {
+        "js": "never",
+        "jsx": "never",
         "ts": "never",
         "tsx": "never"
       }
