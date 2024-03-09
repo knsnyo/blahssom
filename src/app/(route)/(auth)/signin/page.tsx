@@ -38,10 +38,8 @@ const Page = () => {
   > = async () => {
     try {
       await signInAPI({ id, password })
-      console.log('yeah')
       router.replace('/set-nickname')
     } catch (error) {
-      console.log(error)
       // error-handling
     }
   }

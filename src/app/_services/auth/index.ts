@@ -5,20 +5,26 @@ interface AuthBody {
   password: string
 }
 
-export const signUpAPI = async (body: AuthBody) => {
+export const signUpAPI = async ({ id, password }: AuthBody) => {
   const URL = `/api/auth/signup`
+  const plainText = `${id}:${password}`
+  const encoded = Buffer.from(plainText).toString('base64')
   await fetch(URL, {
-    method: METHOD.POST,
-    body: JSON.stringify(body),
+    method: METHOD.GET,
+    headers: {
+      Authorization: `Basic ${encoded}`,
+    },
   })
 }
 
-export const signInAPI = async (body: AuthBody) => {
+export const signInAPI = async ({ id, password }: AuthBody) => {
   const URL = `/api/auth/signin`
-  const response = await fetch(URL, {
-    method: METHOD.POST,
-    body: JSON.stringify(body),
+  const plainText = `${id}:${password}`
+  const encoded = Buffer.from(plainText).toString('base64')
+  await fetch(URL, {
+    method: METHOD.GET,
+    headers: {
+      Authorization: `Basic ${encoded}`,
+    },
   })
-  const user = await response.json()
-  return user
 }
