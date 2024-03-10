@@ -1,5 +1,5 @@
 class ServerError extends Error {
-  private statusCode: number
+  public statusCode: number
 
   constructor(type: IError) {
     super(type.message)
@@ -14,6 +14,7 @@ interface IError {
 
 export const AUTH_ERROR: { [key: string]: IError } = {
   INVALID_TOKEN: { message: 'INVALID_TOKEN', statusCode: 401 },
+  DUPLICATED_ID: { message: 'DUPLICATED_ID', statusCode: 409 },
 }
 
 export default ServerError

@@ -3,7 +3,6 @@
 import { IconArrowRight, IconLock, IconPerson } from 'src/app/_constants/icon'
 
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Button from 'src/app/_components/element/button'
 import Input from 'src/app/_components/element/input'
@@ -15,7 +14,7 @@ import { signInAPI } from 'src/app/_services/auth'
 import styled from 'styled-components'
 
 const Page = () => {
-  const router = useRouter()
+  // const router = useRouter()
 
   const id = useAppSelector((state) => {
     return state.auth.id
@@ -38,7 +37,7 @@ const Page = () => {
   > = async () => {
     try {
       await signInAPI({ id, password })
-      router.replace('/set-nickname')
+      // router.replace('/set-nickname')
     } catch (error) {
       // error-handling
     }

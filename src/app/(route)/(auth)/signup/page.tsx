@@ -8,9 +8,10 @@ import { useEffect } from 'react'
 import Button from 'src/app/_components/element/button'
 import Input from 'src/app/_components/element/input'
 import Typography from 'src/app/_components/element/typography'
-import { COLOR_BLUE } from 'src/app/_constants/color'
+import { COLOR_BLUE, COLOR_RED } from 'src/app/_constants/color'
 import { useAppDispatch, useAppSelector } from 'src/app/_features'
 import { changeId, changePassword, init } from 'src/app/_features/auth'
+import { onSnackbar } from 'src/app/_features/utils/snackbar'
 import { signUpAPI } from 'src/app/_services/auth'
 import styled from 'styled-components'
 
@@ -38,10 +39,14 @@ const Page = () => {
     HTMLButtonElement
   > = async () => {
     try {
-      await signUpAPI({ id, password })
+      const response = await signUpAPI({ id, password })
+      if (!response.ok) throw response
+
       router.replace('/signin')
     } catch (error) {
       // error handling
+      const event = onSnackbar({ color: COLOR_RED, message: 'WTF' })
+      dispatch(event)
     }
   }
 

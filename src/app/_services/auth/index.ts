@@ -9,12 +9,13 @@ export const signUpAPI = async ({ id, password }: AuthBody) => {
   const URL = `/api/auth/signup`
   const plainText = `${id}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
-  await fetch(URL, {
+  const response = await fetch(URL, {
     method: METHOD.GET,
     headers: {
       Authorization: `Basic ${encoded}`,
     },
   })
+  return response
 }
 
 export const signInAPI = async ({ id, password }: AuthBody) => {
