@@ -17,7 +17,7 @@ const useSnackBar = () => {
     setInfo(() => {
       return {
         on: true,
-        message: message.replaceAll('_', ' '),
+        message: message?.replaceAll('_', ' ') ?? '',
         color,
       }
     })
