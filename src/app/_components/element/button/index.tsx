@@ -1,4 +1,8 @@
-import { COLOR_BLACK, COLOR_WHITE } from 'src/app/_constants/color'
+import {
+  COLOR_BLACK,
+  COLOR_GREY_E4E4E4,
+  COLOR_WHITE,
+} from 'src/app/_constants/color'
 
 import styled from 'styled-components'
 
@@ -39,6 +43,9 @@ const Container = styled.button<IButton>`
   color: ${(props: IButton) => {
     return props.theme?.color
   }};
+  &:disabled {
+    background-color: ${COLOR_GREY_E4E4E4};
+  }
 `
 
 export default Button

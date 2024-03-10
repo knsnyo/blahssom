@@ -8,14 +8,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import type { TypedUseSelectorHook } from 'react-redux'
 import auth from 'src/app/_features/auth'
 import user from 'src/app/_features/user'
-import snackbar from 'src/app/_features/utils/snackbar'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       auth,
       user,
-      snackbar,
     },
   })
 }

@@ -11,12 +11,14 @@ import Typography from 'src/app/_components/element/typography'
 import { COLOR_BLUE, COLOR_RED } from 'src/app/_constants/color'
 import { useAppDispatch, useAppSelector } from 'src/app/_features'
 import { changeId, changePassword, init } from 'src/app/_features/auth'
-import { onSnackbar } from 'src/app/_features/utils/snackbar'
+import useSnackBar from 'src/app/_hooks/_utils/useSnackbar'
 import { signUpAPI } from 'src/app/_services/auth'
 import styled from 'styled-components'
 
 const Page = () => {
   const router = useRouter()
+
+  const { open, SnackBar } = useSnackBar()
 
   const id = useAppSelector((state) => {
     return state.auth.id
@@ -24,7 +26,7 @@ const Page = () => {
   const password = useAppSelector((state) => {
     return state.auth.password
   })
-  const isValid = !id && !password
+  const isValid = !id || !password
 
   const dispatch = useAppDispatch()
 
@@ -38,15 +40,15 @@ const Page = () => {
   const signUpButtonHandler: React.MouseEventHandler<
     HTMLButtonElement
   > = async () => {
+    let response
     try {
-      const response = await signUpAPI({ id, password })
+      response = await signUpAPI({ id, password })
       if (!response.ok) throw response
 
       router.replace('/signin')
     } catch (error) {
-      // error handling
-      const event = onSnackbar({ color: COLOR_RED, message: 'WTF' })
-      dispatch(event)
+      response = await response?.json()
+      open({ message: response.message, color: COLOR_RED })
     }
   }
 
@@ -56,31 +58,34 @@ const Page = () => {
   }, [])
 
   return (
-    <Section>
-      <Input
-        type='text'
-        placeholder='ID'
-        prefixicon={<IconPerson />}
-        value={id}
-        onChange={idHandler}
-      />
-      <Input
-        type='password'
-        placeholder='PASSWORD'
-        prefixicon={<IconLock />}
-        value={password}
-        onChange={passwordHandler}
-      />
-      <Button disabled={isValid} onClick={signUpButtonHandler}>
-        SIGN UP
-      </Button>
-      <Link href='/signin'>
-        <Typography fontSize='2rem' fontWeight={700} color={COLOR_BLUE}>
-          GO TO SIGN IN &nbsp;
-          <IconArrowRight />
-        </Typography>
-      </Link>
-    </Section>
+    <>
+      <SnackBar />
+      <Section>
+        <Input
+          type='text'
+          placeholder='ID'
+          prefixicon={<IconPerson />}
+          value={id}
+          onChange={idHandler}
+        />
+        <Input
+          type='password'
+          placeholder='PASSWORD'
+          prefixicon={<IconLock />}
+          value={password}
+          onChange={passwordHandler}
+        />
+        <Button disabled={isValid} onClick={signUpButtonHandler}>
+          SIGN UP
+        </Button>
+        <Link href='/signin'>
+          <Typography fontSize='2rem' fontWeight={700} color={COLOR_BLUE}>
+            GO TO SIGN IN &nbsp;
+            <IconArrowRight />
+          </Typography>
+        </Link>
+      </Section>
+    </>
   )
 }
 

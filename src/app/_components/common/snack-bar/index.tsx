@@ -1,36 +1,20 @@
 'use client'
 
-import { useEffect } from 'react'
 import Typography from 'src/app/_components/element/typography'
 import { COLOR_WHITE } from 'src/app/_constants/color'
 import { SNACKBAR_Y } from 'src/app/_constants/size'
-import { useAppDispatch, useAppSelector } from 'src/app/_features'
-import { offSnackbar } from 'src/app/_features/utils/snackbar'
 import styled from 'styled-components'
 
-const SnackBar = () => {
-  const info = useAppSelector((state) => {
-    return state.snackbar
-  })
+interface ISnakBar {
+  color: string
+  message: string
+}
 
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    if (info.on) {
-      setTimeout(() => {
-        dispatch(offSnackbar())
-      }, 3000)
-    }
-  }, [info.on, dispatch])
-
-  if (!info.on) {
-    return <></>
-  }
-
+const SnackBar = ({ color, message }: ISnakBar) => {
   return (
-    <Container color={info.color}>
-      <Typography color={COLOR_WHITE} fontWeight={700}>
-        {info.message}
+    <Container color={color}>
+      <Typography color={COLOR_WHITE} fontWeight={700} fontSize='1.5rem'>
+        {message}
       </Typography>
     </Container>
   )
