@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { COLOR_BLACK } from 'src/app/_constants/color'
 import styled from 'styled-components'
 
@@ -23,19 +22,43 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   prefixicon?: React.ReactNode
 }
 
-const Input = ({ theme, prefixicon, ...props }: IInput) => {
-  const ref = useRef<HTMLInputElement>(null)
+const OriginalInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
+  return <Container {...props} />
+}
 
-  const onClick = () => {
-    ref?.current?.focus()
+const withPrefixIcon = (Component: React.FC) => {
+  const PrefixIconInput = ({ prefixicon, ...props }: IInput) => {
+    return (
+      <>
+        {prefixicon}
+        <Component {...props} />
+      </>
+    )
   }
 
-  return (
-    <Border theme={theme ?? INPUT_THEME.DEFAULT} onClick={onClick}>
-      {prefixicon}
-      <Container theme={theme ?? INPUT_THEME.DEFAULT} {...props} ref={ref} />
-    </Border>
-  )
+  return PrefixIconInput
+}
+
+const withAllBorder = (Component: React.FC) => {
+  const AllBorderInput = ({
+    theme = INPUT_THEME.DEFAULT,
+    ...props
+  }: IInput) => {
+    return (
+      <Border theme={theme}>
+        <Component {...props} />
+      </Border>
+    )
+  }
+
+  return AllBorderInput
+}
+
+const PrefixIconInput = withPrefixIcon(OriginalInput)
+const AllBorderPrefixIconInput = withAllBorder(PrefixIconInput)
+
+const Input = (props: IInput) => {
+  return <AllBorderPrefixIconInput {...props} />
 }
 
 export default Input
