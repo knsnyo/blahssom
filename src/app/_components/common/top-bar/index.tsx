@@ -21,6 +21,7 @@ interface ITopBar extends HtmlHTMLAttributes<Headers> {
   title: string
 }
 
+// HOC
 const TopBar = (props: ITopBar) => {
   return (
     <Container>

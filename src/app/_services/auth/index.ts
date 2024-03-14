@@ -1,6 +1,6 @@
 import { METHOD } from 'src/app/_services'
 
-interface AuthBody {
+export interface AuthBody {
   id: string
   password: string
 }

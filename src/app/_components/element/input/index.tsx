@@ -20,6 +20,7 @@ export const INPUT_THEME: { [key: string]: IInputTheme } = {
 interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   theme?: IInputTheme
   prefixicon?: React.ReactNode
+  ref?: HTMLInputElement
 }
 
 const OriginalInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => {
