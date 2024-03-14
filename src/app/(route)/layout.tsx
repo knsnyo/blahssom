@@ -17,8 +17,10 @@ const RootLayout = ({
     <html lang='en' className={inter.className}>
       <body>
         <StoreProvider>
-          <GlobalStyles />
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <StyledComponentsRegistry>
+            <GlobalStyles />
+            {children}
+          </StyledComponentsRegistry>
         </StoreProvider>
       </body>
     </html>
