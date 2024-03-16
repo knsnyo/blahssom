@@ -26,7 +26,6 @@ const useLogic = () => {
 
       router.replace('/signin')
     } catch (error) {
-      response = await response?.json()
       open({ message: response.message, color: COLOR_RED })
     }
   }

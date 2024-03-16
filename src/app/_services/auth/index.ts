@@ -11,11 +11,10 @@ export const signUpAPI = async ({ id, password }: AuthBody) => {
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
     method: METHOD.GET,
-    headers: {
-      Authorization: `Basic ${encoded}`,
-    },
+    headers: { Authorization: `Basic ${encoded}` },
   })
-  return response
+  const json = await response.json()
+  return { ...json, status: response.status, ok: response.ok }
 }
 
 export const signInAPI = async ({ id, password }: AuthBody) => {
@@ -24,9 +23,8 @@ export const signInAPI = async ({ id, password }: AuthBody) => {
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
     method: METHOD.GET,
-    headers: {
-      Authorization: `Basic ${encoded}`,
-    },
+    headers: { Authorization: `Basic ${encoded}` },
   })
-  return response
+  const json = await response.json()
+  return { ...json, status: response.status, ok: response.ok }
 }

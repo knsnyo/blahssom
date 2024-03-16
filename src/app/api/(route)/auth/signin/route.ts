@@ -4,6 +4,10 @@ import connectDB from 'src/app/api/_config'
 import ServerError, { AUTH_ERROR } from 'src/app/api/_error'
 import User from 'src/app/api/_model/user'
 import handleError from 'src/app/api/_utils/error'
+import {
+  generateAccessToken,
+  generateRefreshToken,
+} from 'src/app/api/_utils/token'
 
 export const GET = async () => {
   try {
@@ -31,11 +35,19 @@ export const GET = async () => {
       throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
     }
 
-    if (!findUser?.nickname) {
-      throw new ServerError(AUTH_ERROR.SET_NICKNAME)
-    }
+    const { _id, nickname } = findUser
 
-    return Response.json({}, { status: 200 })
+    const accessToken = generateAccessToken({ _id })
+    const refreshToken = generateRefreshToken({ _id })
+
+    return Response.json(
+      {
+        accessToken,
+        refreshToken,
+        nickname,
+      },
+      { status: 200 },
+    )
   } catch (error) {
     return handleError(error)
   }

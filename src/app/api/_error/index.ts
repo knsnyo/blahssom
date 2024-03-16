@@ -23,7 +23,6 @@ export const AUTH_ERROR: IErrorMap = {
   DUPLICATED_ID: { message: 'DUPLICATED_ID', statusCode: 409 },
   NO_USER: { message: 'NO_USER', statusCode: 404 },
   UNAUTHENTICATED: { message: 'UNAUTHENTICATED', statusCode: 401 },
-  SET_NICKNAME: { message: 'SET_NICKNAME', statusCode: 403 },
 }
 
 export const USER_ERROR: IErrorMap = {

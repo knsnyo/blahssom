@@ -24,14 +24,13 @@ const useLogic = () => {
       response = await signInAPI({ id: id.current, password: password.current })
       if (!response.ok) throw response
 
-      router.replace('/')
-    } catch (error) {
-      response = await response?.json()
-      if (response?.statusCode !== 403) {
-        open({ message: response.message, color: COLOR_RED })
-        return
+      if (!response.nickname) {
+        router.replace('/set-nickname')
+      } else {
+        router.replace('/')
       }
-      return router.replace('/set-nickname')
+    } catch (error) {
+      open({ message: response.message, color: COLOR_RED })
     }
   }
 

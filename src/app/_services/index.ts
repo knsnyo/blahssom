@@ -6,6 +6,5 @@ export const METHOD = {
 }
 
 export const HEADERS = {
-  'Content-Type': 'application/json',
   Authorization: '',
 }
