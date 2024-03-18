@@ -1,8 +1,10 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import { COLOR_RED } from 'src/app/_constants/color'
 import useSnackBar from 'src/app/_hooks/_utils/useSnackbar'
-import { signInAPI } from 'src/app/_services/auth'
+import { apiSignIn } from 'src/app/_services/auth'
 
 const useLogic = () => {
   const router = useRouter()
@@ -21,7 +23,7 @@ const useLogic = () => {
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await signInAPI({ id: id.current, password: password.current })
+      response = await apiSignIn({ id: id.current, password: password.current })
       if (!response.ok) throw response
 
       if (!response.nickname) {

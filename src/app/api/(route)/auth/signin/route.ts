@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import { headers } from 'next/headers'
+import { cookies, headers } from 'next/headers'
 import connectDB from 'src/app/api/_config'
 import ServerError, { AUTH_ERROR } from 'src/app/api/_error'
 import User from 'src/app/api/_model/user'
@@ -12,9 +12,8 @@ import {
 export const GET = async () => {
   try {
     await connectDB()
-    const header = headers()
-    let token = header.get('Authorization')
-    if (!token?.includes('Basic')) {
+    let token = headers().get('Authorization')
+    if (!token?.startsWith('Basic ')) {
       throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
     }
     token = token.replace('Basic ', '')
@@ -36,18 +35,13 @@ export const GET = async () => {
     }
 
     const { _id, nickname } = findUser
-
     const accessToken = generateAccessToken({ _id })
     const refreshToken = generateRefreshToken({ _id })
 
-    return Response.json(
-      {
-        accessToken,
-        refreshToken,
-        nickname,
-      },
-      { status: 200 },
-    )
+    cookies().set('accessToken', accessToken)
+    cookies().set('refreshToken', refreshToken)
+
+    return Response.json({ nickname }, { status: 200 })
   } catch (error) {
     return handleError(error)
   }

@@ -11,7 +11,7 @@ export const GET = async () => {
 
     const header = headers()
     let token = header.get('Authorization')
-    if (!token?.includes('Basic')) {
+    if (!token?.startsWith('Basic ')) {
       throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
     }
 

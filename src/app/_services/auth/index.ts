@@ -5,7 +5,7 @@ export interface AuthBody {
   password: string
 }
 
-export const signUpAPI = async ({ id, password }: AuthBody) => {
+export const apiSignUp = async ({ id, password }: AuthBody) => {
   const URL = `/api/auth/signup`
   const plainText = `${id}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
@@ -17,7 +17,7 @@ export const signUpAPI = async ({ id, password }: AuthBody) => {
   return { ...json, status: response.status, ok: response.ok }
 }
 
-export const signInAPI = async ({ id, password }: AuthBody) => {
+export const apiSignIn = async ({ id, password }: AuthBody) => {
   const URL = `/api/auth/signin`
   const plainText = `${id}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
@@ -26,5 +26,6 @@ export const signInAPI = async ({ id, password }: AuthBody) => {
     headers: { Authorization: `Basic ${encoded}` },
   })
   const json = await response.json()
+
   return { ...json, status: response.status, ok: response.ok }
 }
