@@ -2,7 +2,12 @@
  * https://fontawesome.com/v5/search
  */
 
-import { faArrowRight, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowRight,
+  faCog,
+  faLock,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -16,4 +21,8 @@ export const IconLock = () => {
 
 export const IconArrowRight = () => {
   return <FontAwesomeIcon icon={faArrowRight} />
+}
+
+export const IconConfig = () => {
+  return <FontAwesomeIcon icon={faCog} />
 }
