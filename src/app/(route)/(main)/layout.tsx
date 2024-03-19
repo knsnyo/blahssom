@@ -1,6 +1,6 @@
 'use client'
 
-import { Container, Main, Section } from 'src/app/(route)/(root)/styled'
+import { Container, Main } from 'src/app/(route)/(main)/styled'
 import BottomBar from 'src/app/_components/common/bottom-bar'
 import TopBar from 'src/app/_components/common/top-bar'
 
@@ -10,13 +10,11 @@ const Layout = ({
   children: React.ReactNode
 }>) => {
   return (
-    <Container>
+    <Main>
       <TopBar title='BLAHSSOM' />
-      <Main>
-        <Section>{children}</Section>
-      </Main>
+      <Container>{children}</Container>
       <BottomBar />
-    </Container>
+    </Main>
   )
 }
 

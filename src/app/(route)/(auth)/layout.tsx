@@ -9,12 +9,12 @@ const Layout = ({
   children: React.ReactNode
 }>) => {
   return (
-    <Container>
+    <Main>
       <TopBar title='BLAHSSOM' />
-      <Main>
+      <Container>
         <Section>{children}</Section>
-      </Main>
-    </Container>
+      </Container>
+    </Main>
   )
 }
 

@@ -1,38 +1,43 @@
 'use client'
 
 import Link from 'next/link'
-import { COLOR_BLACK } from 'src/app/_constants/color'
-import { IconConfig, IconPerson } from 'src/app/_constants/icon'
-import { TOPBAR_HEIGHT } from 'src/app/_constants/size'
-import styled from 'styled-components'
+import { usePathname } from 'next/navigation'
+import { Container } from 'src/app/_components/common/bottom-bar/styled'
+import {
+  IconChat,
+  IconConfig,
+  IconPerson,
+} from 'src/app/_components/element/icon'
+import { COLOR_BLACK, COLOR_GREY_E4E4E4 } from 'src/app/_constants/color'
+import { BOTTOM_ICON_SIZE } from 'src/app/_constants/size'
 
-const Container = styled.nav`
-  position: sticky;
-  bottom: 0;
-  width: inherit;
-  height: ${TOPBAR_HEIGHT};
-  box-sizing: border-box;
-  border-top: 1px solid ${COLOR_BLACK};
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-`
+const getColorByPathname = (pathname: string, compare: string) => {
+  return pathname === compare ? COLOR_BLACK : COLOR_GREY_E4E4E4
+}
 
 const BottomBar = () => {
+  const pathname = usePathname()
+
   return (
     <Container>
       <Link href='/'>
-        <IconPerson />
+        <IconPerson
+          size={BOTTOM_ICON_SIZE}
+          color={getColorByPathname(pathname, '/')}
+        />
       </Link>
-      <Link href='/config'>
-        <IconConfig />
+      <Link href='/chat'>
+        <IconChat
+          size={BOTTOM_ICON_SIZE}
+          color={getColorByPathname(pathname, '/chat')}
+        />
       </Link>
+
       <Link href='/config'>
-        <IconConfig />
-      </Link>
-      <Link href='/config'>
-        <IconConfig />
+        <IconConfig
+          size={BOTTOM_ICON_SIZE}
+          color={getColorByPathname(pathname, '/config')}
+        />
       </Link>
     </Container>
   )
