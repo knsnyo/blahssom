@@ -14,5 +14,12 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `

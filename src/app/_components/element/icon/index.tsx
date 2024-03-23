@@ -4,10 +4,18 @@
 
 import { IconBaseProps } from 'react-icons'
 import {
+  MdBarChart,
+  MdBookmark,
+  MdBookmarkBorder,
   MdChatBubbleOutline,
+  MdFavorite,
+  MdFavoriteBorder,
+  MdHome,
   MdLock,
+  MdMoreHoriz,
   MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
+  MdOutlineFileUpload,
   MdPerson,
   MdSettings,
 } from 'react-icons/md'
@@ -34,4 +42,36 @@ export const IconConfig = (props: IconBaseProps) => {
 
 export const IconChat = (props: IconBaseProps) => {
   return <MdChatBubbleOutline {...props} />
+}
+
+export const IconHome = (props: IconBaseProps) => {
+  return <MdHome {...props} />
+}
+
+export const IconChart = (props: IconBaseProps) => {
+  return <MdBarChart {...props} />
+}
+
+export const IconHeartOutline = (props: IconBaseProps) => {
+  return <MdFavoriteBorder {...props} />
+}
+
+export const IconHeart = (props: IconBaseProps) => {
+  return <MdFavorite {...props} />
+}
+
+export const IconBookmark = (props: IconBaseProps) => {
+  return <MdBookmark {...props} />
+}
+
+export const IconBookmarkOutline = (props: IconBaseProps) => {
+  return <MdBookmarkBorder {...props} />
+}
+
+export const IconShare = (props: IconBaseProps) => {
+  return <MdOutlineFileUpload {...props} />
+}
+
+export const IconMore = (props: IconBaseProps) => {
+  return <MdMoreHoriz {...props} />
 }

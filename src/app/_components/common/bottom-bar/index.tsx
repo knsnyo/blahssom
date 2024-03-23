@@ -6,6 +6,7 @@ import { Container } from 'src/app/_components/common/bottom-bar/styled'
 import {
   IconChat,
   IconConfig,
+  IconHome,
   IconPerson,
 } from 'src/app/_components/element/icon'
 import { COLOR_BLACK, COLOR_GREY_E4E4E4 } from 'src/app/_constants/color'
@@ -21,9 +22,15 @@ const BottomBar = () => {
   return (
     <Container>
       <Link href='/'>
-        <IconPerson
+        <IconHome
           size={BOTTOM_ICON_SIZE}
           color={getColorByPathname(pathname, '/')}
+        />
+      </Link>
+      <Link href='/friend'>
+        <IconPerson
+          size={BOTTOM_ICON_SIZE}
+          color={getColorByPathname(pathname, '/friend')}
         />
       </Link>
       <Link href='/chat'>
