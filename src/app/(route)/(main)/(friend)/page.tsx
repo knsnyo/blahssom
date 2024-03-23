@@ -13,6 +13,11 @@ const Page = () => {
       <FriendCard />
       <FriendCard />
       <FriendCard />
+      <FriendCard />
+      <FriendCard />
+      <FriendCard />
+      <FriendCard />
+      <FriendCard nickname='sibal' />
       <FriendCard nickname='SIBAL' />
     </>
   )
