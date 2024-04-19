@@ -1,4 +1,4 @@
-import ServerError from 'src/app/(back-end)/_error'
+import ServerError from 'src/app/(back-end)/_config/error'
 
 const handleError = (error: unknown) => {
   if (error instanceof ServerError) {

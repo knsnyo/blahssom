@@ -1,43 +1,30 @@
 import bcrypt from 'bcryptjs'
-import { cookies, headers } from 'next/headers'
-import connectDB from 'src/app/(back-end)/_config'
-import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_error'
-import User from 'src/app/(back-end)/_model/user'
-import handleError from 'src/app/(back-end)/_utils/error'
+import { cookies } from 'next/headers'
+import connectDB from 'src/app/(back-end)/_config/db'
+import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
+import handleError from 'src/app/(back-end)/_config/error/handler'
+import verifyBasicToken from 'src/app/(back-end)/_middleware/basic'
 import {
   generateAccessToken,
   generateRefreshToken,
-} from 'src/app/(back-end)/_utils/token'
+} from 'src/app/(back-end)/_services/token'
+import { findUserById } from 'src/app/(back-end)/_services/user'
 
 export const GET = async () => {
   try {
+    const [id, password] = verifyBasicToken()
+
     await connectDB()
-    let token = headers().get('Authorization')
-    if (!token?.startsWith('Basic ')) {
-      throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
-    }
-    token = token.replace('Basic ', '')
-    const decoded = Buffer.from(token, 'base64').toString('utf8')
-    const [id, password] = decoded.split(':')
 
-    if (!id || !password) {
-      throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
-    }
+    const find = await findUserById(id)
+    if (!find) throw new ServerError(AUTH_ERROR.NO_USER)
 
-    const findUser = await User.findOne({ id })
-    if (!findUser) {
-      throw new ServerError(AUTH_ERROR.NO_USER)
-    }
+    const verify = await bcrypt.compare(password, find.password)
+    if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
 
-    const verify = await bcrypt.compare(password, findUser.password)
-    if (!verify) {
-      throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
-    }
-
-    const { _id, nickname } = findUser
+    const { _id, nickname } = find
     const accessToken = generateAccessToken({ _id })
     const refreshToken = generateRefreshToken({ _id })
-
     cookies().set('accessToken', accessToken)
     cookies().set('refreshToken', refreshToken)
 

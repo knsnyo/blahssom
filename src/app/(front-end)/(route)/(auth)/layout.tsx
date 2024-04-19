@@ -14,7 +14,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <TopBar title='BLAHSSOM' />
+      <TopBar title='Blahssom' />
       <Container>
         <Section>{children}</Section>
       </Container>

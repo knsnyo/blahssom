@@ -1,39 +1,22 @@
 import bcrypt from 'bcryptjs'
-import { headers } from 'next/headers'
-import connectDB from 'src/app/(back-end)/_config'
-import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_error'
-import User from 'src/app/(back-end)/_model/user'
-import handleError from 'src/app/(back-end)/_utils/error'
+import connectDB from 'src/app/(back-end)/_config/db'
+import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
+import handleError from 'src/app/(back-end)/_config/error/handler'
+import verifyBasicToken from 'src/app/(back-end)/_middleware/basic'
+import User from 'src/app/(back-end)/_models/user'
 
 export const GET = async () => {
   try {
+    const [id, password]: string[] = verifyBasicToken()
+
     await connectDB()
 
-    const header = headers()
-    let token = header.get('Authorization')
-    if (!token?.startsWith('Basic ')) {
-      throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
-    }
-
-    token = token.replace('Basic ', '')
-    const decoded = Buffer.from(token, 'base64').toString('utf8')
-    const [id, password] = decoded.split(':')
-    if (!id || !password) {
-      throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
-    }
-
-    const findUser = await User.findOne({ id })
-    if (findUser) {
-      throw new ServerError(AUTH_ERROR.DUPLICATED_ID)
-    }
+    const find = await User.findOne({ id })
+    if (find) throw new ServerError(AUTH_ERROR.DUPLICATED_ID)
 
     const SALT = await bcrypt.genSalt(10)
     const hashed = await bcrypt.hash(password, SALT)
-    const user = new User({
-      id: id as string,
-      password: hashed,
-    })
-    await user.save()
+    await new User({ id, password: hashed }).save()
 
     return Response.json({}, { status: 200 })
   } catch (error) {

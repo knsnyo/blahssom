@@ -1,31 +1,20 @@
-import * as jwt from 'jsonwebtoken'
-import { headers } from 'next/headers'
 import { NextRequest } from 'next/server'
-import connectDB from 'src/app/(back-end)/_config'
-import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_error'
-import User from 'src/app/(back-end)/_model/user'
-import handleError from 'src/app/(back-end)/_utils/error'
+import connectDB from 'src/app/(back-end)/_config/db'
+import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
+import handleError from 'src/app/(back-end)/_config/error/handler'
+import verifyBearerToken from 'src/app/(back-end)/_middleware/bearer'
+import { changeUserNickname, findUser } from 'src/app/(back-end)/_services/user'
 
 export const PATCH = async (request: NextRequest) => {
   try {
+    const id = verifyBearerToken()
     await connectDB()
-    let token = headers().get('Authorization')
-    if (!token?.startsWith('Bearer ')) {
-      throw new ServerError(AUTH_ERROR.INVALID_TOKEN)
-    }
-    token = token.replace('Bearer ', '')
 
-    const { _id } = jwt.decode(token) as jwt.JwtPayload
-
-    const findUser = await User.findById(_id)
-
-    if (!findUser) {
-      throw new ServerError(AUTH_ERROR.NO_USER)
-    }
+    const user = await findUser(id)
+    if (!user) throw new ServerError(AUTH_ERROR.NO_USER)
 
     const { nickname } = await request.json()
-
-    await User.findByIdAndUpdate(_id, { nickname }, { new: true })
+    await changeUserNickname(id, nickname)
 
     return Response.json({}, { status: 201 })
   } catch (error) {

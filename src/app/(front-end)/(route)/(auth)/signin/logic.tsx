@@ -32,7 +32,7 @@ const useLogic = () => {
         router.replace('/')
       }
     } catch (error) {
-      open({ message: response.message, color: COLOR_RED })
+      open({ message: response?.message, color: COLOR_RED })
     }
   }
 

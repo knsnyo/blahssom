@@ -19,8 +19,9 @@ interface IErrorMap {
 }
 
 export const AUTH_ERROR: IErrorMap = {
-  INVALID_TOKEN: { message: 'INVALID TOKEN', statusCode: 401 },
-  DUPLICATED_ID: { message: 'DUPLICATED ID', statusCode: 409 },
-  NO_USER: { message: 'NO USER', statusCode: 404 },
-  UNAUTHENTICATED: { message: 'UN AUTHENTICATED', statusCode: 401 },
+  INVALID_TOKEN: { message: 'Invalid Token', statusCode: 401 },
+  DUPLICATED_ID: { message: 'Duplicated ID', statusCode: 409 },
+  NO_USER: { message: 'No User', statusCode: 404 },
+  UNAUTHENTICATED: { message: 'Unauthentication', statusCode: 401 },
+  TOKEN_EXPIRED: { message: 'Token Expired', statusCode: 401 },
 }
