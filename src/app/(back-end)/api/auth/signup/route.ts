@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs'
 import { headers } from 'next/headers'
-import connectDB from 'src/app/(back-end)/api/_config'
-import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/api/_error'
-import User from 'src/app/(back-end)/api/_model/user'
-import handleError from 'src/app/(back-end)/api/_utils/error'
+import connectDB from 'src/app/(back-end)/_config'
+import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_error'
+import User from 'src/app/(back-end)/_model/user'
+import handleError from 'src/app/(back-end)/_utils/error'
 
 export const GET = async () => {
   try {
