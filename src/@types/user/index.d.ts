@@ -1,3 +1,5 @@
-export interface SetNicknameBody {
-  nickname: string
+export interface IUser {
+  id: string
+  password?: string
+  nickname?: string
 }

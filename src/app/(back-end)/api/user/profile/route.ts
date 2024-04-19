@@ -1,3 +1,4 @@
+import { IUser } from 'src/@types/user'
 import connectDB from 'src/app/(back-end)/_config/db'
 import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
 import handleError from 'src/app/(back-end)/_config/error/handler'
@@ -9,8 +10,9 @@ export const GET = async () => {
     const id = verifyBearerToken()
     await connectDB()
 
-    const user = await findUser(id)
+    const user: IUser = await findUser(id)
     if (!user) throw new ServerError(AUTH_ERROR.NO_USER)
+    user.password = undefined
 
     return Response.json(user, { status: 200 })
   } catch (error) {

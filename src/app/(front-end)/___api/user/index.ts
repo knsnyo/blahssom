@@ -1,4 +1,4 @@
-import { SetNicknameBody } from 'src/@types/user'
+import { SetNicknameBody } from 'src/@types/user/body/set-nickname'
 import Shared from 'src/app/(front-end)/____shared/'
 
 const setNickname = async (body: SetNicknameBody) => {
