@@ -3,7 +3,6 @@ import FriendCard from 'src/app/_components/factory/friend'
 const Page = () => {
   return (
     <>
-      <FriendCard nickname='GAESEKIYA' />
       <FriendCard />
       <FriendCard />
       <FriendCard />
@@ -17,8 +16,9 @@ const Page = () => {
       <FriendCard />
       <FriendCard />
       <FriendCard />
-      <FriendCard nickname='sibal' />
-      <FriendCard nickname='SIBAL' />
+      <FriendCard />
+      <FriendCard />
+      <FriendCard />
     </>
   )
 }
