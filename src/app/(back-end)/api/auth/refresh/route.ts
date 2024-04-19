@@ -6,7 +6,7 @@ import handleError from 'src/app/(back-end)/_config/error/handler'
 import {
   generateAccessToken,
   generateRefreshToken,
-  verifyAccessToken,
+  verifyRefreshToken,
 } from 'src/app/(back-end)/_services/token'
 
 export const GET = async () => {
@@ -18,7 +18,7 @@ export const GET = async () => {
     }
 
     token = token.replace('Bearer ', '')
-    const { _id } = verifyAccessToken(token) as jwt.JwtPayload
+    const { _id } = verifyRefreshToken(token) as jwt.JwtPayload
 
     const accessToken = generateAccessToken(_id)
     const refreshToken = generateRefreshToken(_id)
@@ -27,6 +27,8 @@ export const GET = async () => {
 
     return Response.json({}, { status: 200 })
   } catch (error) {
+    cookies().delete('accessToken')
+    cookies().delete('refreshToken')
     return handleError(error)
   }
 }
