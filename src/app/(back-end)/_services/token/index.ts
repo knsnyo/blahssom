@@ -7,7 +7,7 @@ interface TokenInfo {
 
 const { JWT_ACCESS_KEY, JWT_REFRESH_KEY } = process.env
 export const generateAccessToken = ({ _id }: TokenInfo) => {
-  return jwt.sign({ _id }, JWT_ACCESS_KEY!, { expiresIn: '1d' })
+  return jwt.sign({ _id }, JWT_ACCESS_KEY!, { expiresIn: '1m' })
 }
 
 export const generateRefreshToken = ({ _id }: TokenInfo) => {
@@ -24,7 +24,7 @@ export const verifyAccessToken = (token: string) => {
 
 export const verifyRefreshToken = (token: string) => {
   try {
-    return jwt.verify(token, JWT_ACCESS_KEY!)
+    return jwt.verify(token, JWT_REFRESH_KEY!)
   } catch (error) {
     throw new ServerError(AUTH_ERROR.TOKEN_EXPIRED)
   }

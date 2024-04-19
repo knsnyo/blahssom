@@ -18,22 +18,22 @@ interface IParams {
 }
 
 export const CUSTOM_FETCH = async (params: IParams) => {
-  let response = await fetch(params.url, {
+  const response = await fetch(params.url, {
     method: params.method,
     headers: { Authorization: `Bearer ${getToken(ACCESS_TOKEN)}` },
   })
   if (response.ok) return response
 
-  response = await fetch(`/api/auth/refresh`, {
+  const rotate = await fetch(`/api/auth/refresh`, {
     method: METHOD.GET,
     headers: { Authorization: `Bearer ${getToken(REFRESH_TOKEN)}` },
   })
-  if (!response.ok) return response
+  if (!rotate.ok) return response
 
-  response = await fetch(params.url, {
+  const refetch = await fetch(params.url, {
     method: params.method,
     headers: { Authorization: `Bearer ${getToken(ACCESS_TOKEN)}` },
   })
 
-  return response
+  return refetch
 }

@@ -20,8 +20,8 @@ export const GET = async () => {
     token = token.replace('Bearer ', '')
     const { _id } = verifyRefreshToken(token) as jwt.JwtPayload
 
-    const accessToken = generateAccessToken(_id)
-    const refreshToken = generateRefreshToken(_id)
+    const accessToken = generateAccessToken({ _id })
+    const refreshToken = generateRefreshToken({ _id })
     cookies().set('accessToken', accessToken)
     cookies().set('refreshToken', refreshToken)
 
