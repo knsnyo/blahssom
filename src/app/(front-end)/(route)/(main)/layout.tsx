@@ -10,7 +10,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Widget.Common.TopBar title='BLAHSSOM' />
+      <Widget.Common.TopBar title='Blahssom' />
       <Container>{children}</Container>
       <Widget.Common.BottomBar />
     </Main>
