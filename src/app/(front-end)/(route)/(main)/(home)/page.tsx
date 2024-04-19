@@ -1,4 +1,6 @@
-import Widget from 'src/app/(front-end)/_widget/'
+'use client'
+
+import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {
   return (

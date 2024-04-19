@@ -5,7 +5,8 @@ import {
   Main,
   Section,
 } from 'src/app/(front-end)/(route)/(auth)/styled'
-import Widget from 'src/app/(front-end)/_widget/'
+
+import Widget from 'src/app/(front-end)/_widget'
 
 const Layout = ({
   children,

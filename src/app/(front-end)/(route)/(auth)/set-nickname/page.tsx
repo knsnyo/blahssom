@@ -2,7 +2,7 @@
 
 import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
 import { INPUT_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
-import Widget from 'src/app/(front-end)/_widget'
+import Widget from 'src/app/(front-end)/_widget/'
 import { IconPerson } from 'src/app/(front-end)/_widget/element/icon'
 
 const Page = () => {

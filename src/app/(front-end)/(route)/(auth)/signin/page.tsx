@@ -6,7 +6,7 @@ import Link from 'next/link'
 import useLogic from 'src/app/(front-end)/(route)/(auth)/signin/logic'
 import { COLOR_BLUE } from 'src/app/(front-end)/____shared/style/color'
 import { INPUT_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
-import Widget from 'src/app/(front-end)/_widget'
+import Widget from 'src/app/(front-end)/_widget/'
 
 const Page = () => {
   const { idHandler, passwordHandler, submit, SnackBar } = useLogic()
