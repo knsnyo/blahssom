@@ -1,8 +1,8 @@
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
-import { COLOR_RED } from 'src/app/(front-end)/_constants/color'
-import useSnackBar from 'src/app/(front-end)/_hooks/_utils/useSnackbar'
-import { apiSetNickname } from 'src/app/(front-end)/_services/user'
+import { COLOR_RED } from 'src/app/(front-end)/____shared/style/color'
+import Api from 'src/app/(front-end)/___api/'
+import useSnackBar from 'src/app/(front-end)/_widget/common/snack-bar/useSnackbar'
 
 const useLogic = () => {
   const nickname = useRef('')
@@ -16,7 +16,7 @@ const useLogic = () => {
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await apiSetNickname({ nickname: nickname.current })
+      response = await Api.User.setNickname({ nickname: nickname.current })
       if (!response.ok) throw response
       router.replace('/')
     } catch (error) {

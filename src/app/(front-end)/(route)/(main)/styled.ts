@@ -1,7 +1,7 @@
 import {
   BOTTOMBAR_HEIGHT,
   MAX_WIDTH,
-} from 'src/app/(front-end)/_constants/size'
+} from 'src/app/(front-end)/____shared/style/size'
 import { styled } from 'styled-components'
 
 export const Main = styled.main`

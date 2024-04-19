@@ -1,10 +1,9 @@
 'use client'
 
 import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
-import Button from 'src/app/(front-end)/_components/element/button'
-import { IconPerson } from 'src/app/(front-end)/_components/element/icon'
-import Input from 'src/app/(front-end)/_components/element/input'
-import { INPUT_ICON_SIZE } from 'src/app/(front-end)/_constants/size'
+import { INPUT_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
+import Widget from 'src/app/(front-end)/_widget'
+import { IconPerson } from 'src/app/(front-end)/_widget/element/icon'
 
 const Page = () => {
   const { nicknameHandler, submit, SnackBar } = useLogic()
@@ -13,13 +12,13 @@ const Page = () => {
     <>
       <SnackBar />
       <>
-        <Input
+        <Widget.Element.Input
           type='text'
           placeholder='NICKNAME'
           prefixicon={<IconPerson size={INPUT_ICON_SIZE} />}
           onChange={nicknameHandler}
         />
-        <Button onClick={submit}>START</Button>
+        <Widget.Element.Button onClick={submit}>START</Widget.Element.Button>
       </>
     </>
   )

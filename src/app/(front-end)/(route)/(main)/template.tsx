@@ -2,16 +2,16 @@
 
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { CUSTOM_FETCH, METHOD } from 'src/app/(front-end)/_services'
+import Shared from 'src/app/(front-end)/____shared/'
 
 const Template = (props: { children: React.ReactNode }) => {
   const router = useRouter()
 
   React.useEffect(() => {
     ;(async () => {
-      const response = await CUSTOM_FETCH({
+      const response = await Shared.CUSTOM_FETCH({
         url: '/api/user/profile',
-        method: METHOD.GET,
+        method: Shared.METHOD.GET,
       })
       if (!response.ok) router.replace('/signin')
     })()

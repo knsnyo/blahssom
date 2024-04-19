@@ -1,8 +1,7 @@
 'use client'
 
 import { Container, Main } from 'src/app/(front-end)/(route)/(main)/styled'
-import BottomBar from 'src/app/(front-end)/_components/common/bottom-bar'
-import TopBar from 'src/app/(front-end)/_components/common/top-bar'
+import Widget from 'src/app/(front-end)/_widget'
 
 const Layout = ({
   children,
@@ -11,9 +10,9 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <TopBar title='BLAHSSOM' />
+      <Widget.Common.TopBar title='BLAHSSOM' />
       <Container>{children}</Container>
-      <BottomBar />
+      <Widget.Common.BottomBar />
     </Main>
   )
 }

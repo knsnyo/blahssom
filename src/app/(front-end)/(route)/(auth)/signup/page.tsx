@@ -1,17 +1,12 @@
 'use client'
 
-import {
-  IconLock,
-  IconPerson,
-} from 'src/app/(front-end)/_components/element/icon'
+import { IconLock, IconPerson } from 'src/app/(front-end)/_widget/element/icon'
 
 import Link from 'next/link'
 import useLogic from 'src/app/(front-end)/(route)/(auth)/signup/logic'
-import Button from 'src/app/(front-end)/_components/element/button'
-import Input from 'src/app/(front-end)/_components/element/input'
-import Typography from 'src/app/(front-end)/_components/element/typography'
-import { COLOR_BLUE } from 'src/app/(front-end)/_constants/color'
-import { INPUT_ICON_SIZE } from 'src/app/(front-end)/_constants/size'
+import { COLOR_BLUE } from 'src/app/(front-end)/____shared/style/color'
+import { INPUT_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
+import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {
   const { idHandler, passwordHandler, submit, SnackBar } = useLogic()
@@ -20,23 +15,27 @@ const Page = () => {
     <>
       <SnackBar />
       <>
-        <Input
+        <Widget.Element.Input
           type='text'
           placeholder='ID'
           prefixicon={<IconPerson size={INPUT_ICON_SIZE} />}
           onChange={idHandler}
         />
-        <Input
+        <Widget.Element.Input
           type='password'
           placeholder='PASSWORD'
           prefixicon={<IconLock size={INPUT_ICON_SIZE} />}
           onChange={passwordHandler}
         />
-        <Button onClick={submit}>SIGN UP</Button>
+        <Widget.Element.Button onClick={submit}>SIGN UP</Widget.Element.Button>
         <Link href='/signin'>
-          <Typography fontSize='2rem' fontWeight={700} color={COLOR_BLUE}>
+          <Widget.Element.Typography
+            fontSize='2rem'
+            fontWeight={700}
+            color={COLOR_BLUE}
+          >
             GO TO SIGN IN
-          </Typography>
+          </Widget.Element.Typography>
         </Link>
       </>
     </>

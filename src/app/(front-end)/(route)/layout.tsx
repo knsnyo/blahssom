@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google'
-import StyledComponentsRegistry from 'src/app/(front-end)/(route)/registry'
-import GlobalStyles from 'src/app/(front-end)/(route)/styled'
+import Shared from 'src/app/(front-end)/____shared'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -15,10 +14,10 @@ const RootLayout = ({
   return (
     <html lang='en' className={inter.className}>
       <body>
-        <StyledComponentsRegistry>
-          <GlobalStyles />
+        <Shared.StyledComponentsRegistry>
+          <Shared.GlobalStyles />
           {children}
-        </StyledComponentsRegistry>
+        </Shared.StyledComponentsRegistry>
       </body>
     </html>
   )

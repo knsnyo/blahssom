@@ -1,8 +1,9 @@
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
-import { COLOR_RED } from 'src/app/(front-end)/_constants/color'
-import useSnackBar from 'src/app/(front-end)/_hooks/_utils/useSnackbar'
-import { apiSignUp } from 'src/app/(front-end)/_services/auth'
+import { COLOR_RED } from 'src/app/(front-end)/____shared/style/color'
+import Api from 'src/app/(front-end)/___api'
+
+import useSnackBar from 'src/app/(front-end)/_widget/common/snack-bar/useSnackbar'
 
 const useLogic = () => {
   const router = useRouter()
@@ -21,7 +22,10 @@ const useLogic = () => {
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await apiSignUp({ id: id.current, password: password.current })
+      response = await Api.Auth.signIn({
+        id: id.current,
+        password: password.current,
+      })
       if (!response.ok) throw response
 
       router.replace('/signin')

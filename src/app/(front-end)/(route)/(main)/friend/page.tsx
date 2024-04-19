@@ -1,24 +1,22 @@
-import FriendCard from 'src/app/(front-end)/_components/factory/friend'
+import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {
   return (
     <>
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
-      <FriendCard />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
+      <Widget.Factory.Friend />
     </>
   )
 }

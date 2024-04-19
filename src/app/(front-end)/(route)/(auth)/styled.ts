@@ -1,5 +1,8 @@
-import { DEFAULT_PADDING } from 'src/app/(front-end)/_constants/padding'
-import { MAX_WIDTH, TOPBAR_HEIGHT } from 'src/app/(front-end)/_constants/size'
+import { DEFAULT_PADDING } from 'src/app/(front-end)/____shared/style/padding'
+import {
+  MAX_WIDTH,
+  TOPBAR_HEIGHT,
+} from 'src/app/(front-end)/____shared/style/size'
 import { styled } from 'styled-components'
 
 export const Main = styled.main`

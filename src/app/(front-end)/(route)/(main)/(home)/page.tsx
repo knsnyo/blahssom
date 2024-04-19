@@ -1,11 +1,11 @@
-import FeedCard from 'src/app/(front-end)/_components/factory/feed'
+import Widget from 'src/app/(front-end)/_widget/'
 
 const Page = () => {
   return (
     <>
-      <FeedCard />
-      <FeedCard />
-      <FeedCard />
+      <Widget.Factory.Feed />
+      <Widget.Factory.Feed />
+      <Widget.Factory.Feed />
     </>
   )
 }
