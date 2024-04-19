@@ -1,9 +1,10 @@
+import { IUser } from 'src/@types/user'
 import User from 'src/app/(back-end)/_models/user'
 
-export const findUser = async (_id: string) => {
-  const user = await User.findById(_id)
+export const findUser = async (_id: string): Promise<IUser | null> => {
+  const user = await User.findById(_id).lean()
 
-  return user
+  return user ? (user as IUser) : null
 }
 
 export const changeUserNickname = async (_id: string, nickname: string) => {
