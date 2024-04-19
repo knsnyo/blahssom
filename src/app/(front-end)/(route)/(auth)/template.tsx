@@ -6,6 +6,7 @@ import { CUSTOM_FETCH, METHOD } from 'src/app/(front-end)/_services'
 
 const Template = (props: { children: React.ReactNode }) => {
   const router = useRouter()
+
   React.useEffect(() => {
     ;(async () => {
       const response = await CUSTOM_FETCH({
@@ -15,6 +16,7 @@ const Template = (props: { children: React.ReactNode }) => {
       if (response.ok) router.replace('/')
     })()
   }, [])
+
   return <>{props.children}</>
 }
 

@@ -1,9 +1,9 @@
 export const getToken = (name: string) => {
   const cookie = document.cookie?.split('; ')
-  const token = cookie?.find((c) => {
+  let token = cookie?.find((c) => {
     return c.startsWith(name)
   })
-  const accessToken = token?.split('=')[1]
+  token = token?.split('=')[1]
 
-  return accessToken
+  return token
 }
