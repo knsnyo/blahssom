@@ -13,3 +13,7 @@ export const Container = styled.header`
   box-sizing: border-box;
   background-color: ${COLOR.white};
 `
+
+export const LeadingIcon = styled.div`
+  padding-right: 3rem;
+`

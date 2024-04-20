@@ -20,7 +20,7 @@ const BottomBar = () => {
       <Link href='/'>
         <Icon.Home
           size={Shared.STYLE.SIZE.icon.bottom}
-          color={getColorByPathname(pathname, '/')}
+          color={getColorByPathname(pathname, '/feed')}
         />
       </Link>
       <Link href='/friend'>

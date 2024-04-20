@@ -6,7 +6,7 @@ import {
   Container,
   ProfileImage,
   UserInfo,
-} from 'src/app/(front-end)/_widget/friend/styled'
+} from 'src/app/(front-end)/_widget/friend/ui/styled'
 
 const Friend = ({ nickname }: { nickname?: string }) => {
   return (

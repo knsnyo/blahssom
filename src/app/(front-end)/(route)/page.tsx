@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import Shared from 'src/app/(front-end)/____shared/'
+import Shared from 'src/app/(front-end)/____shared'
 
-const Template = (props: { children: React.ReactNode }) => {
+const Page = () => {
   const router = useRouter()
 
   React.useEffect(() => {
@@ -13,11 +13,12 @@ const Template = (props: { children: React.ReactNode }) => {
         url: '/api/user/profile',
         method: Shared.METHOD.GET,
       })
-      if (response.ok) router.replace('/feed')
+      if (!response.ok) router.replace('/signin')
+      else router.replace('/feed')
     })()
   }, [])
 
-  return <>{props.children}</>
+  return <div />
 }
 
-export default Template
+export default Page
