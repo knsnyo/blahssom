@@ -1,7 +1,6 @@
 'use client'
 
 import Shared from 'src/app/(front-end)/____shared'
-import { SNACKBAR_Y } from 'src/app/(front-end)/____shared/style/size'
 import Typography from 'src/app/(front-end)/_widget/element/typography'
 import styled from 'styled-components'
 
@@ -34,7 +33,7 @@ const Container = styled.div<{ color: string }>`
   width: 30rem;
   height: 3rem;
   border-radius: 0.8rem;
-  top: ${SNACKBAR_Y};
+  top: 8rem;
   z-index: 999;
   display: flex;
   flex-direction: row;

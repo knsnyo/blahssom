@@ -1,12 +1,11 @@
-import { DEFAULT_PADDING } from 'src/app/(front-end)/____shared/style/padding'
-import { MAX_WIDTH } from 'src/app/(front-end)/____shared/style/size'
+import Shared from 'src/app/(front-end)/____shared'
 import styled from 'styled-components'
 
 export const Container = styled.article`
   width: 100%;
-  max-width: ${MAX_WIDTH};
+  max-width: ${Shared.STYLE.SIZE.maxWidth};
   box-sizing: border-box;
-  padding: ${DEFAULT_PADDING};
+  padding: ${Shared.STYLE.PADDING.default};
   display: flex;
   flex-direction: row;
   gap: 1rem;

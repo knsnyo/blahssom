@@ -1,8 +1,4 @@
 import Shared from 'src/app/(front-end)/____shared'
-import {
-  MAX_WIDTH,
-  TOPBAR_HEIGHT,
-} from 'src/app/(front-end)/____shared/style/size'
 import { styled } from 'styled-components'
 
 export const Container = styled.nav`
@@ -12,8 +8,8 @@ export const Container = styled.nav`
   margin: auto;
   bottom: 0;
   width: 100%;
-  max-width: ${MAX_WIDTH};
-  height: ${TOPBAR_HEIGHT};
+  max-width: ${Shared.STYLE.SIZE.maxWidth};
+  height: ${Shared.STYLE.SIZE.topbarHeigth};
   box-sizing: border-box;
   border-top: 1px solid ${Shared.STYLE.COLOR.grey.e4e4e4};
   display: flex;

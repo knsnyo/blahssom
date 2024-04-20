@@ -1,24 +1,20 @@
-import { DEFAULT_PADDING } from 'src/app/(front-end)/____shared/style/padding'
-import {
-  MAX_WIDTH,
-  TOPBAR_HEIGHT,
-} from 'src/app/(front-end)/____shared/style/size'
+import Shared from 'src/app/(front-end)/____shared'
 import { styled } from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
-  max-width: ${MAX_WIDTH};
+  max-width: ${Shared.STYLE.SIZE.maxWidth};
   height: 100%;
 `
 
 export const Container = styled.main`
-  height: calc(100% - ${TOPBAR_HEIGHT});
+  height: calc(100% - ${Shared.STYLE.SIZE.topbarHeigth});
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: ${DEFAULT_PADDING};
-  padding-right: ${DEFAULT_PADDING};
+  padding-left: ${Shared.STYLE.PADDING.default};
+  padding-right: ${Shared.STYLE.PADDING.default};
 `
 
 export const Section = styled.section`

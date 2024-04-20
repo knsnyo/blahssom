@@ -1,9 +1,11 @@
-export const MAX_WIDTH = '60rem'
+const SIZE = {
+  maxWidth: '60rem',
+  topbarHeigth: '6.4rem',
+  bottombarHeight: '6.4rem',
+  icon: {
+    input: 20,
+    bottom: 20,
+  },
+}
 
-export const TOPBAR_HEIGHT = '6.4rem'
-export const BOTTOMBAR_HEIGHT = '6.4rem'
-
-export const SNACKBAR_Y = '8rem'
-
-export const INPUT_ICON_SIZE = 20
-export const BOTTOM_ICON_SIZE = 20
+export default SIZE
