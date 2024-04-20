@@ -8,8 +8,8 @@ import {
   IconHeartOutline,
   IconMore,
   IconShare,
-} from 'src/app/(front-end)/_widget/element/icon'
-import Typography from 'src/app/(front-end)/_widget/element/typography'
+} from 'src/app/(front-end)/____shared/ui/element/icon'
+import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
 import {
   Center,
   Container,

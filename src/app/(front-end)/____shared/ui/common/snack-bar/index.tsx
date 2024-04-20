@@ -1,7 +1,7 @@
 'use client'
 
 import Shared from 'src/app/(front-end)/____shared'
-import Typography from 'src/app/(front-end)/_widget/element/typography'
+import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
 import styled from 'styled-components'
 
 interface ISnakBar {

@@ -5,8 +5,7 @@ import {
   Main,
   Section,
 } from 'src/app/(front-end)/(route)/(auth)/styled'
-
-import Widget from 'src/app/(front-end)/_widget'
+import Shared from 'src/app/(front-end)/____shared'
 
 const Layout = ({
   children,
@@ -15,7 +14,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Widget.Common.TopBar title='Blahssom' />
+      <Shared.UI.Common.TopBar title='Blahssom' />
       <Container>
         <Section>{children}</Section>
       </Container>

@@ -1,6 +1,6 @@
-import Common from 'src/app/(front-end)/_widget/common'
-import Element from 'src/app/(front-end)/_widget/element'
-import Factory from 'src/app/(front-end)/_widget/factory'
+import Feed from 'src/app/(front-end)/_widget/feed'
+import Friend from 'src/app/(front-end)/_widget/friend'
 
-const Widget = { Common, Element, Factory }
+const Widget = { Friend, Feed }
+
 export default Widget

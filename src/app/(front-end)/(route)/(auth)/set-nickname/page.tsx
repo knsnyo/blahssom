@@ -2,8 +2,7 @@
 
 import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
 import Shared from 'src/app/(front-end)/____shared'
-import Widget from 'src/app/(front-end)/_widget/'
-import { IconPerson } from 'src/app/(front-end)/_widget/element/icon'
+import { IconPerson } from 'src/app/(front-end)/____shared/ui/element/icon'
 
 const Page = () => {
   const { nicknameHandler, submit, SnackBar } = useLogic()
@@ -12,13 +11,15 @@ const Page = () => {
     <>
       <SnackBar />
       <>
-        <Widget.Element.Input
+        <Shared.UI.Element.Input
           type='text'
           placeholder='NICKNAME'
           prefixicon={<IconPerson size={Shared.STYLE.SIZE.icon.input} />}
           onChange={nicknameHandler}
         />
-        <Widget.Element.Button onClick={submit}>START</Widget.Element.Button>
+        <Shared.UI.Element.Button onClick={submit}>
+          START
+        </Shared.UI.Element.Button>
       </>
     </>
   )

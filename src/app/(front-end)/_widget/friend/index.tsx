@@ -1,12 +1,9 @@
 'use client'
 
 import Shared from 'src/app/(front-end)/____shared'
-import Typography from 'src/app/(front-end)/_widget/element/typography'
-import { ProfileImage } from 'src/app/(front-end)/_widget/factory/feed/styled'
-import {
-  Container,
-  UserInfo,
-} from 'src/app/(front-end)/_widget/factory/friend/styled'
+import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
+import { ProfileImage } from 'src/app/(front-end)/_widget/feed/styled'
+import { Container, UserInfo } from 'src/app/(front-end)/_widget/friend/styled'
 
 const Friend = ({ nickname }: { nickname?: string }) => {
   return (

@@ -1,7 +1,7 @@
 'use client'
 
 import { Container, Main } from 'src/app/(front-end)/(route)/(main)/styled'
-import Widget from 'src/app/(front-end)/_widget'
+import Shared from 'src/app/(front-end)/____shared'
 
 const Layout = ({
   children,
@@ -10,9 +10,9 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Widget.Common.TopBar title='Blahssom' />
+      <Shared.UI.Common.TopBar title='Blahssom' />
       <Container>{children}</Container>
-      <Widget.Common.BottomBar />
+      <Shared.UI.Common.BottomBar />
     </Main>
   )
 }

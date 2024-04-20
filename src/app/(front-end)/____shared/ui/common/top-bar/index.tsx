@@ -1,8 +1,8 @@
 'use client'
 
 import { HtmlHTMLAttributes } from 'react'
-import { Container } from 'src/app/(front-end)/_widget/common/top-bar/styled'
-import Typography from 'src/app/(front-end)/_widget/element/typography'
+import { Container } from 'src/app/(front-end)/____shared/ui/common/top-bar/styled'
+import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
 
 interface ITopBar extends HtmlHTMLAttributes<Headers> {
   title: string

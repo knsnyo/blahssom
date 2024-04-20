@@ -3,13 +3,13 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Shared from 'src/app/(front-end)/____shared'
-import { Container } from 'src/app/(front-end)/_widget/common/bottom-bar/styled'
+import { Container } from 'src/app/(front-end)/____shared/ui/common/bottom-bar/styled'
 import {
   IconChat,
   IconConfig,
   IconHome,
   IconPerson,
-} from 'src/app/(front-end)/_widget/element/icon'
+} from 'src/app/(front-end)/____shared/ui/element/icon'
 
 const getColorByPathname = (pathname: string, compare: string) => {
   return pathname === compare

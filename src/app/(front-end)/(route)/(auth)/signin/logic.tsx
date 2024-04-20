@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import Shared from 'src/app/(front-end)/____shared'
+import useSnackBar from 'src/app/(front-end)/____shared/ui/common/snack-bar/useSnackbar'
 import Api from 'src/app/(front-end)/___api'
-import useSnackBar from 'src/app/(front-end)/_widget/common/snack-bar/useSnackbar'
 
 const useLogic = () => {
   const router = useRouter()

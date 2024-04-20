@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import SnackBar from 'src/app/(front-end)/_widget/common/snack-bar'
+import SnackBar from 'src/app/(front-end)/____shared/ui/common/snack-bar'
 
 interface ISnackBarInfo {
   message: string
