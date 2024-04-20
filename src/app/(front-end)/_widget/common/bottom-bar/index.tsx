@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Shared from 'src/app/(front-end)/____shared'
-import { BOTTOM_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
 import { Container } from 'src/app/(front-end)/_widget/common/bottom-bar/styled'
 import {
   IconChat,
@@ -14,7 +13,7 @@ import {
 
 const getColorByPathname = (pathname: string, compare: string) => {
   return pathname === compare
-    ? Shared.STYLE.COLOR.blue
+    ? Shared.STYLE.COLOR.black
     : Shared.STYLE.COLOR.grey.e4e4e4
 }
 
@@ -25,26 +24,26 @@ const BottomBar = () => {
     <Container>
       <Link href='/'>
         <IconHome
-          size={BOTTOM_ICON_SIZE}
+          size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/')}
         />
       </Link>
       <Link href='/friend'>
         <IconPerson
-          size={BOTTOM_ICON_SIZE}
+          size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/friend')}
         />
       </Link>
       <Link href='/chat'>
         <IconChat
-          size={BOTTOM_ICON_SIZE}
+          size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/chat')}
         />
       </Link>
 
       <Link href='/config'>
         <IconConfig
-          size={BOTTOM_ICON_SIZE}
+          size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/config')}
         />
       </Link>
