@@ -1,17 +1,17 @@
 'use client'
 
 import Shared from 'src/app/(front-end)/____shared'
+import Widget from 'src/app/(front-end)/_widget'
 
 import {
   Container,
-  ProfileImage,
   UserInfo,
 } from 'src/app/(front-end)/_widget/friend/ui/styled'
 
 const Friend = ({ nickname }: { nickname?: string }) => {
   return (
     <Container>
-      <ProfileImage src='https://picsum.photos/200' alt='profile' />
+      <Widget.User.ProfileImage src='https://picsum.photos/200' alt='profile' />
       <UserInfo>
         <Shared.UI.Element.Typography
           color={Shared.STYLE.COLOR.black}

@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 
 export const Main = styled.main`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   max-width: ${Shared.STYLE.SIZE.maxWidth};
   margin-bottom: ${Shared.STYLE.SIZE.bottombarHeight};
   overflow-y: hidden;

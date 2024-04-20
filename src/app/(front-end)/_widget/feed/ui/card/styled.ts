@@ -21,19 +21,6 @@ export const Center = styled.div`
   flex-direction: column;
 `
 
-/* common components later... */
-export const ProfileImage = styled.img`
-  width: 4rem;
-  height: 4rem;
-  border-radius: 4rem;
-`
-
-export const PostImage = styled.img`
-  width: inherit;
-  object-fit: contain;
-  border-radius: 0.8rem;
-`
-
 export const PostInfo = styled.div`
   display: flex;
   flex-direction: row;

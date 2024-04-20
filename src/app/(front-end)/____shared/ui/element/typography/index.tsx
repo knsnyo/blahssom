@@ -9,6 +9,7 @@ interface ITypography extends HtmlHTMLAttributes<HTMLParagraphElement> {
   fontWeight?: number
   color?: string
   textAlign?: string
+  fullWidth?: boolean
 }
 
 const Container = styled.p<ITypography>`
@@ -21,9 +22,11 @@ const Container = styled.p<ITypography>`
   font-weight: ${(props: ITypography) => {
     return props?.fontWeight ?? 400
   }};
-  width: 100%;
+  width: ${(props: ITypography) => {
+    return props?.fullWidth ? '100%' : ''
+  }};
   text-align: ${(props: ITypography) => {
-    return props?.textAlign ?? 'center'
+    return props?.textAlign ?? 'start'
   }};
 `
 

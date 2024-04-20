@@ -5,6 +5,7 @@ const COLOR = {
   red: '#ff0000',
   grey: {
     e4e4e4: '#e4e4e4',
+    707070: '#707070',
   },
 }
 

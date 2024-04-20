@@ -31,7 +31,12 @@ const TopBar = (props: ITopBar) => {
           />
         </LeadingIcon>
       )}
-      <Typography fontSize='2rem' fontWeight={700} textAlign={props.textAlign}>
+      <Typography
+        fontSize='2rem'
+        fontWeight={700}
+        textAlign={props.textAlign}
+        fullWidth={props.canBack}
+      >
         {props.title}
       </Typography>
     </Container>
