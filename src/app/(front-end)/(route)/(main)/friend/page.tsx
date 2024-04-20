@@ -16,6 +16,7 @@ const Page = () => {
       <Widget.Friend />
       <Widget.Friend />
       <Widget.Friend />
+      <Widget.Friend />
     </>
   )
 }
