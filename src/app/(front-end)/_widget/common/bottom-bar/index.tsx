@@ -2,10 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  COLOR_BLACK,
-  COLOR_GREY_E4E4E4,
-} from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import { BOTTOM_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
 import { Container } from 'src/app/(front-end)/_widget/common/bottom-bar/styled'
 import {
@@ -16,7 +13,9 @@ import {
 } from 'src/app/(front-end)/_widget/element/icon'
 
 const getColorByPathname = (pathname: string, compare: string) => {
-  return pathname === compare ? COLOR_BLACK : COLOR_GREY_E4E4E4
+  return pathname === compare
+    ? Shared.STYLE.COLOR.blue
+    : Shared.STYLE.COLOR.grey.e4e4e4
 }
 
 const BottomBar = () => {

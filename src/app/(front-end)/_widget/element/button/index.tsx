@@ -1,8 +1,4 @@
-import {
-  COLOR_BLACK,
-  COLOR_GREY_E4E4E4,
-  COLOR_WHITE,
-} from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 
 import styled from 'styled-components'
 
@@ -44,7 +40,7 @@ const Container = styled.button<IButton>`
     return props.theme?.color
   }};
   &:disabled {
-    background-color: ${COLOR_GREY_E4E4E4};
+    background-color: ${Shared.STYLE.COLOR.grey.e4e4e4};
   }
 `
 
@@ -60,8 +56,8 @@ interface IBUttonTheme {
 
 export const BUTTON_TYPE: { [key: string]: IBUttonTheme } = {
   DEFAULT: {
-    color: COLOR_WHITE,
-    bgColor: COLOR_BLACK,
+    color: Shared.STYLE.COLOR.white,
+    bgColor: Shared.STYLE.COLOR.black,
     borderRadius: '0.8rem',
     width: '50rem',
     height: '5rem',

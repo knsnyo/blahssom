@@ -1,7 +1,4 @@
-import {
-  COLOR_GREY_E4E4E4,
-  COLOR_WHITE,
-} from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import {
   MAX_WIDTH,
   TOPBAR_HEIGHT,
@@ -18,10 +15,10 @@ export const Container = styled.nav`
   max-width: ${MAX_WIDTH};
   height: ${TOPBAR_HEIGHT};
   box-sizing: border-box;
-  border-top: 1px solid ${COLOR_GREY_E4E4E4};
+  border-top: 1px solid ${Shared.STYLE.COLOR.grey.e4e4e4};
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: ${COLOR_WHITE};
+  background-color: ${Shared.STYLE.COLOR.white};
 `

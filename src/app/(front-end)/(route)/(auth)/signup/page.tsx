@@ -4,7 +4,7 @@ import { IconLock, IconPerson } from 'src/app/(front-end)/_widget/element/icon'
 
 import Link from 'next/link'
 import useLogic from 'src/app/(front-end)/(route)/(auth)/signup/logic'
-import { COLOR_BLUE } from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import { INPUT_ICON_SIZE } from 'src/app/(front-end)/____shared/style/size'
 import Widget from 'src/app/(front-end)/_widget/'
 
@@ -32,7 +32,7 @@ const Page = () => {
           <Widget.Element.Typography
             fontSize='2rem'
             fontWeight={700}
-            color={COLOR_BLUE}
+            color={Shared.STYLE.COLOR.blue}
           >
             GO TO SIGN IN
           </Widget.Element.Typography>

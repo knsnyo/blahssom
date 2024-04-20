@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
-import { COLOR_RED } from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import Api from 'src/app/(front-end)/___api/'
 import useSnackBar from 'src/app/(front-end)/_widget/common/snack-bar/useSnackbar'
 
@@ -20,7 +20,7 @@ const useLogic = () => {
       if (!response.ok) throw response
       router.replace('/')
     } catch (error) {
-      open({ message: response.message, color: COLOR_RED })
+      open({ message: response.message, color: Shared.STYLE.COLOR.red })
     }
   }
 

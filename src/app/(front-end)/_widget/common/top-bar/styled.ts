@@ -1,4 +1,4 @@
-import { COLOR_WHITE } from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import { TOPBAR_HEIGHT } from 'src/app/(front-end)/____shared/style/size'
 import { styled } from 'styled-components'
 
@@ -11,5 +11,5 @@ export const Container = styled.header`
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-color: ${COLOR_WHITE};
+  background-color: ${Shared.STYLE.COLOR.white};
 `

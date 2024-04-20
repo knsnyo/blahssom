@@ -1,6 +1,6 @@
 'use client'
 
-import { COLOR_WHITE } from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import { SNACKBAR_Y } from 'src/app/(front-end)/____shared/style/size'
 import Typography from 'src/app/(front-end)/_widget/element/typography'
 import styled from 'styled-components'
@@ -13,7 +13,11 @@ interface ISnakBar {
 const SnackBar = ({ color, message }: ISnakBar) => {
   return (
     <Container color={color}>
-      <Typography color={COLOR_WHITE} fontWeight={700} fontSize='1.5rem'>
+      <Typography
+        color={Shared.STYLE.COLOR.white}
+        fontWeight={700}
+        fontSize='1.5rem'
+      >
         {message}
       </Typography>
     </Container>

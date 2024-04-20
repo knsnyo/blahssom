@@ -1,6 +1,6 @@
 'use client'
 
-import { COLOR_GREY_E4E4E4 } from 'src/app/(front-end)/____shared/style/color'
+import Shared from 'src/app/(front-end)/____shared'
 import {
   IconBookmarkOutline,
   IconChart,
@@ -35,7 +35,9 @@ const Feed = () => {
         >
           <div style={{ display: 'flex', gap: '1rem' }}>
             <Typography fontWeight={700}>Nickname</Typography>
-            <Typography color={COLOR_GREY_E4E4E4}>3월 24일</Typography>
+            <Typography color={Shared.STYLE.COLOR.grey.e4e4e4}>
+              3월 24일
+            </Typography>
           </div>
           <IconMore fontSize='1.5rem' />
         </div>
