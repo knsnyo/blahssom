@@ -9,7 +9,7 @@ const Template = (props: { children: React.ReactNode }) => {
 
   React.useEffect(() => {
     ;(async () => {
-      const response = await Shared.CUSTOM_FETCH({
+      const response = await Shared.TOKEN_FETCH({
         url: '/api/user/profile',
         method: Shared.METHOD.GET,
       })

@@ -18,7 +18,7 @@ interface IParams {
   body?: BodyInit | null | undefined
 }
 
-export const CUSTOM_FETCH = async (params: IParams) => {
+export const TOKEN_FETCH = async (params: IParams) => {
   const response = await fetch(params.url, {
     method: params.method,
     headers: { Authorization: `Bearer ${getToken(ACCESS_TOKEN)}` },

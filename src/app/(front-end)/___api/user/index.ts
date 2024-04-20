@@ -2,7 +2,7 @@ import { SetNicknameBody } from 'src/@types/user/body/set-nickname'
 import Shared from 'src/app/(front-end)/____shared/'
 
 const setNickname = async (body: SetNicknameBody) => {
-  const response = await Shared.CUSTOM_FETCH({
+  const response = await Shared.TOKEN_FETCH({
     url: `/api/user/set-nickname`,
     method: Shared.METHOD.PATCH,
     body: JSON.stringify(body),
