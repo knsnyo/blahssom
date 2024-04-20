@@ -4,12 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Shared from 'src/app/(front-end)/____shared'
 import { Container } from 'src/app/(front-end)/____shared/ui/common/bottom-bar/styled'
-import {
-  IconChat,
-  IconConfig,
-  IconHome,
-  IconPerson,
-} from 'src/app/(front-end)/____shared/ui/element/icon'
 
 const getColorByPathname = (pathname: string, compare: string) => {
   return pathname === compare
@@ -23,26 +17,26 @@ const BottomBar = () => {
   return (
     <Container>
       <Link href='/'>
-        <IconHome
+        <Shared.UI.Element.Icon.Home
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/')}
         />
       </Link>
       <Link href='/friend'>
-        <IconPerson
+        <Shared.UI.Element.Icon.Person
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/friend')}
         />
       </Link>
       <Link href='/chat'>
-        <IconChat
+        <Shared.UI.Element.Icon.Chat
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/chat')}
         />
       </Link>
 
       <Link href='/config'>
-        <IconConfig
+        <Shared.UI.Element.Icon.Config
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/config')}
         />

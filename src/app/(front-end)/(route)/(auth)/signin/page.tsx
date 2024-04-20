@@ -1,10 +1,5 @@
 'use client'
 
-import {
-  IconLock,
-  IconPerson,
-} from 'src/app/(front-end)/____shared/ui/element/icon'
-
 import Link from 'next/link'
 import useLogic from 'src/app/(front-end)/(route)/(auth)/signin/logic'
 import Shared from 'src/app/(front-end)/____shared'
@@ -19,13 +14,19 @@ const Page = () => {
         <Shared.UI.Element.Input
           type='text'
           placeholder='ID'
-          prefixicon={<IconPerson size={Shared.STYLE.SIZE.icon.input} />}
+          prefixicon={
+            <Shared.UI.Element.Icon.Person
+              size={Shared.STYLE.SIZE.icon.input}
+            />
+          }
           onChange={idHandler}
         />
         <Shared.UI.Element.Input
           type='password'
           placeholder='PASSWORD'
-          prefixicon={<IconLock size={Shared.STYLE.SIZE.icon.input} />}
+          prefixicon={
+            <Shared.UI.Element.Icon.Lock size={Shared.STYLE.SIZE.icon.input} />
+          }
           onChange={passwordHandler}
         />
         <Shared.UI.Element.Button onClick={submit}>

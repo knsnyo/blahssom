@@ -20,58 +20,77 @@ import {
   MdSettings,
 } from 'react-icons/md'
 
-export const IconPerson = (props: IconBaseProps) => {
+const Person = (props: IconBaseProps) => {
   return <MdPerson {...props} />
 }
 
-export const IconLock = (props: IconBaseProps) => {
+const Lock = (props: IconBaseProps) => {
   return <MdLock {...props} />
 }
 
-export const IconArrowRight = (props: IconBaseProps) => {
+const ArrowRight = (props: IconBaseProps) => {
   return <MdOutlineArrowForwardIos {...props} />
 }
 
-export const IconArrowLeft = (props: IconBaseProps) => {
+const ArrowLeft = (props: IconBaseProps) => {
   return <MdOutlineArrowBackIos {...props} />
 }
 
-export const IconConfig = (props: IconBaseProps) => {
+const Config = (props: IconBaseProps) => {
   return <MdSettings {...props} />
 }
 
-export const IconChat = (props: IconBaseProps) => {
+const Chat = (props: IconBaseProps) => {
   return <MdChatBubbleOutline {...props} />
 }
 
-export const IconHome = (props: IconBaseProps) => {
+const Home = (props: IconBaseProps) => {
   return <MdHome {...props} />
 }
 
-export const IconChart = (props: IconBaseProps) => {
+const Chart = (props: IconBaseProps) => {
   return <MdBarChart {...props} />
 }
 
-export const IconHeartOutline = (props: IconBaseProps) => {
+const HeartOutline = (props: IconBaseProps) => {
   return <MdFavoriteBorder {...props} />
 }
 
-export const IconHeart = (props: IconBaseProps) => {
+const Heart = (props: IconBaseProps) => {
   return <MdFavorite {...props} />
 }
 
-export const IconBookmark = (props: IconBaseProps) => {
+const Bookmark = (props: IconBaseProps) => {
   return <MdBookmark {...props} />
 }
 
-export const IconBookmarkOutline = (props: IconBaseProps) => {
+const BookmarkOutline = (props: IconBaseProps) => {
   return <MdBookmarkBorder {...props} />
 }
 
-export const IconShare = (props: IconBaseProps) => {
+const Share = (props: IconBaseProps) => {
   return <MdOutlineFileUpload {...props} />
 }
 
-export const IconMore = (props: IconBaseProps) => {
+const More = (props: IconBaseProps) => {
   return <MdMoreHoriz {...props} />
 }
+
+const Icon = {
+  Person,
+  Lock,
+  ArrowRight,
+  ArrowLeft,
+  Config,
+  Chat,
+  Home,
+  Chart,
+  Heart,
+  HeartOutline,
+  Bookmark,
+  BookmarkOutline,
+  Share,
+  More,
+}
+
+export default Icon

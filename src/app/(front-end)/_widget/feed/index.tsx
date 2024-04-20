@@ -1,15 +1,7 @@
 'use client'
 
 import Shared from 'src/app/(front-end)/____shared'
-import {
-  IconBookmarkOutline,
-  IconChart,
-  IconChat,
-  IconHeartOutline,
-  IconMore,
-  IconShare,
-} from 'src/app/(front-end)/____shared/ui/element/icon'
-import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
+
 import {
   Center,
   Container,
@@ -34,19 +26,23 @@ const Feed = () => {
           }}
         >
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <Typography fontWeight={700}>Nickname</Typography>
-            <Typography color={Shared.STYLE.COLOR.grey.e4e4e4}>
+            <Shared.UI.Element.Typography fontWeight={700}>
+              Nickname
+            </Shared.UI.Element.Typography>
+            <Shared.UI.Element.Typography
+              color={Shared.STYLE.COLOR.grey.e4e4e4}
+            >
               3월 24일
-            </Typography>
+            </Shared.UI.Element.Typography>
           </div>
-          <IconMore fontSize='1.5rem' />
+          <Shared.UI.Element.Icon.More fontSize='1.5rem' />
         </div>
-        <Typography>
+        <Shared.UI.Element.Typography>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
           quaerat delectus reiciendis dolore officia similique hic sit omnis,
           aliquam, nostrum numquam ipsam iure incidunt ullam in ducimus optio
           adipisci harum?
-        </Typography>
+        </Shared.UI.Element.Typography>
         <br />
         <PostImage src='https://picsum.photos/200' alt='post1-image' />
         <br />
@@ -59,20 +55,20 @@ const Feed = () => {
           }}
         >
           <PostInfo>
-            <IconChat fontSize='1.5rem' />
-            <Typography>123</Typography>
+            <Shared.UI.Element.Icon.Chat fontSize='1.5rem' />
+            <Shared.UI.Element.Typography>123</Shared.UI.Element.Typography>
           </PostInfo>
           <PostInfo>
-            <IconHeartOutline fontSize='1.5rem' />
-            <Typography>123</Typography>
+            <Shared.UI.Element.Icon.HeartOutline fontSize='1.5rem' />
+            <Shared.UI.Element.Typography>123</Shared.UI.Element.Typography>
           </PostInfo>
           <PostInfo>
-            <IconChart fontSize='1.5rem' />
-            <Typography>123</Typography>
+            <Shared.UI.Element.Icon.Chart fontSize='1.5rem' />
+            <Shared.UI.Element.Typography>123</Shared.UI.Element.Typography>
           </PostInfo>
           <PostInfo>
-            <IconBookmarkOutline fontSize='1.5rem' />
-            <IconShare fontSize='1.5rem' />
+            <Shared.UI.Element.Icon.BookmarkOutline fontSize='1.5rem' />
+            <Shared.UI.Element.Icon.Share fontSize='1.5rem' />
           </PostInfo>
         </div>
       </Center>

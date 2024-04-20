@@ -1,12 +1,11 @@
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import Shared from 'src/app/(front-end)/____shared'
-import useSnackBar from 'src/app/(front-end)/____shared/ui/common/snack-bar/useSnackbar'
 import Api from 'src/app/(front-end)/___api/'
 
 const useLogic = () => {
   const nickname = useRef('')
-  const { open, SnackBar } = useSnackBar()
+  const { open, SnackBar } = Shared.UI.Common.useSnackBar()
   const router = useRouter()
 
   const nicknameHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
