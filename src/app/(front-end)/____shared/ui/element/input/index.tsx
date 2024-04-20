@@ -1,4 +1,6 @@
-import Shared from 'src/app/(front-end)/____shared'
+'use client'
+
+import COLOR from 'src/app/(front-end)/____shared/style/color'
 import styled from 'styled-components'
 
 interface IInputTheme {
@@ -13,7 +15,7 @@ export const INPUT_THEME: { [key: string]: IInputTheme } = {
     borderRadius: '0.8rem',
     width: '50rem',
     height: '5rem',
-    color: Shared.STYLE.COLOR.black,
+    color: COLOR?.black,
   },
 }
 

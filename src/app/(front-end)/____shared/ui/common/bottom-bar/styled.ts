@@ -1,4 +1,5 @@
-import Shared from 'src/app/(front-end)/____shared'
+import COLOR from 'src/app/(front-end)/____shared/style/color'
+import SIZE from 'src/app/(front-end)/____shared/style/size'
 import { styled } from 'styled-components'
 
 export const Container = styled.nav`
@@ -8,13 +9,13 @@ export const Container = styled.nav`
   margin: auto;
   bottom: 0;
   width: 100%;
-  max-width: ${Shared.STYLE.SIZE.maxWidth};
-  height: ${Shared.STYLE.SIZE.topbarHeigth};
+  max-width: ${SIZE.maxWidth};
+  height: ${SIZE.topbarHeigth};
   box-sizing: border-box;
-  border-top: 1px solid ${Shared.STYLE.COLOR.grey.e4e4e4};
+  border-top: 1px solid ${COLOR.grey.e4e4e4};
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: ${Shared.STYLE.COLOR.white};
+  background-color: ${COLOR.white};
 `

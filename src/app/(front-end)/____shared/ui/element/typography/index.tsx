@@ -1,7 +1,7 @@
 'use client'
 
 import { HtmlHTMLAttributes } from 'react'
-import Shared from 'src/app/(front-end)/____shared'
+import COLOR from 'src/app/(front-end)/____shared/style/color'
 import styled from 'styled-components'
 
 interface ITypography extends HtmlHTMLAttributes<HTMLParagraphElement> {
@@ -12,7 +12,7 @@ interface ITypography extends HtmlHTMLAttributes<HTMLParagraphElement> {
 
 const Container = styled.p<ITypography>`
   color: ${(props) => {
-    return props?.color ?? Shared.STYLE.COLOR.black
+    return props?.color ?? COLOR.black
   }};
   font-size: ${(props: ITypography) => {
     return props?.fontSize ?? '1rem'

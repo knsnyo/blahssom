@@ -1,8 +1,8 @@
 'use client'
 
 import { HtmlHTMLAttributes } from 'react'
-import Shared from 'src/app/(front-end)/____shared'
 import { Container } from 'src/app/(front-end)/____shared/ui/common/top-bar/styled'
+import Typography from 'src/app/(front-end)/____shared/ui/element/typography'
 
 interface ITopBar extends HtmlHTMLAttributes<Headers> {
   title: string
@@ -12,9 +12,9 @@ interface ITopBar extends HtmlHTMLAttributes<Headers> {
 const TopBar = (props: ITopBar) => {
   return (
     <Container>
-      <Shared.UI.Element.Typography fontSize='2rem' fontWeight={700}>
+      <Typography fontSize='2rem' fontWeight={700}>
         {props.title}
-      </Shared.UI.Element.Typography>
+      </Typography>
     </Container>
   )
 }

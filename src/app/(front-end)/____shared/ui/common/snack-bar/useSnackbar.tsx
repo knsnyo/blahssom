@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useEffect, useState } from 'react'
 import SnackBar from 'src/app/(front-end)/____shared/ui/common/snack-bar'
 

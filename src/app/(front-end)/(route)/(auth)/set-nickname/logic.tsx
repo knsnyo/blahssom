@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import Shared from 'src/app/(front-end)/____shared'

@@ -1,6 +1,6 @@
-import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
-import Shared from 'src/app/(front-end)/____shared'
+'use client'
 
+import COLOR from 'src/app/(front-end)/____shared/style/color'
 import styled from 'styled-components'
 
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -41,7 +41,7 @@ const Container = styled.button<IButton>`
     return props.theme?.color
   }};
   &:disabled {
-    background-color: ${Shared.STYLE.COLOR.grey.e4e4e4};
+    background-color: ${COLOR.grey.e4e4e4};
   }
 `
 
@@ -57,34 +57,10 @@ interface IBUttonTheme {
 
 export const BUTTON_TYPE: { [key: string]: IBUttonTheme } = {
   DEFAULT: {
-    color: Shared.STYLE.COLOR.white,
-    bgColor: Shared.STYLE.COLOR.black,
+    color: COLOR.white,
+    bgColor: COLOR.black,
     borderRadius: '0.8rem',
     width: '50rem',
     height: '5rem',
   },
-}
-export const Page = () => {
-  const { nicknameHandler, submit, SnackBar } = useLogic()
-
-  return (
-    <>
-      <SnackBar />
-      <>
-        <Shared.UI.Element.Input
-          type='text'
-          placeholder='NICKNAME'
-          prefixicon={
-            <Shared.UI.Element.Icon.Person
-              size={Shared.STYLE.SIZE.icon.input}
-            />
-          }
-          onChange={nicknameHandler}
-        />
-        <Shared.UI.Element.Button onClick={submit}>
-          START
-        </Shared.UI.Element.Button>
-      </>
-    </>
-  )
 }
