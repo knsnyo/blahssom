@@ -8,7 +8,6 @@ export const Main = styled.main`
 `
 
 export const Container = styled.section`
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

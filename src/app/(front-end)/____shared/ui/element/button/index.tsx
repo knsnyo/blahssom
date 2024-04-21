@@ -10,11 +10,7 @@ interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = (props: IButton) => {
   return (
-    <Container
-      type='button'
-      theme={props?.theme ?? BUTTON_TYPE.DEFAULT}
-      {...props}
-    >
+    <Container type='button' theme={props?.theme ?? TYPE.DEFAULT} {...props}>
       {props.children}
     </Container>
   )
@@ -41,7 +37,7 @@ const Container = styled.button<IButton>`
     return props.theme?.color
   }};
   &:disabled {
-    background-color: ${COLOR.grey.e4e4e4};
+    opacity: 0.3;
   }
 `
 
@@ -55,7 +51,7 @@ interface IBUttonTheme {
   height: string
 }
 
-export const BUTTON_TYPE: { [key: string]: IBUttonTheme } = {
+const TYPE: { [key: string]: IBUttonTheme } = {
   DEFAULT: {
     color: COLOR.white,
     bgColor: COLOR.black,
@@ -63,4 +59,13 @@ export const BUTTON_TYPE: { [key: string]: IBUttonTheme } = {
     width: '50rem',
     height: '5rem',
   },
+  WRITE: {
+    color: COLOR.white,
+    bgColor: COLOR.blue,
+    borderRadius: '1.5rem',
+    width: '6rem',
+    height: '3rem',
+  },
 }
+
+Button.TYPE = TYPE

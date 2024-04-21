@@ -10,7 +10,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Shared.UI.Common.TopBar title='Detail' textAlign='start' canBack />
+      <Shared.UI.Common.TopBar title='' textAlign='start' canBack />
       <Container>{children}</Container>
     </Main>
   )

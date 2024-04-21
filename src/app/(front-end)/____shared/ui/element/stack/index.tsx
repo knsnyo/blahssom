@@ -3,16 +3,21 @@
 import styled from 'styled-components'
 
 interface IStack extends React.HtmlHTMLAttributes<HTMLDivElement> {
-  flexDirection?: string
+  direction?: string
   justifyContent?: string
   alignItems?: string
   gap?: number
+  fullWidth?: boolean
+  paddingX?: number
 }
 
 const Container = styled.div<IStack>`
+  ${(props: IStack) => {
+    return props.fullWidth && 'width: 100%'
+  }};
   display: flex;
   flex-direction: ${(props: IStack) => {
-    return props?.flexDirection ?? 'row'
+    return props?.direction ?? 'row'
   }};
   justify-content: ${(props: IStack) => {
     return props?.justifyContent ?? 'start'
@@ -23,6 +28,13 @@ const Container = styled.div<IStack>`
   gap: ${(props: IStack) => {
     return `${props?.gap ?? 0}rem`
   }};
+  padding-left: ${(props: IStack) => {
+    return `${props?.paddingX ?? 0}rem`
+  }};
+  padding-right: ${(props: IStack) => {
+    return `${props?.paddingX ?? 0}rem`
+  }};
+  box-sizing: border-box;
 `
 
 const Stack = (props: IStack) => {

@@ -1,3 +1,5 @@
+'use client'
+
 import { Inter } from 'next/font/google'
 import Shared from 'src/app/(front-end)/____shared'
 

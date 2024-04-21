@@ -1,9 +1,7 @@
-import Shared from 'src/app/(front-end)/____shared'
 import styled from 'styled-components'
 
 export const Container = styled.article`
   width: 100%;
-  max-width: ${Shared.STYLE.SIZE.maxWidth};
   box-sizing: border-box;
   padding: 1.5rem;
   display: flex;

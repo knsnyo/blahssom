@@ -44,7 +44,7 @@ const Page = () => {
       <br />
       <hr />
       <br />
-      <Shared.UI.Element.Stack justifyContent='space-between'>
+      <Shared.UI.Element.Stack justifyContent='space-between' paddingX={1}>
         <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
           <Shared.UI.Element.Icon.Chat />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
@@ -62,6 +62,13 @@ const Page = () => {
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
       </Shared.UI.Element.Stack>
+      <br />
+      <hr />
+      <br />
+      <Widget.User.Write />
+      <br />
+      <hr />
+      <br />
     </Center>
   )
 }
