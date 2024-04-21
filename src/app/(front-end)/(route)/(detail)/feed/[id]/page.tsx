@@ -1,13 +1,12 @@
 'use client'
 
-import { Center } from 'src/app/(front-end)/(route)/(detail)/feed/[id]/styled'
 import Shared from 'src/app/(front-end)/____shared'
 import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {
   return (
-    <Center>
-      <Shared.UI.Element.Stack justifyContent='space-between'>
+    <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
+      <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
         <Shared.UI.Element.Stack gap={1}>
           <Widget.User.ProfileImage
             src='https://picsum.photos/200'
@@ -44,7 +43,7 @@ const Page = () => {
       <br />
       <hr />
       <br />
-      <Shared.UI.Element.Stack justifyContent='space-between' paddingX={1}>
+      <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
         <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
           <Shared.UI.Element.Icon.Chat />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
@@ -69,7 +68,7 @@ const Page = () => {
       <br />
       <hr />
       <br />
-    </Center>
+    </Shared.UI.Element.Stack>
   )
 }
 
