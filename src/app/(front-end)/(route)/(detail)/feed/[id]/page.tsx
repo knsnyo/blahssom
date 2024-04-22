@@ -68,6 +68,8 @@ const Page = () => {
       <br />
       <hr />
       <br />
+
+      <Widget.Comment />
     </Shared.UI.Element.Stack>
   )
 }

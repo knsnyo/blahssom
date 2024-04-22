@@ -3,7 +3,7 @@ import Widget from 'src/app/(front-end)/_widget'
 
 const Write = () => {
   return (
-    <Shared.UI.Element.Stack direction='column' gap={1}>
+    <Shared.UI.Element.Stack direction='column' gap={1} fullWidth>
       <Shared.UI.Element.Stack
         gap={1}
         alignItems='center'
@@ -24,8 +24,7 @@ const Write = () => {
           placeholder='reply'
         />
       </Shared.UI.Element.Stack>
-      <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
-        <div />
+      <Shared.UI.Element.Stack justifyContent='end' fullWidth>
         <Shared.UI.Element.Button
           theme={Shared.UI.Element.Button.TYPE.WRITE}
           disabled

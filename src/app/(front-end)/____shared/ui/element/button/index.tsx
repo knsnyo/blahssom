@@ -38,6 +38,7 @@ const Container = styled.button<IButton>`
   }};
   &:disabled {
     opacity: 0.3;
+    cursor: auto;
   }
 `
 

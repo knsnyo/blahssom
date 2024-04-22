@@ -1,5 +1,6 @@
 'use client'
 
+import COLOR from 'src/app/(front-end)/____shared/style/color'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
@@ -23,6 +24,13 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+hr {
+  width: 100%;
+  background-color: ${COLOR.grey.e4e4e4};
+  height: 1px;
+  border: 0;
 }
 `
 
