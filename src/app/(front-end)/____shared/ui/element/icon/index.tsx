@@ -1,5 +1,6 @@
 /**
  * https://react-icons-v2.vercel.app/icons/md
+ * https://react-icons.github.io/react-icons/icons/md/
  */
 
 import { IconBaseProps } from 'react-icons'
@@ -8,6 +9,7 @@ import {
   MdBookmark,
   MdBookmarkBorder,
   MdChatBubbleOutline,
+  MdEdit,
   MdFavorite,
   MdFavoriteBorder,
   MdHome,
@@ -76,6 +78,10 @@ const More = (props: IconBaseProps) => {
   return <MdMoreHoriz {...props} />
 }
 
+const Add = (props: IconBaseProps) => {
+  return <MdEdit {...props} />
+}
+
 const Icon = {
   Person,
   Lock,
@@ -91,6 +97,7 @@ const Icon = {
   BookmarkOutline,
   Share,
   More,
+  Add,
 }
 
 export default Icon

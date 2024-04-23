@@ -23,7 +23,7 @@ const BottomBar = () => {
           color={getColorByPathname(pathname, '/feed')}
         />
       </Link>
-      <Link href='/friend'>
+      {/* <Link href='/friend'>
         <Icon.Person
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/friend')}
@@ -34,14 +34,12 @@ const BottomBar = () => {
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/chat')}
         />
-      </Link>
-
-      <Link href='/config'>
-        <Icon.Config
+      </Link>  <Link href='/config'> 
+       <Icon.Config
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/config')}
         />
-      </Link>
+      </Link> */}
     </Container>
   )
 }
