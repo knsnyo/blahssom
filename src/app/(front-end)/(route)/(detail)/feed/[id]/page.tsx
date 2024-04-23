@@ -64,7 +64,7 @@ const Page = () => {
       <br />
       <hr />
       <br />
-      <Widget.User.Write />
+      <Widget.Write.Form />
       <br />
       <hr />
       <br />
