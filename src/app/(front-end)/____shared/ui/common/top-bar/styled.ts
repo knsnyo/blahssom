@@ -8,12 +8,14 @@ export const Container = styled.header`
   width: inherit;
   height: ${SIZE.topbarHeigth};
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   background-color: ${COLOR.white};
+  padding-left: 1rem;
+  padding-right: 1rem;
 `
 
-export const LeadingIcon = styled.div`
-  padding-right: 3rem;
+export const ActionIcon = styled.div`
+  max-width: 20rem;
 `

@@ -68,12 +68,11 @@ const Page = () => {
         <Widget.Write.Form placeholder='댓글' />
         <Widget.Write.Button />
       </Shared.UI.Element.Stack>
-
       <br />
       <hr />
       <br />
-
       <Widget.Comment />
+      <br />
     </Shared.UI.Element.Stack>
   )
 }

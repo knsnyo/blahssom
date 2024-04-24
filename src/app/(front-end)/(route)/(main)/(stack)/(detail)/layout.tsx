@@ -3,7 +3,7 @@
 import {
   Container,
   Main,
-} from 'src/app/(front-end)/(route)/(stack)/(detail)/styled'
+} from 'src/app/(front-end)/(route)/(main)/(stack)/(detail)/styled'
 import Shared from 'src/app/(front-end)/____shared'
 
 const Layout = ({
@@ -13,7 +13,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Shared.UI.Common.TopBar title='' textAlign='start' canBack />
+      <Shared.UI.Common.TopBar textAlign='start' canBack />
       <Container>{children}</Container>
     </Main>
   )
