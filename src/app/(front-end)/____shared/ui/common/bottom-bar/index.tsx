@@ -34,12 +34,14 @@ const BottomBar = () => {
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/chat')}
         />
-      </Link>  <Link href='/config'> 
-       <Icon.Config
+      </Link>  
+    */}
+      <Link href='/config'>
+        <Icon.Config
           size={Shared.STYLE.SIZE.icon.bottom}
           color={getColorByPathname(pathname, '/config')}
         />
-      </Link> */}
+      </Link>
     </Container>
   )
 }

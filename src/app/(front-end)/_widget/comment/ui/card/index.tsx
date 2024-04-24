@@ -3,7 +3,7 @@ import Widget from 'src/app/(front-end)/_widget'
 
 const Comment = () => {
   return (
-    <Shared.UI.Element.Stack paddingX={1} direction='column' fullWidth>
+    <Shared.UI.Element.Stack direction='column' fullWidth>
       <Shared.UI.Element.Stack fullWidth gap={1}>
         <Widget.User.ProfileImage src='https://picsum.photos/200' />
         <Shared.UI.Element.Stack fullWidth direction='column'>
