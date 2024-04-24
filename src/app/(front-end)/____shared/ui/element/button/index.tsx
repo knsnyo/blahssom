@@ -64,7 +64,7 @@ const TYPE: { [key: string]: IBUttonTheme } = {
     color: COLOR.white,
     bgColor: COLOR.blue,
     borderRadius: '1.5rem',
-    width: '6rem',
+    width: '7rem',
     height: '3rem',
   },
 }

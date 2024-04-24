@@ -64,7 +64,11 @@ const Page = () => {
       <br />
       <hr />
       <br />
-      <Widget.Write.Form />
+      <Shared.UI.Element.Stack fullWidth direction='column' alignItems='end'>
+        <Widget.Write.Form placeholder='댓글' />
+        <Widget.Write.Button />
+      </Shared.UI.Element.Stack>
+
       <br />
       <hr />
       <br />

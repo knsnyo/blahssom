@@ -1,25 +1,14 @@
 import Shared from 'src/app/(front-end)/____shared'
 import Widget from 'src/app/(front-end)/_widget'
 
-const Form = () => {
+interface IForm extends React.HTMLProps<HTMLTextAreaElement> {}
+
+const Form = (props: IForm) => {
   return (
     <Shared.UI.Element.Stack direction='column' gap={1} fullWidth>
-      <Shared.UI.Element.Stack
-        gap={1}
-        alignItems='center'
-        fullWidth
-        paddingX={1}
-      >
+      <Shared.UI.Element.Stack gap={1} alignItems='start' fullWidth>
         <Widget.User.ProfileImage src='https://picsum.photos/200' />
-        <Shared.UI.Element.TextArea placeholder='reply' />
-      </Shared.UI.Element.Stack>
-      <Shared.UI.Element.Stack justifyContent='end' fullWidth>
-        <Shared.UI.Element.Button
-          theme={Shared.UI.Element.Button.TYPE.WRITE}
-          disabled
-        >
-          Reply
-        </Shared.UI.Element.Button>
+        <Shared.UI.Element.TextArea {...props} />
       </Shared.UI.Element.Stack>
     </Shared.UI.Element.Stack>
   )

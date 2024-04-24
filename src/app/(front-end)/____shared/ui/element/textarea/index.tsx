@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Shared from 'src/app/(front-end)/____shared'
 import styled from 'styled-components'
 
 interface IProps extends React.HTMLProps<HTMLTextAreaElement> {}
@@ -15,27 +16,36 @@ const Container = styled.textarea<IProps>`
   padding: 1rem;
   resize: none;
   outline: none;
+  overflow-y: hidden;
 `
 
 const TextArea = (props: IProps) => {
-  const [height, setHeight] = React.useState(0)
+  const [height, setHeight] = React.useState(51)
   const ref = React.useRef<HTMLTextAreaElement>(null)
 
   const handleResizeHeight = () => {
-    if (ref === null) return
-    setHeight(ref.current?.scrollHeight ?? 0)
+    if (ref.current === null) return
+    const { scrollHeight } = ref.current
+
+    setHeight(scrollHeight)
   }
 
   return (
-    <Container
-      {...props}
-      height={height}
-      rows={1}
-      ref={ref}
-      onChange={() => {
-        handleResizeHeight()
-      }}
-    />
+    <Shared.UI.Element.Stack
+      fullWidth
+      direction='column'
+      style={{ position: 'relative' }}
+    >
+      <Container
+        {...props}
+        ref={ref}
+        height={height}
+        rows={1}
+        onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
+          handleResizeHeight()
+        }}
+      />
+    </Shared.UI.Element.Stack>
   )
 }
 

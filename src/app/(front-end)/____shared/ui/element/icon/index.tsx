@@ -5,6 +5,7 @@
 
 import { IconBaseProps } from 'react-icons'
 import {
+  MdArrowBack,
   MdBarChart,
   MdBookmark,
   MdBookmarkBorder,
@@ -15,7 +16,6 @@ import {
   MdHome,
   MdLock,
   MdMoreHoriz,
-  MdOutlineArrowBackIos,
   MdOutlineArrowForwardIos,
   MdOutlineFileUpload,
   MdPerson,
@@ -35,7 +35,7 @@ const ArrowRight = (props: IconBaseProps) => {
 }
 
 const ArrowLeft = (props: IconBaseProps) => {
-  return <MdOutlineArrowBackIos {...props} />
+  return <MdArrowBack {...props} />
 }
 
 const Config = (props: IconBaseProps) => {
