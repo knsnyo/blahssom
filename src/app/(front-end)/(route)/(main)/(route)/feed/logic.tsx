@@ -1,25 +1,35 @@
 'use client'
 
 import React from 'react'
+import { IInfinity } from 'src/@types/__init'
 import { IFeed } from 'src/@types/feed'
 import { queryFeed } from 'src/app/(front-end)/___api/feed'
 
 const useLogic = () => {
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState(false)
   const [feeds, setFeeds] = React.useState<IFeed[]>([])
+  const [hasNext, setHasNext] = React.useState(true)
 
-  React.useEffect(() => {
-    ;(async () => {
-      const response = await queryFeed()
-      if (!response) {
-        setFeeds([])
-        return
-      }
-      const _feeds: { items: IFeed[] } = await response.json()
-      setFeeds(_feeds.items)
-    })()
-  }, [])
+  const refetch = async () => {
+    setLoading(true)
+    if (loading) return
+    const lastId = feeds.slice(-1)?.at(0)?._id
+    const response = await queryFeed({ lastId })
+    setLoading(false)
 
-  return { feeds }
+    setError(!response.ok)
+    if (!response.ok) return
+
+    const { items, hasNext: _hasNext }: IInfinity = await response.json()
+    setFeeds((prev) => {
+      return prev.concat(items as IFeed[])
+    })
+    setHasNext(_hasNext)
+  }
+  React.useEffect(() => {}, [feeds])
+
+  return { loading, error, feeds, hasNext, refetch }
 }
 
 export default useLogic

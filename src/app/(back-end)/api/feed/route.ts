@@ -5,14 +5,16 @@ import verifyBearerToken from 'src/app/(back-end)/_middleware/bearer'
 import Feed from 'src/app/(back-end)/_models/feed'
 import { queryFeed } from 'src/app/(back-end)/_services/feed'
 
-export const GET = async () => {
+export const GET = async (request: Request) => {
   try {
     verifyBearerToken()
     await connectDB()
 
-    const feeds = await queryFeed()
+    const { searchParams } = new URL(request.url)
 
-    return Response.json({ items: feeds }, { status: 200 })
+    const { feeds, hasNext } = await queryFeed(searchParams)
+
+    return Response.json({ items: feeds, hasNext }, { status: 200 })
   } catch (error) {
     return handleError(error)
   }

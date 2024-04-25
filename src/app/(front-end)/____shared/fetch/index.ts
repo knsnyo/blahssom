@@ -1,3 +1,4 @@
+import { IQuery } from 'src/@types/_query'
 import {
   ACCESS_TOKEN,
   REFRESH_TOKEN,
@@ -16,10 +17,12 @@ interface IParams {
   url: string
   method: string
   body?: BodyInit | null | undefined
+  query?: IQuery
 }
 
 export const TOKEN_FETCH = async (params: IParams) => {
-  const response = await fetch(params.url, {
+  const query = generateQueryString(params.query)
+  const response = await fetch(`${params.url}?${query}`, {
     method: params.method,
     headers: { Authorization: `Bearer ${getToken(ACCESS_TOKEN)}` },
     body: params.body,
@@ -32,11 +35,18 @@ export const TOKEN_FETCH = async (params: IParams) => {
   })
   if (!rotate.ok) return rotate
 
-  const refetch = await fetch(params.url, {
+  const refetch = await fetch(`${params.url}?${query}`, {
     method: params.method,
     headers: { Authorization: `Bearer ${getToken(ACCESS_TOKEN)}` },
     body: params.body,
   })
 
   return refetch
+}
+
+const generateQueryString = (query?: IQuery) => {
+  const QUERY = new URLSearchParams()
+  if (query?.lastId) QUERY.append('lastId', query.lastId)
+
+  return QUERY
 }
