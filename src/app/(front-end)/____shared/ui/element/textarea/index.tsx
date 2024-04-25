@@ -35,13 +35,15 @@ const TextArea = (props: IProps) => {
       fullWidth
       direction='column'
       style={{ position: 'relative' }}
+      alignItems='end'
     >
       <Container
         {...props}
         ref={ref}
         height={height}
-        rows={1}
-        onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
+        rows={5}
+        onChange={(e) => {
+          props.onChange?.(e)
           handleResizeHeight()
         }}
       />

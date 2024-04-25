@@ -30,7 +30,7 @@ export const TOKEN_FETCH = async (params: IParams) => {
     method: METHOD.GET,
     headers: { Authorization: `Bearer ${getToken(REFRESH_TOKEN)}` },
   })
-  if (!rotate.ok) return response
+  if (!rotate.ok) return rotate
 
   const refetch = await fetch(params.url, {
     method: params.method,

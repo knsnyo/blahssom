@@ -1,3 +1,3 @@
-export interface SetNicknameBody {
+export interface ISetNicknameBody {
   nickname: string
 }
