@@ -2,9 +2,10 @@ import mongoose, { Schema } from 'mongoose'
 
 const DBFeed: Schema = new Schema(
   {
-    userId: {
-      type: String,
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: 'User',
     },
     content: {
       type: String,

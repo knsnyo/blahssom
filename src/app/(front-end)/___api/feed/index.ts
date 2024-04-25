@@ -10,3 +10,12 @@ export const writeFeed = async (body: IFeedBody) => {
 
   return response
 }
+
+export const queryFeed = async () => {
+  const response = await Shared.TOKEN_FETCH({
+    url: `/api/feed`,
+    method: Shared.METHOD.GET,
+  })
+
+  return response
+}

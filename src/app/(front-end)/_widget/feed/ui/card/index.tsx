@@ -1,11 +1,15 @@
 'use client'
 
+import { IFeed } from 'src/@types/feed'
 import Shared from 'src/app/(front-end)/____shared'
 import Widget from 'src/app/(front-end)/_widget'
-import { Image } from 'src/app/(front-end)/_widget/feed/ui/image'
 import { Center, Container, PostInfo, Side } from './styled'
 
-const Card = () => {
+interface IProps {
+  feed: IFeed
+}
+
+const Card = ({ feed }: IProps) => {
   return (
     <Container>
       <Side>
@@ -23,19 +27,16 @@ const Card = () => {
             <Shared.UI.Element.Typography
               color={Shared.STYLE.COLOR.grey.e4e4e4}
             >
-              3월 24일
+              {new Date(feed.updatedAt).toUTCString()}
             </Shared.UI.Element.Typography>
           </Shared.UI.Element.Stack>
           <Shared.UI.Element.Icon.More fontSize='1.5rem' />
         </Shared.UI.Element.Stack>
         <Shared.UI.Element.Typography>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
-          quaerat delectus reiciendis dolore officia similique hic sit omnis,
-          aliquam, nostrum numquam ipsam iure incidunt ullam in ducimus optio
-          adipisci harum?
+          {feed.content}
         </Shared.UI.Element.Typography>
         <br />
-        <Image src='https://picsum.photos/200' alt='post1-image' />
+        {/* <Image src='https://picsum.photos/200' alt='post1-image' /> */}
         <br />
         <Shared.UI.Element.Stack
           alignItems='center'
