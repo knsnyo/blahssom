@@ -30,7 +30,7 @@ const Page = () => {
         opacity={0.5}
         borderRadius={30}
         bottom='8rem'
-        left='calc(50% + 20rem)'
+        left='calc(50vw + 25%)'
       >
         <Link href='/write'>
           <Shared.UI.Element.Icon.Add

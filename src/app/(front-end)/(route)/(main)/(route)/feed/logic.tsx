@@ -3,7 +3,7 @@
 import React from 'react'
 import { IInfinity } from 'src/@types/__init'
 import { IFeed } from 'src/@types/feed'
-import { queryFeed } from 'src/app/(front-end)/___api/feed'
+import { apiQueryFeeds } from 'src/app/(front-end)/___api/feed'
 
 const useLogic = () => {
   const [loading, setLoading] = React.useState(false)
@@ -15,7 +15,7 @@ const useLogic = () => {
     setLoading(true)
     if (loading) return
     const lastId = feeds.slice(-1)?.at(0)?._id
-    const response = await queryFeed({ lastId })
+    const response = await apiQueryFeeds({ lastId })
     setLoading(false)
 
     setError(!response.ok)

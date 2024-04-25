@@ -1,9 +1,13 @@
 'use client'
 
+import { IDetailPageParams } from 'src/@types/page'
+import useLogic from 'src/app/(front-end)/(route)/(main)/(stack)/(detail)/feed/[id]/logic'
 import Shared from 'src/app/(front-end)/____shared'
 import Widget from 'src/app/(front-end)/_widget'
 
-const Page = () => {
+const Page = (props: IDetailPageParams) => {
+  const { feed } = useLogic(props.params.id)
+
   return (
     <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
       <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
@@ -13,7 +17,7 @@ const Page = () => {
             alt='profile-img'
           />
           <Shared.UI.Element.Typography fontSize='1.5rem' fontWeight={700}>
-            nickname
+            {feed?.author?.nickname}
           </Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
         <Shared.UI.Element.Icon.More />
@@ -25,11 +29,11 @@ const Page = () => {
       <br />
       <Shared.UI.Element.Stack gap={0.5}>
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
-          PM 06:24
+          {new Date(feed.updatedAt).toLocaleTimeString()}
         </Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography>·</Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
-          2024.04.20
+          {new Date(feed.updatedAt).toLocaleDateString()}
         </Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography>·</Shared.UI.Element.Typography>
 

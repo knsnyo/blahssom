@@ -3,7 +3,7 @@ import connectDB from 'src/app/(back-end)/_config/db'
 import handleError from 'src/app/(back-end)/_config/error/handler'
 import verifyBearerToken from 'src/app/(back-end)/_middleware/bearer'
 import Feed from 'src/app/(back-end)/_models/feed'
-import { queryFeed } from 'src/app/(back-end)/_services/feed'
+import { queryFeeds } from 'src/app/(back-end)/_services/feed'
 
 export const GET = async (request: Request) => {
   try {
@@ -12,7 +12,7 @@ export const GET = async (request: Request) => {
 
     const { searchParams } = new URL(request.url)
 
-    const { feeds, hasNext } = await queryFeed(searchParams)
+    const { feeds, hasNext } = await queryFeeds(searchParams)
 
     return Response.json({ items: feeds, hasNext }, { status: 200 })
   } catch (error) {

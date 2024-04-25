@@ -2,14 +2,14 @@
 
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { writeFeed } from 'src/app/(front-end)/___api/feed'
+import { apiWriteFeed } from 'src/app/(front-end)/___api/feed'
 
 const useLogic = () => {
   const [content, setContent] = React.useState('')
   const router = useRouter()
 
   const submit = async () => {
-    const response = await writeFeed({ content })
+    const response = await apiWriteFeed({ content })
     if (!response.ok) return
 
     // router.replace('/feed')

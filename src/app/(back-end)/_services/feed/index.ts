@@ -1,6 +1,7 @@
+import { IFeed } from 'src/@types/feed'
 import Feed from 'src/app/(back-end)/_models/feed'
 
-export const queryFeed = async (query: URLSearchParams) => {
+export const queryFeeds = async (query: URLSearchParams) => {
   const lastId = query.get('lastId')
   const feeds = await Feed.find(lastId ? { _id: { $lt: lastId } } : {})
     .sort({ createdAt: -1 })
@@ -14,4 +15,10 @@ export const queryFeed = async (query: URLSearchParams) => {
   const hasNext = !DB_LAST._id.equals(GET_LAST)
 
   return { feeds, hasNext }
+}
+
+export const getFeedById = async (id: string): Promise<IFeed> => {
+  const feed = await Feed.findById(id).populate({path: 'author', select: '-password'})
+
+  return feed
 }
