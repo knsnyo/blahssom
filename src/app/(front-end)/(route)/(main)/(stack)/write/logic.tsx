@@ -12,7 +12,7 @@ const useLogic = () => {
     const response = await apiWriteFeed({ content })
     if (!response.ok) return
 
-    // router.replace('/feed')
+    router.replace('/feed')
   }
 
   const handler = {
