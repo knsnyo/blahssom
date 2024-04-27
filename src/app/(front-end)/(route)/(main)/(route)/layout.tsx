@@ -10,7 +10,7 @@ const Layout = ({
 }>) => {
   return (
     <Main>
-      <Shared.UI.Common.TopBar title='Blahssom' />
+      <Shared.UI.Common.TopBar title='쓰레기통' />
       <Container>{children}</Container>
       <Shared.UI.Common.BottomBar />
     </Main>

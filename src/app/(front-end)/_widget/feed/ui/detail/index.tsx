@@ -3,7 +3,7 @@ import Widget from 'src/app/(front-end)/_widget'
 import useLogic from 'src/app/(front-end)/_widget/feed/ui/detail/logic'
 
 const Detail = (props: { id: string }) => {
-  const { content, feed, handler } = useLogic(props.id)
+  const { feed } = useLogic(props.id)
 
   return (
     <Shared.UI.Element.Stack direction='column' fullWidth>
@@ -36,9 +36,7 @@ const Detail = (props: { id: string }) => {
           View
         </Shared.UI.Element.Typography>
       </Shared.UI.Element.Stack>
-      <br />
-      <hr />
-      <br />
+      <Shared.UI.Element.Divider />
       <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
         <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
           <Shared.UI.Element.Icon.Chat />
@@ -57,15 +55,6 @@ const Detail = (props: { id: string }) => {
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
       </Shared.UI.Element.Stack>
-      <br />
-      <hr />
-      <br />
-      <Shared.UI.Element.Stack fullWidth direction='column' alignItems='end'>
-        <Widget.Write.Form placeholder='댓글' value={content} onChange={handler.content} />
-        <Widget.Write.Button onClick={handler.submit} disabled={content.trim().length === 0} />
-      </Shared.UI.Element.Stack>
-      <br />
-      <hr />
     </Shared.UI.Element.Stack>
   )
 }

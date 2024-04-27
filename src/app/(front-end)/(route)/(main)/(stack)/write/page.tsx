@@ -21,11 +21,7 @@ const Page = () => {
         <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
           <Widget.Write.Form placeholder='쓰레기 글' value={content} onChange={handler.content} />
         </Shared.UI.Element.Stack>
-        <br />
-        <br />
-        <hr />
-        <br />
-        <br />
+        <Shared.UI.Element.Divider />
       </Shared.UI.Element.Stack>
     </Main>
   )
