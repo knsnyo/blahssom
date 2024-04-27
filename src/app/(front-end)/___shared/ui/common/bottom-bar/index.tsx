@@ -34,10 +34,10 @@ const BottomBar = () => {
         />
       </Link>  
     */}
-      <Link href='/my'>
-        <Icon.Person
+      <Link href='/config'>
+        <Icon.Config
           size={Shared.STYLE.SIZE.icon.bottom}
-          color={getColorByPathname(pathname, '/my')}
+          color={getColorByPathname(pathname, '/config')}
         />
       </Link>
     </Container>
