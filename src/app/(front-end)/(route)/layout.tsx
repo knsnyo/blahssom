@@ -2,6 +2,7 @@
 
 import { Inter } from 'next/font/google'
 import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 import Shared from 'src/app/(front-end)/___shared'
 import Feature from 'src/app/(front-end)/__features'
 
@@ -20,7 +21,9 @@ const RootLayout = ({
       <body>
         <Shared.StyledComponentsRegistry>
           <Shared.GlobalStyles />
-          <Provider store={Feature.store}>{children}</Provider>
+          <Provider store={Feature.store}>
+            <PersistGate persistor={Feature.pStore}>{children}</PersistGate>
+          </Provider>
         </Shared.StyledComponentsRegistry>
       </body>
     </html>

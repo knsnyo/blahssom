@@ -1,5 +1,6 @@
 import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
+import Feature from 'src/app/(front-end)/__features'
 import { useAppDispatch, useAppSelector } from 'src/app/(front-end)/__features/_hooks'
 
 const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>) => {
@@ -13,18 +14,23 @@ const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>)
     const dispatch = useAppDispatch()
 
     const routerLogic = async () => {
-      // const response = await Api.User.getProfile()
-      // if (!response.ok) dispatch(signIn({}))
-      // else dispatch(signIn({ user: await response.json() }))
-      // if (!user && !['/signin', '/signup'].includes(pathname)) {
-      //   return router.replace('/signin')
-      // }
-      // if (user && !user?.nickname && pathname !== '/set-nickname') {
-      //   return router.replace('/set-nickname')
-      // }
-      // if (user && ['/signin', '/signup', '/set-nickname'].includes(pathname)) {
-      //   return router.replace('/feed')
-      // }
+      const response = await Feature.User.Api.getProfile()
+      if (!response.ok && user) {
+        dispatch(Feature.User.Action.signIn(null))
+      } else if (response.ok && !user) {
+        const _user = await response.json()
+        dispatch(Feature.User.Action.signIn(_user))
+      }
+
+      if (!user && !['/signin', '/signup'].includes(pathname)) {
+        return router.replace('/signin')
+      }
+      if (user && !user?.nickname && pathname !== '/set-nickname') {
+        return router.replace('/set-nickname')
+      }
+      if (user && user?.nickname && ['/signin', '/signup', '/set-nickname'].includes(pathname)) {
+        return router.replace('/feed')
+      }
     }
 
     React.useEffect(() => {

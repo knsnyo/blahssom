@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 import { IUser } from 'src/@types/user'
 
@@ -9,11 +10,13 @@ const user = createSlice({
   name: 'user',
   initialState: {} as IReduxUser,
   reducers: {
-    signIn: (_, action) => {
-      return action.payload
+    signIn: (state, action) => {
+      state.user = action.payload
     },
-    updateProfileImage: () => {},
-    updateNickname: () => {},
+    updateNickname: (state, action) => {
+      if (state?.user) return
+      state.user!.nickname = action.payload
+    },
   },
 })
 
