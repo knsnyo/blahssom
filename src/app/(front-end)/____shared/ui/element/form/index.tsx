@@ -2,10 +2,7 @@
 
 import styled from 'styled-components'
 
-const Form = ({
-  children,
-  ...props
-}: React.FormHTMLAttributes<HTMLFormElement>) => {
+const Form = ({ children, ...props }: React.FormHTMLAttributes<HTMLFormElement>) => {
   return <Container {...props}>{children}</Container>
 }
 

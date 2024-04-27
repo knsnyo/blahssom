@@ -1,10 +1,6 @@
 'use client'
 
-import {
-  Container,
-  Main,
-  Section,
-} from 'src/app/(front-end)/(route)/(auth)/styled'
+import { Container, Main, Section } from 'src/app/(front-end)/(route)/(auth)/styled'
 import Shared from 'src/app/(front-end)/____shared'
 
 const Layout = ({

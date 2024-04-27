@@ -13,20 +13,11 @@ const Page = () => {
       <Shared.UI.Common.TopBar
         textAlign='start'
         canBack
-        action={
-          <Widget.Write.Button
-            onClick={handler.submit}
-            disabled={content.length === 0}
-          />
-        }
+        action={<Widget.Write.Button onClick={handler.submit} disabled={content.length === 0} />}
       />
       <Shared.UI.Element.Stack direction='column' fullWidth>
         <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
-          <Widget.Write.Form
-            placeholder='쓰레기 글'
-            value={content}
-            onChange={handler.content}
-          />
+          <Widget.Write.Form placeholder='쓰레기 글' value={content} onChange={handler.content} />
         </Shared.UI.Element.Stack>
         <br />
         <br />

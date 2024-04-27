@@ -14,24 +14,16 @@ const Page = () => {
         <Shared.UI.Element.Input
           type='text'
           placeholder='ID'
-          prefixicon={
-            <Shared.UI.Element.Icon.Person
-              size={Shared.STYLE.SIZE.icon.input}
-            />
-          }
+          prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
           onChange={idHandler}
         />
         <Shared.UI.Element.Input
           type='password'
           placeholder='PASSWORD'
-          prefixicon={
-            <Shared.UI.Element.Icon.Lock size={Shared.STYLE.SIZE.icon.input} />
-          }
+          prefixicon={<Shared.UI.Element.Icon.Lock size={Shared.STYLE.SIZE.icon.input} />}
           onChange={passwordHandler}
         />
-        <Shared.UI.Element.Button onClick={submit}>
-          SIGN UP
-        </Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={submit}>SIGN UP</Shared.UI.Element.Button>
         <Link href='/signin'>
           <Shared.UI.Element.Typography
             fontSize='2rem'

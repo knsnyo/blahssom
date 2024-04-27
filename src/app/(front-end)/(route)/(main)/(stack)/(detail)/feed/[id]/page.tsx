@@ -12,10 +12,7 @@ const Page = (props: IDetailPageParams) => {
     <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
       <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
         <Shared.UI.Element.Stack gap={1}>
-          <Widget.User.ProfileImage
-            src='https://picsum.photos/200'
-            alt='profile-img'
-          />
+          <Widget.User.ProfileImage src='https://picsum.photos/200' alt='profile-img' />
           <Shared.UI.Element.Typography fontSize='1.5rem' fontWeight={700}>
             {feed?.author?.nickname}
           </Shared.UI.Element.Typography>
@@ -37,9 +34,7 @@ const Page = (props: IDetailPageParams) => {
         </Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography>·</Shared.UI.Element.Typography>
 
-        <Shared.UI.Element.Typography fontWeight={700}>
-          1,000
-        </Shared.UI.Element.Typography>
+        <Shared.UI.Element.Typography fontWeight={700}>1,000</Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
           View
         </Shared.UI.Element.Typography>

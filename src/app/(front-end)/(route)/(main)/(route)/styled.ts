@@ -7,8 +7,8 @@ export const Main = styled.main`
 `
 
 export const Container = styled.section`
-  @media (min-height: calc(100vh - ${Shared.STYLE.SIZE
-      .bottombarHeight} - ${Shared.STYLE.SIZE.topbarHeigth})) {
+  @media (min-height: calc(100vh - ${Shared.STYLE.SIZE.bottombarHeight} - ${Shared.STYLE.SIZE
+      .topbarHeigth})) {
     margin-bottom: ${Shared.STYLE.SIZE.bottombarHeight};
   }
   margin-bottom: ${Shared.STYLE.SIZE.bottombarHeight};

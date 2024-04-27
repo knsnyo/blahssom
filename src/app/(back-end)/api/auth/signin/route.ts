@@ -4,10 +4,7 @@ import connectDB from 'src/app/(back-end)/_config/db'
 import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
 import handleError from 'src/app/(back-end)/_config/error/handler'
 import verifyBasicToken from 'src/app/(back-end)/_middleware/basic'
-import {
-  generateAccessToken,
-  generateRefreshToken,
-} from 'src/app/(back-end)/_services/token'
+import { generateAccessToken, generateRefreshToken } from 'src/app/(back-end)/_services/token'
 import { findUserById } from 'src/app/(back-end)/_services/user'
 
 export const GET = async () => {

@@ -5,11 +5,7 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 import { useServerInsertedHTML } from 'next/navigation'
 
-const StyledComponentsRegistry = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
+const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
   const [styledComponentsStyleSheet] = useState(() => {
     return new ServerStyleSheet()
   })
@@ -23,9 +19,7 @@ const StyledComponentsRegistry = ({
   if (typeof window !== 'undefined') return <>{children}</>
 
   return (
-    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      {children}
-    </StyleSheetManager>
+    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>
   )
 }
 

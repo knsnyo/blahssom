@@ -33,10 +33,7 @@ const Page = () => {
         left='calc(50vw + 25%)'
       >
         <Link href='/write'>
-          <Shared.UI.Element.Icon.Add
-            color={Shared.STYLE.COLOR.white}
-            size={20}
-          />
+          <Shared.UI.Element.Icon.Add color={Shared.STYLE.COLOR.white} size={20} />
         </Link>
       </Shared.UI.Element.Floating>
     </>

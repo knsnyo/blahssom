@@ -11,14 +11,7 @@ interface IProps {
   error: boolean
 }
 
-const InfinityScroll = ({
-  loading,
-  error,
-  data,
-  children,
-  hasNext,
-  refetch,
-}: IProps) => {
+const InfinityScroll = ({ loading, error, data, children, hasNext, refetch }: IProps) => {
   const end = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {

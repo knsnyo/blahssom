@@ -7,23 +7,13 @@ const Comment = () => {
       <Shared.UI.Element.Stack fullWidth gap={1}>
         <Widget.User.ProfileImage src='https://picsum.photos/200' />
         <Shared.UI.Element.Stack fullWidth direction='column'>
-          <Shared.UI.Element.Stack
-            direction='column'
-            fullWidth
-            style={{ height: '3rem' }}
-          >
-            <Shared.UI.Element.Stack
-              fullWidth
-              direction='row'
-              justifyContent='space-between'
-            >
+          <Shared.UI.Element.Stack direction='column' fullWidth style={{ height: '3rem' }}>
+            <Shared.UI.Element.Stack fullWidth direction='row' justifyContent='space-between'>
               <Shared.UI.Element.Stack gap={0.5}>
                 <Shared.UI.Element.Typography fontWeight={700}>
                   nickname
                 </Shared.UI.Element.Typography>
-                <Shared.UI.Element.Typography
-                  color={Shared.STYLE.COLOR.grey[707070]}
-                >
+                <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
                   1 hour
                 </Shared.UI.Element.Typography>
               </Shared.UI.Element.Stack>

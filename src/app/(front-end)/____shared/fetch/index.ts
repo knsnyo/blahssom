@@ -1,9 +1,5 @@
 import { IQuery } from 'src/@types/_query'
-import {
-  ACCESS_TOKEN,
-  REFRESH_TOKEN,
-  getToken,
-} from 'src/app/(front-end)/____shared/cookie'
+import { ACCESS_TOKEN, REFRESH_TOKEN, getToken } from 'src/app/(front-end)/____shared/cookie'
 
 export const METHOD = {
   GET: 'GET',

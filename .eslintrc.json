@@ -11,11 +11,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
   "extends": [
     "airbnb",
     "plugin:react/recommended",
@@ -38,21 +34,13 @@
     "react/jsx-no-useless-fragment": "off",
     "import/no-unresolved": "off",
     "react/require-default-props": "off",
-    "arrow-body-style": [
-      "error",
-      "always"
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
+    "arrow-body-style": ["error", "always"],
+    "jsx-quotes": ["error", "prefer-single"],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".tsx"
-        ]
+        "extensions": [".tsx"]
       }
     ],
     "import/extensions": [
@@ -85,15 +73,8 @@
     "@typescript-eslint/no-var-requires": "off",
     "no-nested-ternary": "off",
     "consistent-return": "off",
-    "react/destructuring-assignment": [
-      0,
-      "always"
-    ],
+    "react/destructuring-assignment": [0, "always"],
     "no-shadow": "off",
-    "no-restricted-syntax": [
-      "error",
-      "WithStatement",
-      "BinaryExpression[operator='in']"
-    ]
+    "no-restricted-syntax": ["error", "WithStatement", "BinaryExpression[operator='in']"]
   }
 }

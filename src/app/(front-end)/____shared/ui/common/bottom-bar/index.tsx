@@ -7,9 +7,7 @@ import { Container } from 'src/app/(front-end)/____shared/ui/common/bottom-bar/s
 import Icon from 'src/app/(front-end)/____shared/ui/element/icon'
 
 const getColorByPathname = (pathname: string, compare: string) => {
-  return pathname === compare
-    ? Shared.STYLE.COLOR.black
-    : Shared.STYLE.COLOR.grey.e4e4e4
+  return pathname === compare ? Shared.STYLE.COLOR.black : Shared.STYLE.COLOR.grey.e4e4e4
 }
 
 const BottomBar = () => {

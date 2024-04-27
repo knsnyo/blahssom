@@ -13,16 +13,10 @@ const Page = () => {
         <Shared.UI.Element.Input
           type='text'
           placeholder='NICKNAME'
-          prefixicon={
-            <Shared.UI.Element.Icon.Person
-              size={Shared.STYLE.SIZE.icon.input}
-            />
-          }
+          prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
           onChange={nicknameHandler}
         />
-        <Shared.UI.Element.Button onClick={submit}>
-          START
-        </Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={submit}>START</Shared.UI.Element.Button>
       </>
     </>
   )

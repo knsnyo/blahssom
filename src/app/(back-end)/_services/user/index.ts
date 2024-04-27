@@ -2,7 +2,7 @@ import { IUser } from 'src/@types/user'
 import User from 'src/app/(back-end)/_models/user'
 
 export const findUser = async (_id: string): Promise<IUser | null> => {
-  const user = await User.findById(_id).lean()
+  const user = await User.findById(_id).select('-password')
 
   return user ? (user as IUser) : null
 }

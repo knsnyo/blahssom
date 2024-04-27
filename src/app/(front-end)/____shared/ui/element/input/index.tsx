@@ -43,10 +43,7 @@ const withPrefixIcon = (Component: React.FC) => {
 }
 
 const withAllBorder = (Component: React.FC) => {
-  const AllBorderInput = ({
-    theme = INPUT_THEME.DEFAULT,
-    ...props
-  }: IInput) => {
+  const AllBorderInput = ({ theme = INPUT_THEME.DEFAULT, ...props }: IInput) => {
     return (
       <Border theme={theme}>
         <Component {...props} />

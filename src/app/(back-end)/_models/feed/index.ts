@@ -2,6 +2,10 @@ import mongoose, { Schema } from 'mongoose'
 
 const DBFeed: Schema = new Schema(
   {
+    parent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Feed',
+    },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
