@@ -6,7 +6,7 @@ import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {
   return (
-    <>
+    <Shared.UI.Element.Stack fullWidth direction='column' paddingX={3}>
       <Widget.Feed.List />
       {/* floating button */}
       <Shared.UI.Element.Floating
@@ -22,7 +22,7 @@ const Page = () => {
           <Shared.UI.Element.Icon.Add color={Shared.STYLE.COLOR.white} size={20} />
         </Link>
       </Shared.UI.Element.Floating>
-    </>
+    </Shared.UI.Element.Stack>
   )
 }
 
