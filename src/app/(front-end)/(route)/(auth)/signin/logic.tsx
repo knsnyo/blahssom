@@ -1,31 +1,21 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useRef } from 'react'
 import Shared from 'src/app/(front-end)/____shared'
+import useInput from 'src/app/(front-end)/____shared/hooks/useInput'
 import Api from 'src/app/(front-end)/___api'
 
 const useLogic = () => {
   const router = useRouter()
   const { open, SnackBar } = Shared.UI.Common.useSnackBar()
 
-  const id = useRef<string>('')
-  const password = useRef<string>('')
-
-  const idHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    id.current = e.target.value
-  }
-  const passwordHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    password.current = e.target.value
-  }
+  const { value: id, setValue: setId } = useInput()
+  const { value: password, setValue: setPassword } = useInput()
 
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await Api.Auth.signIn({
-        id: id.current,
-        password: password.current,
-      })
+      response = await Api.Auth.signIn({ id, password })
       if (!response.ok) throw response
 
       if (!response.nickname) {
@@ -41,9 +31,11 @@ const useLogic = () => {
   return {
     id,
     password,
-    idHandler,
-    passwordHandler,
-    submit,
+    handler: {
+      id: setId,
+      password: setPassword,
+      submit,
+    },
     SnackBar,
   }
 }

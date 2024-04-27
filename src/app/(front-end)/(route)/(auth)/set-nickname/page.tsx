@@ -4,7 +4,7 @@ import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
 import Shared from 'src/app/(front-end)/____shared'
 
 const Page = () => {
-  const { nicknameHandler, submit, SnackBar } = useLogic()
+  const { nickname, SnackBar, handler } = useLogic()
 
   return (
     <>
@@ -14,9 +14,10 @@ const Page = () => {
           type='text'
           placeholder='NICKNAME'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
-          onChange={nicknameHandler}
+          onChange={handler.nickname}
+          value={nickname}
         />
-        <Shared.UI.Element.Button onClick={submit}>START</Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={handler.submit}>START</Shared.UI.Element.Button>
       </>
     </>
   )

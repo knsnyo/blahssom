@@ -1,13 +1,13 @@
 import React from 'react'
 
 const useTextArea = () => {
-  const [content, setContent] = React.useState('')
+  const [value, setValue] = React.useState('')
 
-  const handleContent = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    setContent((e.target as HTMLTextAreaElement).value)
+  const handleValue = (e: React.FormEvent<HTMLTextAreaElement>) => {
+    setValue((e.target as HTMLTextAreaElement).value)
   }
 
-  return { content, setContent: handleContent }
+  return { content: value, setContent: handleValue }
 }
 
 export default useTextArea

@@ -11,8 +11,18 @@ const setNickname = async (body: ISetNicknameBody) => {
   return { ...json, status: response.status, ok: response.ok }
 }
 
+const getProfile = async () => {
+  const response = await Shared.TOKEN_FETCH({
+    url: '/api/user/profile',
+    method: Shared.METHOD.GET,
+  })
+
+  return response
+}
+
 const User = {
   setNickname,
+  getProfile,
 }
 
 export default User

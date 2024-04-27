@@ -1,7 +1,9 @@
 'use client'
 
 import { Inter } from 'next/font/google'
+import { Provider } from 'react-redux'
 import Shared from 'src/app/(front-end)/____shared'
+import Feature from 'src/app/(front-end)/__features'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,7 +20,7 @@ const RootLayout = ({
       <body>
         <Shared.StyledComponentsRegistry>
           <Shared.GlobalStyles />
-          {children}
+          <Provider store={Feature.store}>{children}</Provider>
         </Shared.StyledComponentsRegistry>
       </body>
     </html>

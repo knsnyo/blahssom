@@ -1,23 +1,19 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useRef } from 'react'
 import Shared from 'src/app/(front-end)/____shared'
+import useInput from 'src/app/(front-end)/____shared/hooks/useInput'
 import Api from 'src/app/(front-end)/___api/'
 
 const useLogic = () => {
-  const nickname = useRef('')
+  const { value: nickname, setValue: setNickname } = useInput()
   const { open, SnackBar } = Shared.UI.Common.useSnackBar()
   const router = useRouter()
-
-  const nicknameHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    nickname.current = e.target.value
-  }
 
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await Api.User.setNickname({ nickname: nickname.current })
+      response = await Api.User.setNickname({ nickname })
       if (!response.ok) throw response
       router.replace('/')
     } catch (error) {
@@ -25,7 +21,14 @@ const useLogic = () => {
     }
   }
 
-  return { nicknameHandler, submit, SnackBar }
+  return {
+    nickname,
+    SnackBar,
+    handler: {
+      submit,
+      nickname: setNickname,
+    },
+  }
 }
 
 export default useLogic
