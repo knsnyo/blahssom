@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.article`
   width: 100%;
   box-sizing: border-box;
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   gap: 1rem;
 `

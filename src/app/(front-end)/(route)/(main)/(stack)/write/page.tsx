@@ -13,7 +13,9 @@ const Page = () => {
       <Shared.UI.Common.TopBar
         textAlign='start'
         canBack
-        action={<Widget.Write.Button onClick={handler.submit} disabled={content.length === 0} />}
+        action={
+          <Widget.Write.Button onClick={handler.submit} disabled={content.trim().length === 0} />
+        }
       />
       <Shared.UI.Element.Stack direction='column' fullWidth>
         <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>

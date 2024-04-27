@@ -2,7 +2,7 @@ import React from 'react'
 import { I_ID } from 'src/@types/__init'
 import Stack from 'src/app/(front-end)/____shared/ui/element/stack'
 
-interface IProps {
+export interface IInfinityScrollProps {
   children: React.ReactNode
   hasNext: boolean
   refetch: () => void
@@ -11,7 +11,14 @@ interface IProps {
   error: boolean
 }
 
-const InfinityScroll = ({ loading, error, data, children, hasNext, refetch }: IProps) => {
+const InfinityScroll = ({
+  loading,
+  error,
+  data,
+  children,
+  hasNext,
+  refetch,
+}: IInfinityScrollProps) => {
   const end = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
@@ -37,7 +44,7 @@ const InfinityScroll = ({ loading, error, data, children, hasNext, refetch }: IP
   }, [data, hasNext])
 
   return (
-    <Stack direction='column'>
+    <Stack direction='column' fullWidth>
       {children}
       <div ref={end} />
       {/* TODO */}

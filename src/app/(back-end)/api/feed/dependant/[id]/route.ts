@@ -9,12 +9,12 @@ export const POST = async (request: Request) => {
     const author = verifyBearerToken()
     await connectDB()
 
-    const id = request.url.split('/').pop() ?? ''
+    const feed = request.url.split('/').pop() ?? ''
     // no id error
-    if (!id) throw new Error()
+    if (!feed) throw new Error()
 
     const { content } = await request.json()
-    await new Feed({ author, content, feed: id }).save()
+    await new Feed({ author, content, feed }).save()
 
     return Response.json({}, { status: 201 })
   } catch (error) {
@@ -28,11 +28,9 @@ export const GET = async (request: Request) => {
     await connectDB()
 
     const feed = request.url.split('/').pop() ?? ''
-
     const { searchParams } = new URL(request.url)
-    searchParams.append('feed', feed)
 
-    const { feeds, hasNext } = await dependentFeeds(searchParams)
+    const { feeds, hasNext } = await dependentFeeds(feed, searchParams)
 
     return Response.json({ items: feeds, hasNext }, { status: 200 })
   } catch (error) {

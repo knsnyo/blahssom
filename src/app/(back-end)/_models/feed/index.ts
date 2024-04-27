@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose'
 
 const DBFeed: Schema = new Schema(
   {
-    parent: {
+    feed: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Feed',
     },
