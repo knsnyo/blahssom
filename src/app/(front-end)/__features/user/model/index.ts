@@ -9,7 +9,7 @@ const user = createSlice({
   name: 'user',
   initialState: {} as IReduxUser,
   reducers: {
-    signIn: (state, action) => {
+    signIn: (_, action) => {
       return action.payload
     },
     updateProfileImage: () => {},
@@ -17,5 +17,6 @@ const user = createSlice({
   },
 })
 
-export const { signIn } = user.actions
 export default user.reducer
+
+export const Action = user.actions

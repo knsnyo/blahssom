@@ -1,4 +1,4 @@
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import { styled } from 'styled-components'
 
 export const Main = styled.main`

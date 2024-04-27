@@ -20,8 +20,11 @@ export const GET = async () => {
     if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
 
     const { _id, nickname } = find
+
     const accessToken = generateAccessToken({ _id })
+
     const refreshToken = generateRefreshToken({ _id })
+
     cookies().set('accessToken', accessToken)
     cookies().set('refreshToken', refreshToken)
 

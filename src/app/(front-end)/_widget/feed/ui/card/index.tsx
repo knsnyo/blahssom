@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { IFeed } from 'src/@types/feed'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import Widget from 'src/app/(front-end)/_widget'
 import { Center, Container, PostInfo, Side } from './styled'
 

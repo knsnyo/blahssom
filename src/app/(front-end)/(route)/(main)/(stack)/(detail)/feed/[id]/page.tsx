@@ -1,7 +1,7 @@
 'use client'
 
 import { IDetailPageParams } from 'src/@types/page'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import Widget from 'src/app/(front-end)/_widget'
 
 const Page = (props: IDetailPageParams) => {

@@ -5,7 +5,11 @@ interface IProps {
 }
 
 export const ProfileImage = styled.img<IProps>`
-  width: ${(props) => `${props?.size ?? 3}rem`};
-  height: ${(props) => `${props?.size ?? 3}rem`};
+  width: ${(props) => {
+    return `${props?.size ?? 3}rem`
+  }};
+  height: ${(props) => {
+    return `${props?.size ?? 3}rem`
+  }};
   border-radius: 4rem;
 `

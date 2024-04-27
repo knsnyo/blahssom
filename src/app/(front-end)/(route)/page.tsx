@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 
 const Page = () => {
   const router = useRouter()

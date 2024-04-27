@@ -1,11 +1,11 @@
-import Shared from 'src/app/(front-end)/____shared'
-import { apiWriteDependentFeed } from 'src/app/(front-end)/___api/feed'
+import Shared from 'src/app/(front-end)/___shared'
+import Feature from 'src/app/(front-end)/__features'
 
 const useLogic = (feed: string) => {
   const { content, setContent } = Shared.Hooks.useTextArea()
 
   const submit = async () => {
-    const response = await apiWriteDependentFeed({ content, feed })
+    const response = await Feature.Feed.Api.writeDependentFeed({ content, feed })
     if (!response.ok) return
   }
 

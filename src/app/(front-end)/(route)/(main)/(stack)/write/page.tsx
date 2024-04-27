@@ -2,7 +2,7 @@
 
 import useLogic from 'src/app/(front-end)/(route)/(main)/(stack)/write/logic'
 import { Main } from 'src/app/(front-end)/(route)/(main)/(stack)/write/styled'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import Widget from 'src/app/(front-end)/_widget'
 
 const Page = () => {

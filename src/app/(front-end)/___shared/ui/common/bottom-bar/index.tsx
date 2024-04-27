@@ -1,0 +1,47 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Shared from 'src/app/(front-end)/___shared'
+import { Container } from 'src/app/(front-end)/___shared/ui/common/bottom-bar/styled'
+import Icon from 'src/app/(front-end)/___shared/ui/element/icon'
+
+const getColorByPathname = (pathname: string, compare: string) => {
+  return pathname === compare ? Shared.STYLE.COLOR.black : Shared.STYLE.COLOR.grey.e4e4e4
+}
+
+const BottomBar = () => {
+  const pathname = usePathname()
+
+  return (
+    <Container>
+      <Link href='/'>
+        <Icon.Home
+          size={Shared.STYLE.SIZE.icon.bottom}
+          color={getColorByPathname(pathname, '/feed')}
+        />
+      </Link>
+      {/* <Link href='/friend'>
+        <Icon.Person
+          size={Shared.STYLE.SIZE.icon.bottom}
+          color={getColorByPathname(pathname, '/friend')}
+        />
+      </Link>
+      <Link href='/chat'>
+        <Icon.Chat
+          size={Shared.STYLE.SIZE.icon.bottom}
+          color={getColorByPathname(pathname, '/chat')}
+        />
+      </Link>  
+    */}
+      <Link href='/my'>
+        <Icon.Person
+          size={Shared.STYLE.SIZE.icon.bottom}
+          color={getColorByPathname(pathname, '/my')}
+        />
+      </Link>
+    </Container>
+  )
+}
+
+export default BottomBar

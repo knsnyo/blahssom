@@ -1,7 +1,7 @@
 'use client'
 
 import { Container, Main } from 'src/app/(front-end)/(route)/(main)/(stack)/(detail)/styled'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 
 const Layout = ({
   children,

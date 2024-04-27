@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import useLogic from 'src/app/(front-end)/(route)/(auth)/signup/logic'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 
 const Page = () => {
   const { id, password, SnackBar, handler } = useLogic()

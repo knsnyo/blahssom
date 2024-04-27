@@ -1,4 +1,4 @@
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import Widget from 'src/app/(front-end)/_widget'
 import useLogic from 'src/app/(front-end)/_widget/write/ui/dependent-form/useLogic'
 

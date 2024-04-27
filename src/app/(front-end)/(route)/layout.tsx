@@ -2,7 +2,7 @@
 
 import { Inter } from 'next/font/google'
 import { Provider } from 'react-redux'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import Feature from 'src/app/(front-end)/__features'
 
 const inter = Inter({

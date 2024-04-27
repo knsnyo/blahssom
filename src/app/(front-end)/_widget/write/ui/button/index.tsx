@@ -1,4 +1,4 @@
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 
 interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 

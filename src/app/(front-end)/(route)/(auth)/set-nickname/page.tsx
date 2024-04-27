@@ -1,7 +1,7 @@
 'use client'
 
 import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 
 const Page = () => {
   const { nickname, SnackBar, handler } = useLogic()
@@ -12,7 +12,7 @@ const Page = () => {
       <>
         <Shared.UI.Element.Input
           type='text'
-          placeholder='NICKNAME'
+          placeholder='닉네임'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
           onChange={handler.nickname}
           value={nickname}

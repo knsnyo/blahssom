@@ -1,9 +1,9 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import Shared from 'src/app/(front-end)/____shared'
-import useInput from 'src/app/(front-end)/____shared/hooks/useInput'
-import Api from 'src/app/(front-end)/___api/'
+import Shared from 'src/app/(front-end)/___shared'
+import useInput from 'src/app/(front-end)/___shared/hooks/useInput'
+import Feature from 'src/app/(front-end)/__features'
 
 const useLogic = () => {
   const { value: nickname, setValue: setNickname } = useInput()
@@ -13,7 +13,7 @@ const useLogic = () => {
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await Api.User.setNickname({ nickname })
+      response = await Feature.User.Api.setNickname({ nickname })
       if (!response.ok) throw response
       router.replace('/')
     } catch (error) {

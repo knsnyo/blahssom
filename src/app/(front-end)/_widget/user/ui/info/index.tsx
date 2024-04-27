@@ -1,4 +1,4 @@
-import Shared from 'src/app/(front-end)/____shared'
+import Shared from 'src/app/(front-end)/___shared'
 import { ProfileImage } from 'src/app/(front-end)/_widget/user/ui/profile-image'
 
 const Info = () => {

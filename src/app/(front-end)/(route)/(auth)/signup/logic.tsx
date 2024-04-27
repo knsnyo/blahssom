@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation'
-import Shared from 'src/app/(front-end)/____shared'
-import useInput from 'src/app/(front-end)/____shared/hooks/useInput'
-import Api from 'src/app/(front-end)/___api'
+import Shared from 'src/app/(front-end)/___shared'
+import useInput from 'src/app/(front-end)/___shared/hooks/useInput'
+import Feature from 'src/app/(front-end)/__features'
 
 const useLogic = () => {
   const router = useRouter()
@@ -12,7 +12,7 @@ const useLogic = () => {
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await Api.Auth.signIn({ id, password })
+      response = await Feature.Auth.Api.signUp({ id, password })
       if (!response.ok) throw response
 
       router.replace('/signin')
