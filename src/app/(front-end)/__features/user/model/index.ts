@@ -13,6 +13,9 @@ const user = createSlice({
     signIn: (state, action) => {
       state.user = action.payload
     },
+    signOut: (state) => {
+      state.user = undefined
+    },
     updateNickname: (state, action) => {
       if (state?.user) return
       state.user!.nickname = action.payload

@@ -44,20 +44,9 @@ const detailFeed = async (id: string) => {
   return response
 }
 
-const queryDependentFeeds = async (query?: IQuery) => {
-  const response = await Shared.TOKEN_FETCH({
-    url: `/api/feed/dependant/${query?.feedId}`,
-    method: Shared.METHOD.GET,
-    query,
-  })
-
-  return response
-}
-
 const Api = {
   writeDependentFeed,
   writeFeed,
-  queryDependentFeeds,
   queryFeeds,
   detailFeed,
 }

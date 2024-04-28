@@ -37,7 +37,7 @@ const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>)
       ;(async () => {
         await routerLogic()
       })()
-    }, [user])
+    }, [user, user?.nickname])
 
     return <Component {...props} />
   }

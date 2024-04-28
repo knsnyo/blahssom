@@ -1,9 +1,16 @@
+import { IFeed } from 'src/@types/feed'
 import Shared from 'src/app/(front-end)/___shared'
+import Feature from 'src/app/(front-end)/__features'
 import Widget from 'src/app/(front-end)/_widget'
-import useLogic from 'src/app/(front-end)/_widget/feed/ui/detail/logic'
 
 const Detail = (props: { id: string }) => {
-  const { feed } = useLogic(props.id)
+  const {
+    loading,
+    data: feed,
+    error,
+  } = Feature.Hooks.useQuery<IFeed>(() => {
+    return Feature.Feed.Api.detailFeed(props.id)
+  })
 
   return (
     <Shared.UI.Element.Stack direction='column' fullWidth>

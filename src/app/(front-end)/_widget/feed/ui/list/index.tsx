@@ -1,13 +1,21 @@
+import { IFeed } from 'src/@types/feed'
 import Shared from 'src/app/(front-end)/___shared'
+import Feature from 'src/app/(front-end)/__features'
 import Widget from 'src/app/(front-end)/_widget'
-import useLogic from 'src/app/(front-end)/_widget/feed/ui/list/logic'
 
 interface IProps {
   feed?: string
 }
 
 const List = (props: IProps) => {
-  const { loading, error, feeds, refetch, hasNext } = useLogic(props.feed)
+  const {
+    loading,
+    error,
+    data: feeds,
+    refetch,
+    hasNext,
+  } = Feature.Hooks.useInfinityQuery<IFeed>(Feature.Feed.Api.queryFeeds, { feedId: props.feed })
+
   return (
     <Shared.UI.Common.InfinityScroll
       hasNext={hasNext}

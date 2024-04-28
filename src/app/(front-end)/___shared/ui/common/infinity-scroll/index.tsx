@@ -50,6 +50,7 @@ const InfinityScroll = ({
       {/* TODO */}
       {loading && <div />}
       {error && <div />}
+      <br />
     </Stack>
   )
 }

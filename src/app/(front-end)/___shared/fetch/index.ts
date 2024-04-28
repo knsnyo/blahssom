@@ -43,6 +43,7 @@ export const TOKEN_FETCH = async (params: IParams) => {
 const generateQueryString = (query?: IQuery) => {
   const QUERY = new URLSearchParams()
   if (query?.lastId) QUERY.append('lastId', query.lastId)
+  if (query?.feedId) QUERY.append('feedId', query.feedId)
 
   return QUERY
 }
