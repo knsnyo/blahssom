@@ -1,7 +1,8 @@
 import React from 'react'
 import { I_ID } from 'src/@types/__init'
 import { IQuery } from 'src/@types/_query'
-import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks'
+import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks/redux'
+import { Action } from 'src/app/(front-end)/__features/user/model'
 
 interface IUseInfinityQuery<T extends I_ID> {
   loading: boolean
@@ -35,7 +36,7 @@ const useInfinityQuery = <T extends I_ID>(
       setLoading(false)
       setError(true)
       setHasNext(false)
-      // dispatch(Action.signOut())
+      dispatch(Action.signOut())
       return
     }
 

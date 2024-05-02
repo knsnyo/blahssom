@@ -7,4 +7,4 @@ const Template: React.FC<{ children: React.ReactNode }> = (props) => {
   return props.children
 }
 
-export default Feature.withAuth(Template)
+export default Feature.Auth.UI.withAuth(Template)

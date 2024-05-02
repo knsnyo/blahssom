@@ -11,7 +11,8 @@ const user = createSlice({
   initialState: {} as IReduxUser,
   reducers: {
     signIn: (state, action) => {
-      state.user = action.payload
+      console.log(action.payload)
+      state = action.payload
     },
     signOut: (state) => {
       state.user = undefined

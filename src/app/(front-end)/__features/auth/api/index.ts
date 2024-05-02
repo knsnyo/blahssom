@@ -1,5 +1,3 @@
-import Shared from 'src/app/(front-end)/___shared'
-
 interface AuthBody {
   id: string
   password: string
@@ -10,7 +8,7 @@ const signUp = async ({ id, password }: AuthBody) => {
   const plainText = `${id}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
-    method: Shared.METHOD.GET,
+    method: Feature.Hooks.METHOD.GET,
     headers: { Authorization: `Basic ${encoded}` },
   })
   const json = await response.json()
@@ -22,7 +20,7 @@ const signIn = async ({ id, password }: AuthBody) => {
   const plainText = `${id}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
-    method: Shared.METHOD.GET,
+    method: Feature.Hooks.METHOD.GET,
     headers: { Authorization: `Basic ${encoded}` },
   })
   const json = await response.json()

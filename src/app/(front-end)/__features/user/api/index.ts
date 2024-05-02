@@ -1,10 +1,10 @@
 import { ISetNicknameBody } from 'src/@types/user/body/set-nickname'
-import Shared from 'src/app/(front-end)/___shared'
+import Feature from 'src/app/(front-end)/__features'
 
 const setNickname = async (body: ISetNicknameBody) => {
-  const response = await Shared.TOKEN_FETCH({
+  const response = await Feature.Hooks.TOKEN_FETCH({
     url: `/api/user/set-nickname`,
-    method: Shared.METHOD.PATCH,
+    method: Feature.Hooks.METHOD.PATCH,
     body: JSON.stringify(body),
   })
   const json = await response.json()
@@ -12,9 +12,9 @@ const setNickname = async (body: ISetNicknameBody) => {
 }
 
 const getProfile = async () => {
-  const response = await Shared.TOKEN_FETCH({
+  const response = await Feature.Hooks.TOKEN_FETCH({
     url: '/api/user/profile',
-    method: Shared.METHOD.GET,
+    method: Feature.Hooks.METHOD.GET,
   })
 
   return response

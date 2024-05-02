@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks'
+import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks/redux'
 import { Action } from 'src/app/(front-end)/__features/user/model'
 
 interface IUseQuery<T> {
