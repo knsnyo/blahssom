@@ -33,7 +33,7 @@ const useQuery = <T extends object>(api: () => Promise<IResponse<T>>): IUseQuery
 
       setLoading(false)
       setError(false)
-      setData(item!)
+      setData(item ?? ({} as T))
     })()
   }, [])
 

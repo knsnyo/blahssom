@@ -34,7 +34,8 @@ const queryFeeds = async (query?: IQuery) => {
     query,
   })
 
-  return response
+  const json = await generateData<IFeed>(response)
+  return json
 }
 
 const detailFeed = async (id: string) => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { I_ID } from 'src/@types/__init'
 import { IQuery } from 'src/@types/_query'
+import { IResponse } from 'src/app/(front-end)/__features/_hooks/custom-query'
 import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks/redux'
 import { Action } from 'src/app/(front-end)/__features/user/model'
 
@@ -13,7 +14,7 @@ interface IUseInfinityQuery<T extends I_ID> {
 }
 
 const useInfinityQuery = <T extends I_ID>(
-  api: (params: IQuery) => Promise<Response>,
+  api: (params: IQuery) => Promise<IResponse<T>>,
   query: IQuery,
 ): IUseInfinityQuery<T> => {
   const [loading, setLoading] = React.useState(false)
@@ -36,16 +37,17 @@ const useInfinityQuery = <T extends I_ID>(
       setLoading(false)
       setError(true)
       setHasNext(false)
-      dispatch(Action.signOut())
+      if (response.status === 401) dispatch(Action.signOut())
       return
     }
 
-    const { items, hasNext: _hasNext } = await response.json()
+    const { items, hasNext: _hasNext } = response
+
     setLoading(false)
     setError(false)
-    setHasNext(_hasNext)
+    setHasNext(_hasNext!)
     setData((prev) => {
-      return prev.concat(items)
+      return prev.concat(items!)
     })
   }
 
