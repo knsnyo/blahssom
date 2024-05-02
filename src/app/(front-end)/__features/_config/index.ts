@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import logger from 'redux-logger'
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
 import user from 'src/app/(front-end)/__features/user/model'
 
 const config = {
@@ -22,6 +22,7 @@ export const store = configureStore({
     const middleware = getDefaultMiddleware({
       serializableCheck: false,
     })
+    middleware.push(logger)
 
     return middleware
   },

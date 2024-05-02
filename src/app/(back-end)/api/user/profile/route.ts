@@ -12,7 +12,7 @@ export const GET = async () => {
     const user = await findUser(id)
     if (!user) throw new ServerError(AUTH_ERROR.NO_USER)
 
-    return Response.json({ user }, { status: 200 })
+    return Response.json({ item: user }, { status: 200 })
   } catch (error) {
     return handleError(error)
   }

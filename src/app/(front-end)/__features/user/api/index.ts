@@ -1,10 +1,10 @@
 import { ISetNicknameBody } from 'src/@types/user/body/set-nickname'
-import Feature from 'src/app/(front-end)/__features'
+import { METHOD, TOKEN_FETCH } from 'src/app/(front-end)/__features/_hooks/fetch'
 
 const setNickname = async (body: ISetNicknameBody) => {
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: `/api/user/set-nickname`,
-    method: Feature.Hooks.METHOD.PATCH,
+    method: METHOD.PATCH,
     body: JSON.stringify(body),
   })
   const json = await response.json()
@@ -12,9 +12,9 @@ const setNickname = async (body: ISetNicknameBody) => {
 }
 
 const getProfile = async () => {
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: '/api/user/profile',
-    method: Feature.Hooks.METHOD.GET,
+    method: METHOD.GET,
   })
 
   return response

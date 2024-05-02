@@ -1,23 +1,31 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import { IUser } from 'src/@types/user'
 import Feature from 'src/app/(front-end)/__features'
 
 const Page = () => {
   const router = useRouter()
+  const dispatch = Feature.Hooks.useAppDispatch()
 
-  React.useEffect(() => {
-    ;(async () => {
-      const response = await Feature.Hooks.TOKEN_FETCH({
-        url: '/api/user/profile',
-        method: Feature.Hooks.METHOD.GET,
-      })
-      if (!response.ok) router.replace('/signin')
-      else router.replace('/feed')
-    })()
-  }, [])
+  const {
+    loading,
+    data: user,
+    error,
+  } = Feature.Hooks.useQuery<IUser>(() => {
+    return Feature.User.Api.getProfile()
+  })
 
+  if (loading) {
+    return <div />
+  }
+
+  if (error) {
+    dispatch(Feature.User.Action.signOut())
+    return <div />
+  }
+
+  dispatch(Feature.User.Action.signIn(user))
   return <div />
 }
 

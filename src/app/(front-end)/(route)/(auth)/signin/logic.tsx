@@ -18,7 +18,9 @@ const useLogic = () => {
       response = await Feature.Auth.Api.signIn({ id, password })
       if (!response.ok) throw response
 
-      dispatch(Feature.User.Action.signIn(response))
+      const { item: user } = response
+
+      dispatch(Feature.User.Action.signIn(user))
     } catch (error) {
       open({ message: response?.message, color: Shared.STYLE.COLOR.red })
     }

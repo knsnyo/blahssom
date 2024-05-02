@@ -1,18 +1,20 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { IUser } from 'src/@types/user'
 
-interface IReduxUser {
-  user?: IUser
+export interface IReduxUser {
+  user?: {
+    id: string
+    nickname?: string
+  }
 }
 
 const user = createSlice({
   name: 'user',
   initialState: {} as IReduxUser,
   reducers: {
-    signIn: (state, action) => {
-      console.log(action.payload)
-      state = action.payload
+    signIn: (state, action: PayloadAction<IUser>) => {
+      state.user = action.payload
     },
     signOut: (state) => {
       state.user = undefined

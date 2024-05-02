@@ -4,11 +4,7 @@ import Feature from 'src/app/(front-end)/__features'
 import Widget from 'src/app/(front-end)/_widget'
 
 const Detail = (props: { id: string }) => {
-  const {
-    loading,
-    data: feed,
-    error,
-  } = Feature.Hooks.useQuery<IFeed>(() => {
+  const { data: feed } = Feature.Hooks.useQuery<IFeed>(() => {
     return Feature.Feed.Api.detailFeed(props.id)
   })
 

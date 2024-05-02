@@ -1,11 +1,11 @@
 import { IQuery } from 'src/@types/_query'
 import { IFeedBody } from 'src/@types/feed/body'
-import Feature from 'src/app/(front-end)/__features'
+import { METHOD, TOKEN_FETCH } from 'src/app/(front-end)/__features/_hooks/fetch'
 
 const writeFeed = async (body: IFeedBody) => {
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: `/api/feed`,
-    method: Feature.Hooks.METHOD.POST,
+    method: METHOD.POST,
     body: JSON.stringify(body),
   })
 
@@ -16,9 +16,9 @@ const writeDependentFeed = async (body: IFeedBody) => {
   // TODO: fix
   if (!body.feed) throw Error()
 
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: `/api/feed/dependant/${body.feed}`,
-    method: Feature.Hooks.METHOD.POST,
+    method: METHOD.POST,
     body: JSON.stringify(body),
   })
 
@@ -26,9 +26,9 @@ const writeDependentFeed = async (body: IFeedBody) => {
 }
 
 const queryFeeds = async (query?: IQuery) => {
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: `/api/feed`,
-    method: Feature.Hooks.METHOD.GET,
+    method: METHOD.GET,
     query,
   })
 
@@ -36,9 +36,9 @@ const queryFeeds = async (query?: IQuery) => {
 }
 
 const detailFeed = async (id: string) => {
-  const response = await Feature.Hooks.TOKEN_FETCH({
+  const response = await TOKEN_FETCH({
     url: `/api/feed/detail/${id}`,
-    method: Feature.Hooks.METHOD.GET,
+    method: METHOD.GET,
   })
 
   return response
