@@ -1,4 +1,5 @@
 import { METHOD } from 'src/app/(front-end)/__features/_hooks/fetch'
+import { generateData } from 'src/app/(front-end)/__features/_utils'
 
 interface AuthBody {
   id: string
@@ -13,8 +14,9 @@ const signUp = async ({ id, password }: AuthBody) => {
     method: METHOD.GET,
     headers: { Authorization: `Basic ${encoded}` },
   })
-  const json = await response.json()
-  return { ...json, status: response.status, ok: response.ok }
+
+  const json = await generateData(response)
+  return json
 }
 
 const signIn = async ({ id, password }: AuthBody) => {
@@ -25,9 +27,9 @@ const signIn = async ({ id, password }: AuthBody) => {
     method: METHOD.GET,
     headers: { Authorization: `Basic ${encoded}` },
   })
-  const json = await response.json()
 
-  return { ...json, status: response.status, ok: response.ok }
+  const json = await generateData(response)
+  return json
 }
 
 const Api = { signUp, signIn }

@@ -1,5 +1,7 @@
+import { IUser } from 'src/@types/user'
 import { ISetNicknameBody } from 'src/@types/user/body/set-nickname'
 import { METHOD, TOKEN_FETCH } from 'src/app/(front-end)/__features/_hooks/fetch'
+import { generateData } from 'src/app/(front-end)/__features/_utils'
 
 const setNickname = async (body: ISetNicknameBody) => {
   const response = await TOKEN_FETCH({
@@ -16,8 +18,8 @@ const getProfile = async () => {
     url: '/api/user/profile',
     method: METHOD.GET,
   })
-
-  return response
+  const json = await generateData<IUser>(response)
+  return json
 }
 
 const Api = {

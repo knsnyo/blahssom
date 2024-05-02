@@ -1,11 +1,9 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { IUser } from 'src/@types/user'
 import Feature from 'src/app/(front-end)/__features'
 
 const Page = () => {
-  const router = useRouter()
   const dispatch = Feature.Hooks.useAppDispatch()
 
   const {

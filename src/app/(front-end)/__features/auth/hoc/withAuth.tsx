@@ -13,21 +13,18 @@ const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>)
 
     React.useEffect(() => {
       if (!user && !['/signin', '/signup'].includes(pathname)) {
-        console.log(1)
         router.replace('/signin')
         return
       }
       if (user && !user?.nickname && !['/set-nickname'].includes(pathname)) {
-        console.log(2)
         router.replace('/set-nickname')
         return
       }
       if (user && ['/signin', '/signup', '/set-nickname'].includes(pathname)) {
-        console.log(3)
         router.replace('/feed')
         return
       }
-      console.log(4)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     return <Component {...props} />

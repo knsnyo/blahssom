@@ -29,6 +29,6 @@ export const GET = async () => {
   } catch (error) {
     cookies().delete('accessToken')
     cookies().delete('refreshToken')
-    return handleError(error)
+    return handleError(new ServerError(AUTH_ERROR.INVALID_TOKEN))
   }
 }

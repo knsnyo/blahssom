@@ -1,4 +1,5 @@
 import React from 'react'
+import type { IResponse } from 'src/app/(front-end)/__features/_hooks/custom-query'
 import { useAppDispatch } from 'src/app/(front-end)/__features/_hooks/redux'
 import { Action } from 'src/app/(front-end)/__features/user/model'
 
@@ -8,7 +9,7 @@ interface IUseQuery<T> {
   data: T
 }
 
-const useQuery = <T extends object>(api: () => Promise<Response>): IUseQuery<T> => {
+const useQuery = <T extends object>(api: () => Promise<IResponse<T>>): IUseQuery<T> => {
   const [loading, setLoading] = React.useState(false)
   const [error, setError] = React.useState(false)
   const [data, setData] = React.useState<T>({} as T)
@@ -19,19 +20,20 @@ const useQuery = <T extends object>(api: () => Promise<Response>): IUseQuery<T> 
       setLoading(true)
       setError(false)
 
-      const response = await api()
+      const response: IResponse<T> = (await api()) as IResponse<T>
+
       if (!response.ok) {
         setLoading(false)
         setError(true)
-        dispatch(Action.signOut())
+        if (response.status === 401) dispatch(Action.signOut())
         return
       }
 
-      const { item } = await response.json()
+      const { item } = response
 
       setLoading(false)
       setError(false)
-      setData(item)
+      setData(item!)
     })()
   }, [])
 

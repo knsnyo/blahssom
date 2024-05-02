@@ -1,6 +1,6 @@
 import { pStore, store } from 'src/app/(front-end)/__features/_config'
-import useInfinityQuery from 'src/app/(front-end)/__features/_hooks/fetch/useInfinityQuery'
-import useQuery from 'src/app/(front-end)/__features/_hooks/fetch/useQuery'
+import useInfinityQuery from 'src/app/(front-end)/__features/_hooks/custom-query/useInfinityQuery'
+import useQuery from 'src/app/(front-end)/__features/_hooks/custom-query/useQuery'
 import { useAppDispatch, useAppSelector } from 'src/app/(front-end)/__features/_hooks/redux'
 import Auth from 'src/app/(front-end)/__features/auth'
 import withAuth from 'src/app/(front-end)/__features/auth/hoc/withAuth'

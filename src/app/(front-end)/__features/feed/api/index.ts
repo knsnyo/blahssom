@@ -1,6 +1,8 @@
 import { IQuery } from 'src/@types/_query'
+import { IFeed } from 'src/@types/feed'
 import { IFeedBody } from 'src/@types/feed/body'
 import { METHOD, TOKEN_FETCH } from 'src/app/(front-end)/__features/_hooks/fetch'
+import { generateData } from 'src/app/(front-end)/__features/_utils'
 
 const writeFeed = async (body: IFeedBody) => {
   const response = await TOKEN_FETCH({
@@ -40,8 +42,8 @@ const detailFeed = async (id: string) => {
     url: `/api/feed/detail/${id}`,
     method: METHOD.GET,
   })
-
-  return response
+  const json = await generateData<IFeed>(response)
+  return json
 }
 
 const Api = {
