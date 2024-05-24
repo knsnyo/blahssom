@@ -28,9 +28,9 @@ const Page = () => {
         <Shared.UI.Element.Button onClick={handler.submit}>SIGN IN</Shared.UI.Element.Button>
         <Link href='/signup'>
           <Shared.UI.Element.Typography
-            fontSize='2rem'
-            fontWeight={700}
-            color={Shared.STYLE.COLOR.blue}
+            $fontSize='2rem'
+            $fontWeight={700}
+            $color={Shared.STYLE.COLOR.blue}
           >
             GO TO SIGN UP
           </Shared.UI.Element.Typography>

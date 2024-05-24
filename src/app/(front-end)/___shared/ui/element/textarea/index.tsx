@@ -32,10 +32,10 @@ const TextArea = (props: IProps) => {
 
   return (
     <Shared.UI.Element.Stack
-      fullWidth
-      direction='column'
+      $fullWidth
+      $direction='column'
+      $alignItems='end'
       style={{ position: 'relative' }}
-      alignItems='end'
     >
       <Container
         {...props}

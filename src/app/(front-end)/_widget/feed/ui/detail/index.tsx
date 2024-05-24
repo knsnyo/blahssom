@@ -9,11 +9,11 @@ const Detail = (props: { id: string }) => {
   })
 
   return (
-    <Shared.UI.Element.Stack direction='column' fullWidth>
-      <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
-        <Shared.UI.Element.Stack gap={1}>
+    <Shared.UI.Element.Stack $direction='column' $fullWidth>
+      <Shared.UI.Element.Stack $justifyContent='space-between' $fullWidth>
+        <Shared.UI.Element.Stack $gap={1}>
           <Widget.User.ProfileImage src='https://picsum.photos/200' alt='profile-img' />
-          <Shared.UI.Element.Typography fontSize='1.5rem' fontWeight={700}>
+          <Shared.UI.Element.Typography $fontSize='1.5rem' $fontWeight={700}>
             {feed?.author?.nickname}
           </Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
@@ -24,7 +24,7 @@ const Detail = (props: { id: string }) => {
       <br />
       <Widget.Feed.Image src='https://picsum.photos/300/200' alt='feed-img' />
       <br />
-      <Shared.UI.Element.Stack gap={0.5}>
+      <Shared.UI.Element.Stack $gap={0.5}>
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
           {new Date(feed.updatedAt).toLocaleTimeString()}
         </Shared.UI.Element.Typography>
@@ -34,26 +34,26 @@ const Detail = (props: { id: string }) => {
         </Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography>·</Shared.UI.Element.Typography>
 
-        <Shared.UI.Element.Typography fontWeight={700}>1,000</Shared.UI.Element.Typography>
+        <Shared.UI.Element.Typography $fontWeight={700}>1,000</Shared.UI.Element.Typography>
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
           View
         </Shared.UI.Element.Typography>
       </Shared.UI.Element.Stack>
       <Shared.UI.Element.Divider />
-      <Shared.UI.Element.Stack justifyContent='space-between' fullWidth>
-        <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
+      <Shared.UI.Element.Stack $justifyContent='space-between' $fullWidth>
+        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
           <Shared.UI.Element.Icon.Chat />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
+        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
           <Shared.UI.Element.Icon.HeartOutline />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
+        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
           <Shared.UI.Element.Icon.BookmarkOutline />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack gap={0.5} alignItems='center'>
+        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
           <Shared.UI.Element.Icon.Share />
           <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
         </Shared.UI.Element.Stack>

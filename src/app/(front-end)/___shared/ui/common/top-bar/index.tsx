@@ -16,22 +16,19 @@ interface ITopBar extends HtmlHTMLAttributes<Headers> {
 const TopBar = (props: ITopBar) => {
   const router = useRouter()
 
+  const goBack = () => {
+    router.back()
+  }
+
   return (
     <Container>
-      {props.canBack && (
-        <Icon.ArrowLeft
-          onClick={() => {
-            router.back()
-          }}
-          fontSize={20}
-        />
-      )}
+      {props.canBack && <Icon.ArrowLeft onClick={goBack} fontSize={20} />}
       {props?.title && (
         <Typography
-          fontSize='2rem'
-          fontWeight={700}
-          textAlign={props.textAlign}
-          fullWidth={props.canBack}
+          $fontSize='2rem'
+          $fontWeight={700}
+          $textAlign={props.textAlign}
+          $fullWidth={props.canBack}
         >
           {props.title}
         </Typography>

@@ -17,8 +17,8 @@ const Page = () => {
           <Widget.Write.Button onClick={handler.submit} disabled={content.trim().length === 0} />
         }
       />
-      <Shared.UI.Element.Stack direction='column' fullWidth>
-        <Shared.UI.Element.Stack direction='column' fullWidth paddingX={1}>
+      <Shared.UI.Element.Stack $direction='column' $fullWidth>
+        <Shared.UI.Element.Stack $direction='column' $fullWidth $paddingX={1}>
           <Widget.Write.Form placeholder='쓰레기 글' value={content} onChange={handler.content} />
         </Shared.UI.Element.Stack>
         <Shared.UI.Element.Divider />

@@ -22,19 +22,19 @@ const Container = styled.button<IButton>`
   cursor: pointer;
   width: 100%;
   max-width: ${(props: IButton) => {
-    return props.theme?.width
+    return props.theme?.$width
   }};
   height: ${(props: IButton) => {
-    return props.theme?.height
+    return props.theme?.$height
   }};
   border-radius: ${(props: IButton) => {
-    return props.theme?.borderRadius
+    return props.theme?.$borderRadius
   }};
   background-color: ${(props: IButton) => {
-    return props.theme?.bgColor
+    return props.theme?.$bgColor
   }};
   color: ${(props: IButton) => {
-    return props.theme?.color
+    return props.theme?.$color
   }};
   &:disabled {
     opacity: 0.3;
@@ -45,27 +45,27 @@ const Container = styled.button<IButton>`
 export default Button
 
 interface IBUttonTheme {
-  color: string
-  bgColor: string
-  borderRadius: string
-  width: string
-  height: string
+  $color: string
+  $bgColor: string
+  $borderRadius: string
+  $width: string
+  $height: string
 }
 
 const TYPE: { [key: string]: IBUttonTheme } = {
   DEFAULT: {
-    color: COLOR.white,
-    bgColor: COLOR.black,
-    borderRadius: '0.8rem',
-    width: '50rem',
-    height: '5rem',
+    $color: COLOR.white,
+    $bgColor: COLOR.black,
+    $borderRadius: '0.8rem',
+    $width: '50rem',
+    $height: '5rem',
   },
   WRITE: {
-    color: COLOR.white,
-    bgColor: COLOR.blue,
-    borderRadius: '1.5rem',
-    width: '7rem',
-    height: '3rem',
+    $color: COLOR.white,
+    $bgColor: COLOR.blue,
+    $borderRadius: '1.5rem',
+    $width: '7rem',
+    $height: '3rem',
   },
 }
 

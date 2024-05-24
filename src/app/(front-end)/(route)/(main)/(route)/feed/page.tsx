@@ -8,17 +8,17 @@ const Page = () => {
   const router = useRouter()
 
   return (
-    <Shared.UI.Element.Stack fullWidth direction='column' paddingX={3}>
+    <Shared.UI.Element.Stack $fullWidth $direction='column' $paddingX={3}>
       <Widget.Feed.List />
       {/* floating button */}
       <Shared.UI.Element.Floating
-        width={60}
-        height={60}
-        bgColor={Shared.STYLE.COLOR.blue}
-        opacity={0.5}
-        borderRadius={30}
-        bottom='8rem'
-        left='calc(50vw + 25%)'
+        $width={60}
+        $height={60}
+        $bgColor={Shared.STYLE.COLOR.blue}
+        $opacity={0.5}
+        $borderRadius={30}
+        $bottom='8rem'
+        $left='calc(50vw + 25%)'
         onClick={() => {
           router.push('/write')
         }}

@@ -24,9 +24,9 @@ const Card = ({ feed, route }: IProps) => {
         <Widget.User.ProfileImage src='https://picsum.photos/200' alt='profile-img' />
       </Side>
       <Center>
-        <Shared.UI.Element.Stack justifyContent='space-between'>
-          <Shared.UI.Element.Stack gap={1} justifyContent='start'>
-            <Shared.UI.Element.Typography fontWeight={700}>
+        <Shared.UI.Element.Stack $justifyContent='space-between'>
+          <Shared.UI.Element.Stack $gap={1} $justifyContent='start'>
+            <Shared.UI.Element.Typography $fontWeight={700}>
               {feed.author.nickname}
             </Shared.UI.Element.Typography>
             <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey.e4e4e4}>
@@ -39,7 +39,7 @@ const Card = ({ feed, route }: IProps) => {
         <br />
         {/* <Image src='https://picsum.photos/200' alt='post1-image' /> */}
         <br />
-        <Shared.UI.Element.Stack alignItems='center' justifyContent='space-between'>
+        <Shared.UI.Element.Stack $alignItems='center' $justifyContent='space-between'>
           <PostInfo>
             <Shared.UI.Element.Icon.Chat fontSize='1.5rem' />
             <Shared.UI.Element.Typography>123</Shared.UI.Element.Typography>

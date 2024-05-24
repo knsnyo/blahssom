@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
-  width: number
-  height: number
-  bgColor?: string
-  left?: number | string
-  right?: number | string
-  bottom?: number | string
-  top?: number | string
-  opacity?: number
-  borderRadius?: number
+  $width: number
+  $height: number
+  $bgColor?: string
+  $left?: number | string
+  $right?: number | string
+  $bottom?: number | string
+  $top?: number | string
+  $opacity?: number
+  $borderRadius?: number
 }
 
 export const Container = styled.div<IProps>`
@@ -19,31 +19,31 @@ export const Container = styled.div<IProps>`
   align-items: center;
   position: fixed;
   width: ${(props) => {
-    return `${props.width}px`
+    return `${props.$width}px`
   }};
   height: ${(props) => {
-    return `${props.height}px`
+    return `${props.$height}px`
   }};
   background-color: ${(props) => {
-    return props.bgColor
+    return props.$bgColor
   }};
   border-radius: ${(props) => {
-    return `${props.borderRadius}px`
+    return `${props.$borderRadius}px`
   }};
   opacity: ${(props) => {
-    return props.opacity
+    return props.$opacity
   }};
   left: ${(props) => {
-    return props.left
+    return props.$left
   }};
   right: ${(props) => {
-    return props.right
+    return props.$right
   }};
   top: ${(props) => {
-    return props.top
+    return props.$top
   }};
   bottom: ${(props) => {
-    return props.bottom
+    return props.$bottom
   }};
 `
 

@@ -6,7 +6,7 @@ import Widget from 'src/app/(front-end)/_widget'
 
 const Page = (props: IDetailPageParams) => {
   return (
-    <Shared.UI.Element.Stack direction='column' fullWidth paddingX={3}>
+    <Shared.UI.Element.Stack $direction='column' $fullWidth $paddingX={3}>
       <Widget.Feed.Detail id={props.params.id} />
       <Shared.UI.Element.Divider />
       <Widget.Write.DependentForm id={props.params.id} />

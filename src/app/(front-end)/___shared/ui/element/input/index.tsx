@@ -4,18 +4,18 @@ import COLOR from 'src/app/(front-end)/___shared/style/color'
 import styled from 'styled-components'
 
 interface IInputTheme {
-  borderRadius: string
-  width: string
-  height: string
-  color: string
+  $borderRadius: string
+  $width: string
+  $height: string
+  $color: string
 }
 
 export const INPUT_THEME: { [key: string]: IInputTheme } = {
   DEFAULT: {
-    borderRadius: '0.8rem',
-    width: '50rem',
-    height: '5rem',
-    color: COLOR?.black,
+    $borderRadius: '0.8rem',
+    $width: '50rem',
+    $height: '5rem',
+    $color: COLOR?.black,
   },
 }
 
@@ -66,10 +66,10 @@ export default Input
 const Border = styled.div<IInput>`
   border: 1px solid;
   border-color: ${(props: IInput) => {
-    return props.theme?.color
+    return props.theme?.$color
   }};
   border-radius: ${(props: IInput) => {
-    return props.theme?.borderRadius
+    return props.theme?.$borderRadius
   }};
   box-sizing: border-box;
   display: flex;
@@ -79,10 +79,10 @@ const Border = styled.div<IInput>`
   padding: 1rem;
   width: 100%;
   max-width: ${(props: IInput) => {
-    return props.theme?.width
+    return props.theme?.$width
   }};
   height: ${(props: IInput) => {
-    return props.theme?.height
+    return props.theme?.$height
   }};
   gap: 1rem;
 `
