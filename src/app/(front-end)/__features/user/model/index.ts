@@ -3,21 +3,18 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { IUser } from 'src/@types/user'
 
 export interface IReduxUser {
-  user?: {
-    id: string
-    nickname?: string
-  }
+  user?: IUser | null
 }
 
 const user = createSlice({
   name: 'user',
-  initialState: {} as IReduxUser,
+  initialState: { user: null } as IReduxUser,
   reducers: {
     signIn: (state, action: PayloadAction<IUser>) => {
       state.user = action.payload
     },
     signOut: (state) => {
-      state.user = undefined
+      state.user = null
     },
     updateNickname: (state, action) => {
       if (state?.user) return

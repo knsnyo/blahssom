@@ -13,7 +13,6 @@ interface ITopBar extends HtmlHTMLAttributes<Headers> {
   action?: React.ReactNode
 }
 
-// HOC
 const TopBar = (props: ITopBar) => {
   const router = useRouter()
 

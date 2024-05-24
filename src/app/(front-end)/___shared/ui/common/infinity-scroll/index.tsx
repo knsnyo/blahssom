@@ -46,7 +46,7 @@ const InfinityScroll = ({
   return (
     <Stack direction='column' fullWidth>
       {children}
-      <div ref={end} />
+      {hasNext && <div ref={end} />}
       {/* TODO */}
       {loading && <div />}
       {error && <div />}
