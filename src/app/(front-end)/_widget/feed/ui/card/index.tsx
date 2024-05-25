@@ -42,6 +42,7 @@ const Card = ({ feed, route }: IProps) => {
               icon={<Shared.UI.Element.Icon.HeartOutline fontSize='1.5rem' />}
               text='123'
               ref={handler.settingRef}
+              $hoverColor={Shared.STYLE.COLOR.red}
             />
             <Shared.UI.Common.IconButton
               icon={<Shared.UI.Element.Icon.Chart fontSize='1.5rem' />}
@@ -52,11 +53,13 @@ const Card = ({ feed, route }: IProps) => {
               <Shared.UI.Common.IconButton
                 icon={<Shared.UI.Element.Icon.BookmarkOutline fontSize='1.5rem' />}
                 ref={handler.settingRef}
+                $hoverColor={Shared.STYLE.COLOR.green}
               />
               <Shared.UI.Common.IconButton
                 icon={<Shared.UI.Element.Icon.Share fontSize='1.5rem' />}
                 ref={handler.settingRef}
                 onClick={handler.copyLink}
+                $hoverColor={Shared.STYLE.COLOR.blue}
               />
             </Shared.UI.Element.Stack>
           </Shared.UI.Element.Stack>

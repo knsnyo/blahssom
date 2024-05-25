@@ -1,22 +1,20 @@
 import React from 'react'
+import COLOR, { getOpacity } from 'src/app/(front-end)/___shared/style/color'
 import Stack from 'src/app/(front-end)/___shared/ui/element/stack'
-import Typography from 'src/app/(front-end)/___shared/ui/element/typography'
 import styled from 'styled-components'
 
 interface IIconButton extends React.HtmlHTMLAttributes<HTMLDivElement> {
   icon: React.ReactNode
   text?: string
-  $color?: string
+  $hoverColor?: string
 }
 
 const IconButton = React.forwardRef<HTMLDivElement, IIconButton>((props, ref) => {
-  const { icon, text, ...etc } = props
-
   return (
-    <Container ref={ref} {...etc}>
+    <Container ref={ref} {...props}>
       <Stack $gap={0.5} $alignItems='center' $direction='row'>
-        {icon}
-        <Typography>{text}</Typography>
+        {props.icon}
+        {props.text}
       </Stack>
     </Container>
   )
@@ -24,6 +22,19 @@ const IconButton = React.forwardRef<HTMLDivElement, IIconButton>((props, ref) =>
 
 export default IconButton
 
-const Container = styled.div`
+const Container = styled.div<IIconButton>`
   cursor: pointer;
+
+  &:hover {
+    background-color: ${(props: IIconButton) => {
+      return getOpacity(props.$hoverColor ?? COLOR.black, 30)
+    }};
+    color: ${(props: IIconButton) => {
+      return props.$hoverColor ?? COLOR.black
+    }};
+  }
+
+  padding: 0.5rem;
+  transition-duration: 0.25s;
+  border-radius: 0.8rem;
 `

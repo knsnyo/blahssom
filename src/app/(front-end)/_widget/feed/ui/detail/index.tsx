@@ -33,22 +33,35 @@ const Detail = (props: { feed: IFeed }) => {
         </Shared.UI.Element.Typography>
       </Shared.UI.Element.Stack>
       <Shared.UI.Element.Divider />
-      <Shared.UI.Element.Stack $justifyContent='space-between' $fullWidth>
+      <Shared.UI.Element.Stack $alignItems='center' $justifyContent='space-between' $fullWidth>
+        <Shared.UI.Common.IconButton
+          icon={<Shared.UI.Element.Icon.Chat fontSize='1.5rem' />}
+          text='123'
+          // ref={handler.settingRef}
+        />
+        <Shared.UI.Common.IconButton
+          icon={<Shared.UI.Element.Icon.HeartOutline fontSize='1.5rem' />}
+          text='123'
+          // ref={handler.settingRef}
+          $hoverColor={Shared.STYLE.COLOR.red}
+        />
+        <Shared.UI.Common.IconButton
+          icon={<Shared.UI.Element.Icon.Chart fontSize='1.5rem' />}
+          text='123'
+          // ref={handler.settingRef}
+        />
         <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
-          <Shared.UI.Element.Icon.Chat />
-          <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
-        </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
-          <Shared.UI.Element.Icon.HeartOutline />
-          <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
-        </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
-          <Shared.UI.Element.Icon.BookmarkOutline />
-          <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
-        </Shared.UI.Element.Stack>
-        <Shared.UI.Element.Stack $gap={0.5} $alignItems='center'>
-          <Shared.UI.Element.Icon.Share />
-          <Shared.UI.Element.Typography>26</Shared.UI.Element.Typography>
+          <Shared.UI.Common.IconButton
+            icon={<Shared.UI.Element.Icon.BookmarkOutline fontSize='1.5rem' />}
+            // ref={handler.settingRef}
+            $hoverColor={Shared.STYLE.COLOR.green}
+          />
+          <Shared.UI.Common.IconButton
+            icon={<Shared.UI.Element.Icon.Share fontSize='1.5rem' />}
+            // ref={handler.settingRef}
+            // onClick={handler.copyLink}
+            $hoverColor={Shared.STYLE.COLOR.blue}
+          />
         </Shared.UI.Element.Stack>
       </Shared.UI.Element.Stack>
     </Shared.UI.Element.Stack>
