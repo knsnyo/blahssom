@@ -9,5 +9,6 @@ export const generateData = async <T>(response: Response): Promise<IResponse<T>>
     item: json?.item as T,
     items: json?.items as T[],
     hasNext: json.hasNext,
+    message: json?.message,
   }
 }

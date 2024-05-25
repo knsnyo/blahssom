@@ -13,7 +13,7 @@ interface ISnakBar {
 const SnackBar = ({ color, message }: ISnakBar) => {
   return (
     <Container color={color}>
-      <Typography color={COLOR.white} fontWeight={700} fontSize='1.5rem'>
+      <Typography $color={COLOR.white} $fontWeight={700} $fontSize='1.5rem'>
         {message}
       </Typography>
     </Container>

@@ -4,4 +4,5 @@ export interface IResponse<T> {
   hasNext?: boolean
   item?: T
   items?: T[]
+  message?: string
 }

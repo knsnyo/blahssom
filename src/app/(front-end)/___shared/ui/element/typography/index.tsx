@@ -14,7 +14,7 @@ interface ITypography extends HtmlHTMLAttributes<HTMLParagraphElement> {
 
 const Container = styled.p<ITypography>`
   color: ${(props) => {
-    return props?.color ?? COLOR.black
+    return props?.$color ?? COLOR.black
   }};
   font-size: ${(props: ITypography) => {
     return props?.$fontSize ?? '1rem'

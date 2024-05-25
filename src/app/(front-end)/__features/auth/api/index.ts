@@ -1,3 +1,4 @@
+import { IUser } from 'src/@types/user'
 import { METHOD } from 'src/app/(front-end)/__features/_hooks/fetch'
 import { generateData } from 'src/app/(front-end)/__features/_utils'
 
@@ -15,7 +16,7 @@ const signUp = async ({ id, password }: AuthBody) => {
     headers: { Authorization: `Basic ${encoded}` },
   })
 
-  const json = await generateData(response)
+  const json = await generateData<any>(response)
   return json
 }
 
@@ -28,7 +29,7 @@ const signIn = async ({ id, password }: AuthBody) => {
     headers: { Authorization: `Basic ${encoded}` },
   })
 
-  const json = await generateData(response)
+  const json = await generateData<IUser>(response)
   return json
 }
 

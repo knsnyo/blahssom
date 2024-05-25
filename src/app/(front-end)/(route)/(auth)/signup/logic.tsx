@@ -17,7 +17,7 @@ const useLogic = () => {
 
       router.replace('/signin')
     } catch (error) {
-      open({ message: response.message, color: Shared.STYLE.COLOR.red })
+      open({ message: response!.message as string, color: Shared.STYLE.COLOR.red })
     }
   }
 

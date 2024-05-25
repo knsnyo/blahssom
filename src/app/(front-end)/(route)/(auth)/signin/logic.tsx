@@ -1,5 +1,6 @@
 'use client'
 
+import { IUser } from 'src/@types/user'
 import Shared from 'src/app/(front-end)/___shared'
 import useInput from 'src/app/(front-end)/___shared/hooks/useInput'
 import Feature from 'src/app/(front-end)/__features'
@@ -20,9 +21,9 @@ const useLogic = () => {
 
       const { item: user } = response
 
-      dispatch(Feature.User.Action.signIn(user))
+      dispatch(Feature.User.Action.signIn(user as IUser))
     } catch (error) {
-      open({ message: response?.message, color: Shared.STYLE.COLOR.red })
+      open({ message: response!.message as string, color: Shared.STYLE.COLOR.red })
     }
   }
 
