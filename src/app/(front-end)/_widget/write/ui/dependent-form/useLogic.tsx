@@ -7,6 +7,7 @@ const useLogic = (feed: string) => {
   const submit = async () => {
     const response = await Feature.Feed.Api.writeDependentFeed({ content, feed })
     if (!response.ok) return
+    window.location.reload()
   }
 
   const handler = {

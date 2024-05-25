@@ -3,8 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { IFeed } from 'src/@types/feed'
 import Shared from 'src/app/(front-end)/___shared'
-import Widget from 'src/app/(front-end)/_widget'
-import { Center, Container, PostInfo, Side } from './styled'
+import { Center, Container, PostInfo } from './styled'
 
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
   feed: IFeed
@@ -20,9 +19,6 @@ const Card = ({ feed, route }: IProps) => {
         if (route) router.push(`/feed/${feed._id}`)
       }}
     >
-      <Side>
-        <Widget.User.ProfileImage src='https://picsum.photos/200' alt='profile-img' />
-      </Side>
       <Center>
         <Shared.UI.Element.Stack $justifyContent='space-between'>
           <Shared.UI.Element.Stack $gap={1} $justifyContent='start'>
@@ -36,8 +32,6 @@ const Card = ({ feed, route }: IProps) => {
           <Shared.UI.Element.Icon.More fontSize='1.5rem' />
         </Shared.UI.Element.Stack>
         <Shared.UI.Element.Typography>{feed.content}</Shared.UI.Element.Typography>
-        <br />
-        {/* <Image src='https://picsum.photos/200' alt='post1-image' /> */}
         <br />
         <Shared.UI.Element.Stack $alignItems='center' $justifyContent='space-between'>
           <PostInfo>

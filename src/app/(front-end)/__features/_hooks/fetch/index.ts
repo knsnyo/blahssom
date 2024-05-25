@@ -44,6 +44,7 @@ const generateQueryString = (query?: IQuery) => {
   const QUERY = new URLSearchParams()
   if (query?.lastId) QUERY.append('lastId', query.lastId)
   if (query?.feedId) QUERY.append('feedId', query.feedId)
+  if (query?.author) QUERY.append('author', query.author)
 
   return QUERY
 }

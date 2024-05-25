@@ -1,11 +1,10 @@
+import { IQuery } from 'src/@types/_query'
 import { IFeed } from 'src/@types/feed'
 import Shared from 'src/app/(front-end)/___shared'
 import Feature from 'src/app/(front-end)/__features'
 import Widget from 'src/app/(front-end)/_widget'
 
-interface IProps {
-  feed?: string
-}
+interface IProps extends IQuery {}
 
 const List = (props: IProps) => {
   const {
@@ -14,7 +13,10 @@ const List = (props: IProps) => {
     data: feeds,
     refetch,
     hasNext,
-  } = Feature.Hooks.useInfinityQuery<IFeed>(Feature.Feed.Api.queryFeeds, { feedId: props.feed })
+  } = Feature.Hooks.useInfinityQuery<IFeed>(Feature.Feed.Api.queryFeeds, {
+    feedId: props.feedId,
+    author: props.author,
+  })
 
   return (
     <Shared.UI.Common.InfinityScroll

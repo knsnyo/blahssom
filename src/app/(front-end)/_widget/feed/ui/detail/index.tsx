@@ -18,10 +18,7 @@ const Detail = (props: { feed: IFeed }) => {
       <br />
       <Shared.UI.Element.Typography>{feed.content}</Shared.UI.Element.Typography>
       <br />
-      <Widget.Feed.Image src='https://picsum.photos/300/200' alt='feed-img' />
-      <br />
       <Shared.UI.Element.Stack $gap={0.5}>
-        icon
         <Shared.UI.Element.Typography color={Shared.STYLE.COLOR.grey[707070]}>
           {new Date(feed.updatedAt).toLocaleTimeString()}
         </Shared.UI.Element.Typography>

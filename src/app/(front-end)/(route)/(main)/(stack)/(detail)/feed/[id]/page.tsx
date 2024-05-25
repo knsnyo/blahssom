@@ -17,7 +17,7 @@ const Page = (props: IDetailPageParams) => {
       <Shared.UI.Element.Divider />
       <Widget.Write.DependentForm id={props.params.id} />
       <Shared.UI.Element.Divider />
-      <Widget.Feed.List feed={props.params.id} />
+      <Widget.Feed.List feedId={props.params.id} />
     </Shared.UI.Element.Stack>
   )
 }

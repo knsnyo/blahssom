@@ -3,9 +3,10 @@ import Feed from 'src/app/(back-end)/_models/feed'
 
 export const queryFeeds = async (query: URLSearchParams) => {
   const lastId = query.get('lastId')
-  const feedId = query.get('feedId')
+  const feed = query.get('feedId')
+  const author = query.get('author')
 
-  const condition: { _id?: any; feed?: any } = { feed: feedId }
+  const condition: { _id?: any; feed?: any; author?: any } = { feed, author }
 
   if (lastId) condition._id = { $lt: lastId }
 
@@ -14,7 +15,7 @@ export const queryFeeds = async (query: URLSearchParams) => {
     .populate({ path: 'author', select: '-password' })
     .limit(10)
 
-  const DB_LAST = await Feed.findOne({ feed: feedId }).sort({ createdAt: 1 })
+  const DB_LAST = await Feed.findOne({ feed }).sort({ createdAt: 1 })
   const GET_LAST = feeds?.at(-1)?._id
 
   const hasNext = !DB_LAST._id.equals(GET_LAST)

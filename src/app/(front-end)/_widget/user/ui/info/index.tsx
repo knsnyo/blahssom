@@ -1,18 +1,14 @@
 import { IUser } from 'src/@types/user'
 import Shared from 'src/app/(front-end)/___shared'
 import Feature from 'src/app/(front-end)/__features'
-import ProfileImage from 'src/app/(front-end)/_widget/user/ui/profile-image'
 
 const Info = (props: { user: IUser }) => {
   const { user } = props
-  const my = Feature.Hooks.useAppSelector((state) => {
-    return state.user.user
-  })
+
   return (
     <Shared.UI.Element.Stack $fullWidth $direction='column' $paddingX={1}>
-      <Shared.UI.Element.Stack $fullWidth $direction='row' $justifyContent='space-between'>
-        <ProfileImage src='https://picsum.photos/200' size={8} />
-      <Feature.Action.UI.FollowButton user={user} />
+      <Shared.UI.Element.Stack $fullWidth $direction='row' $justifyContent='end'>
+        <Feature.Action.UI.FollowButton user={user} />
       </Shared.UI.Element.Stack>
       <br />
       <Shared.UI.Element.Typography $fontWeight={700} $fontSize='1.5rem'>

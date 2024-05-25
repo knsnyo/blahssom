@@ -6,6 +6,7 @@ import styled from 'styled-components'
 interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   theme?: IBUttonTheme
+  $opacity?: boolean
 }
 
 const Button = (props: IButton) => {
@@ -40,6 +41,9 @@ const Container = styled.button<IButton>`
     opacity: 0.3;
     cursor: auto;
   }
+  opacity: ${(props: IButton) => {
+    return props.$opacity ? 0.3 : 1
+  }};
 `
 
 export default Button
