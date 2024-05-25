@@ -5,7 +5,7 @@ import useLogic from 'src/app/(front-end)/(route)/(auth)/signin/logic'
 import Shared from 'src/app/(front-end)/___shared'
 
 const Page = () => {
-  const { id, password, SnackBar, handler } = useLogic()
+  const { value, SnackBar, handler } = useLogic()
 
   return (
     <>
@@ -13,26 +13,26 @@ const Page = () => {
       <>
         <Shared.UI.Element.Input
           type='text'
-          placeholder='ID'
+          placeholder='아이디'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
-          value={id}
+          value={value.id}
           onChange={handler.id}
         />
         <Shared.UI.Element.Input
           type='password'
-          placeholder='PASSWORD'
+          placeholder='비밀번호'
           prefixicon={<Shared.UI.Element.Icon.Lock size={Shared.STYLE.SIZE.icon.input} />}
-          value={password}
+          value={value.password}
           onChange={handler.password}
         />
-        <Shared.UI.Element.Button onClick={handler.submit}>SIGN IN</Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={handler.submit}>로그인</Shared.UI.Element.Button>
         <Link href='/signup'>
           <Shared.UI.Element.Typography
             $fontSize='2rem'
             $fontWeight={700}
             $color={Shared.STYLE.COLOR.blue}
           >
-            GO TO SIGN UP
+            아직 회원이 아니십니까?
           </Shared.UI.Element.Typography>
         </Link>
       </>

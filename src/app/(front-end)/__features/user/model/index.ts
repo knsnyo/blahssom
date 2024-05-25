@@ -17,7 +17,6 @@ const user = createSlice({
       state.user = null
     },
     updateNickname: (state, action) => {
-      if (state?.user) return
       state.user!.nickname = action.payload
     },
   },

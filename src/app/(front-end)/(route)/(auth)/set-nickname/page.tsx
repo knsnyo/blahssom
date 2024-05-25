@@ -17,7 +17,9 @@ const Page = () => {
           onChange={handler.nickname}
           value={nickname}
         />
-        <Shared.UI.Element.Button onClick={handler.submit}>START</Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={handler.submit} disabled={!nickname}>
+          시작하기
+        </Shared.UI.Element.Button>
       </>
     </>
   )

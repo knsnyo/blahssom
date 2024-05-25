@@ -1,13 +1,12 @@
 import { useRouter } from 'next/navigation'
 import Shared from 'src/app/(front-end)/___shared'
-import useInput from 'src/app/(front-end)/___shared/hooks/useInput'
 import Feature from 'src/app/(front-end)/__features'
 
 const useLogic = () => {
   const router = useRouter()
   const { open, SnackBar } = Shared.UI.Common.useSnackBar()
-  const { value: id, setValue: setId } = useInput()
-  const { value: password, setValue: setPassword } = useInput()
+  const { value: id, setValue: setId } = Shared.Hooks.useInput()
+  const { value: password, setValue: setPassword } = Shared.Hooks.useInput()
 
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response

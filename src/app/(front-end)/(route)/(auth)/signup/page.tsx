@@ -13,26 +13,26 @@ const Page = () => {
       <>
         <Shared.UI.Element.Input
           type='text'
-          placeholder='ID'
+          placeholder='아이디'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
           value={id}
           onChange={handler.id}
         />
         <Shared.UI.Element.Input
           type='password'
-          placeholder='PASSWORD'
+          placeholder='비밀번호'
           prefixicon={<Shared.UI.Element.Icon.Lock size={Shared.STYLE.SIZE.icon.input} />}
           value={password}
           onChange={handler.password}
         />
-        <Shared.UI.Element.Button onClick={handler.submit}>SIGN UP</Shared.UI.Element.Button>
+        <Shared.UI.Element.Button onClick={handler.submit}>회원가입</Shared.UI.Element.Button>
         <Link href='/signin'>
           <Shared.UI.Element.Typography
             $fontSize='2rem'
             $fontWeight={700}
             $color={Shared.STYLE.COLOR.blue}
           >
-            GO TO SIGN IN
+            이미 회원이십니까?
           </Shared.UI.Element.Typography>
         </Link>
       </>

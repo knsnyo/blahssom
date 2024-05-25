@@ -2,11 +2,10 @@
 
 import { useRouter } from 'next/navigation'
 import Shared from 'src/app/(front-end)/___shared'
-import useInput from 'src/app/(front-end)/___shared/hooks/useInput'
 import Feature from 'src/app/(front-end)/__features'
 
 const useLogic = () => {
-  const { value: nickname, setValue: setNickname } = useInput()
+  const { value: nickname, setValue: setNickname } = Shared.Hooks.useInput()
   const { open, SnackBar } = Shared.UI.Common.useSnackBar()
   const dispatch = Feature.Hooks.useAppDispatch()
   const router = useRouter()

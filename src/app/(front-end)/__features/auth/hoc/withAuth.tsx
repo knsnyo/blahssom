@@ -20,13 +20,12 @@ const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>)
         router.replace('/feed')
         return
       }
-
       if (user && !user?.nickname && pathname !== '/set-nickname') {
         router.replace('/set-nickname')
       } else if (!user && !['/signin', '/signup'].includes(pathname)) {
         router.replace('/signin')
       }
-    }, [user, router, pathname])
+    }, [])
 
     return <Component {...props} />
   }
