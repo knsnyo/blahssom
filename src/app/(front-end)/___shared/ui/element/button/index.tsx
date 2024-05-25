@@ -60,7 +60,7 @@ const TYPE: { [key: string]: IBUttonTheme } = {
     $width: '50rem',
     $height: '5rem',
   },
-  WRITE: {
+  SMALL: {
     $color: COLOR.white,
     $bgColor: COLOR.blue,
     $borderRadius: '1.5rem',

@@ -4,7 +4,9 @@ import Feed from 'src/app/(back-end)/_models/feed'
 export const queryFeeds = async (query: URLSearchParams) => {
   const lastId = query.get('lastId')
   const feedId = query.get('feedId')
+
   const condition: { _id?: any; feed?: any } = { feed: feedId }
+
   if (lastId) condition._id = { $lt: lastId }
 
   const feeds = await Feed.find(condition)

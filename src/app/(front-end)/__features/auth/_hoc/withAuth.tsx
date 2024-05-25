@@ -8,7 +8,7 @@ const withAuth = (Component: React.ComponentType<{ children: React.ReactNode }>)
     const pathname = usePathname()
     const router = useRouter()
     const user = useAppSelector((s) => {
-      return s.user.user
+      return s?.user.user
     })
 
     React.useEffect(() => {

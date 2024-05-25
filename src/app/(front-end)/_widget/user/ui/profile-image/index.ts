@@ -4,7 +4,7 @@ interface IProps {
   size?: number
 }
 
-export const ProfileImage = styled.img<IProps>`
+const ProfileImage = styled.img<IProps>`
   width: ${(props) => {
     return `${props?.size ?? 3}rem`
   }};
@@ -13,3 +13,4 @@ export const ProfileImage = styled.img<IProps>`
   }};
   border-radius: 4rem;
 `
+export default ProfileImage

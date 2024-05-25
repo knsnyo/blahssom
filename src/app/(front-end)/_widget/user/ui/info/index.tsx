@@ -1,12 +1,29 @@
+import { IUser } from 'src/@types/user'
 import Shared from 'src/app/(front-end)/___shared'
-import { ProfileImage } from 'src/app/(front-end)/_widget/user/ui/profile-image'
+import Feature from 'src/app/(front-end)/__features'
+import ProfileImage from 'src/app/(front-end)/_widget/user/ui/profile-image'
 
-const Info = () => {
+const Info = (props: { user: IUser }) => {
+  const { user } = props
+  const my = Feature.Hooks.useAppSelector((state) => {
+    return state.user.user
+  })
   return (
     <Shared.UI.Element.Stack $fullWidth $direction='column' $paddingX={1}>
-      <ProfileImage src='https://picsum.photos/200' size={8} />
+      <Shared.UI.Element.Stack $fullWidth $direction='row' $justifyContent='space-between'>
+        <ProfileImage src='https://picsum.photos/200' size={8} />
+      <Feature.Action.UI.FollowButton user={user} />
+      </Shared.UI.Element.Stack>
       <br />
-      <Shared.UI.Element.Typography $fontWeight={700}>Nickname</Shared.UI.Element.Typography>
+      <Shared.UI.Element.Typography $fontWeight={700} $fontSize='1.5rem'>
+        {user?.nickname}
+      </Shared.UI.Element.Typography>
+      <br />
+      {user?.createdAt && (
+        <Shared.UI.Element.Typography $fontSize='1.5rem'>
+          가입일자: {new Date(user.createdAt).toLocaleDateString()}
+        </Shared.UI.Element.Typography>
+      )}
     </Shared.UI.Element.Stack>
   )
 }

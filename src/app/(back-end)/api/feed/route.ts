@@ -24,8 +24,8 @@ export const POST = async (request: Request) => {
     const author = verifyBearerToken()
     await connectDB()
 
-    const { content } = await request.json()
-    await new Feed({ author, content }).save()
+    const { content, feed } = await request.json()
+    await new Feed({ author, content, feed }).save()
 
     return Response.json({}, { status: 201 })
   } catch (error) {

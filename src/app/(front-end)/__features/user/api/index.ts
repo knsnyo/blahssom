@@ -22,9 +22,21 @@ const getProfile = async () => {
   return json
 }
 
+const getUser = async (id: string) => {
+  const response = await TOKEN_FETCH({
+    url: `/api/user/detail/${id}`,
+    method: METHOD.GET,
+  })
+
+  const json = await generateData<IUser>(response)
+
+  return json
+}
+
 const Api = {
   setNickname,
   getProfile,
+  getUser,
 }
 
 export default Api

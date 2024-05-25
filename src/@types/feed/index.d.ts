@@ -7,4 +7,5 @@ export interface IFeed extends I_ID {
   createdAt: string
   updatedAt: string
   author: IUser
+  feed?: any
 }

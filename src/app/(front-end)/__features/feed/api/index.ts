@@ -15,11 +15,10 @@ const writeFeed = async (body: IFeedBody) => {
 }
 
 const writeDependentFeed = async (body: IFeedBody) => {
-  // TODO: fix
   if (!body.feed) throw Error()
 
   const response = await TOKEN_FETCH({
-    url: `/api/feed/dependant/${body.feed}`,
+    url: `/api/feed`,
     method: METHOD.POST,
     body: JSON.stringify(body),
   })
