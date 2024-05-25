@@ -2,7 +2,7 @@
 
 import styled from 'styled-components'
 
-interface IStack extends React.HtmlHTMLAttributes<HTMLDivElement> {
+export interface IStack extends React.HtmlHTMLAttributes<HTMLDivElement> {
   $direction?: string
   $justifyContent?: string
   $alignItems?: string

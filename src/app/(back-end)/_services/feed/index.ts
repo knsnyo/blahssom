@@ -6,9 +6,6 @@ export const queryFeeds = async (query: URLSearchParams) => {
   const feed = query.get('feedId')
   const author = query.get('author')
 
-  console.log(feed)
-  console.log(author)
-
   const condition: { _id?: any; feed?: any; author?: any } = { feed }
 
   if (lastId) condition._id = { $lt: lastId }

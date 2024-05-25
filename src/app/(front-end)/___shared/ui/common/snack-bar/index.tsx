@@ -1,5 +1,6 @@
 'use client'
 
+import ReactDOM from 'react-dom'
 import COLOR from 'src/app/(front-end)/___shared/style/color'
 import Typography from 'src/app/(front-end)/___shared/ui/element/typography'
 
@@ -11,12 +12,13 @@ interface ISnakBar {
 }
 
 const SnackBar = ({ color, message }: ISnakBar) => {
-  return (
+  return ReactDOM.createPortal(
     <Container color={color}>
       <Typography $color={COLOR.white} $fontWeight={700} $fontSize='1.5rem'>
         {message}
       </Typography>
-    </Container>
+    </Container>,
+    window.document.body,
   )
 }
 
@@ -30,7 +32,7 @@ const Container = styled.div<{ color: string }>`
   width: 30rem;
   height: 3rem;
   border-radius: 0.8rem;
-  top: 8rem;
+  top: 4rem;
   z-index: 999;
   display: flex;
   flex-direction: row;
