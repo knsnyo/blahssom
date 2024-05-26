@@ -1,6 +1,6 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const DBFeed: Schema = new Schema(
+const FeedSchema: mongoose.Schema = new mongoose.Schema(
   {
     feed: {
       type: mongoose.Schema.Types.ObjectId,
@@ -15,8 +15,12 @@ const DBFeed: Schema = new Schema(
       type: String,
       required: true,
     },
+    bookmarked: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+    liked: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   },
   { timestamps: true },
 )
 
-export default mongoose.models.Feed || mongoose.model('Feed', DBFeed)
+type Feed = mongoose.InferSchemaType<typeof FeedSchema>
+
+export default mongoose.model<Feed>('Feed', FeedSchema)

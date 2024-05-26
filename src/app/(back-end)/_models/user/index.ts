@@ -1,6 +1,6 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
-const DBUser: Schema = new Schema(
+const UserSchema: mongoose.Schema = new mongoose.Schema(
   {
     id: {
       type: String,
@@ -13,10 +13,15 @@ const DBUser: Schema = new Schema(
     },
     nickname: {
       type: String,
-      unique: true,
     },
+    follower: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+    following: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+    bookmarked: [{ type: mongoose.Schema.ObjectId, ref: 'Feed' }],
+    liked: [{ type: mongoose.Schema.ObjectId, ref: 'Feed' }],
   },
   { timestamps: true },
 )
 
-export default mongoose.models.User || mongoose.model('User', DBUser)
+type User = mongoose.InferSchemaType<typeof UserSchema>
+
+export default mongoose.model<User>('User', UserSchema)

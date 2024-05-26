@@ -19,6 +19,18 @@ const user = createSlice({
     updateNickname: (state, action) => {
       state.user!.nickname = action.payload
     },
+    follow: (state, action) => {
+      let following = state.user?.following ?? []
+      const id = action.payload
+      if (following?.includes(id)) {
+        following = following.filter((f) => {
+          return f !== id
+        })
+      } else {
+        following.push(id)
+      }
+      state.user!.following = following
+    },
   },
 })
 

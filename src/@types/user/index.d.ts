@@ -5,4 +5,6 @@ export interface IUser extends I_ID {
   password?: string
   nickname?: string
   createdAt?: string
+  follower?: string[]
+  following?: string[]
 }

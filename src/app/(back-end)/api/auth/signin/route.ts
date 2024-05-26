@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
+import { IUser } from 'src/@types/user'
 import connectDB from 'src/app/(back-end)/_config/db'
 import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
 import handleError from 'src/app/(back-end)/_config/error/handler'
@@ -13,10 +14,10 @@ export const GET = async () => {
 
     await connectDB()
 
-    const find = await findUserById(id)
+    const find: IUser = await findUserById(id)
     if (!find) throw new ServerError(AUTH_ERROR.NO_USER)
 
-    const verify = await bcrypt.compare(password, find.password)
+    const verify = await bcrypt.compare(password, find.password!)
     if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
 
     const { _id } = find

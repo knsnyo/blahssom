@@ -11,7 +11,7 @@ export const changeUserNickname = async (_id: string, nickname: string) => {
   await User.findByIdAndUpdate(_id, { nickname }, { new: true })
 }
 
-export const findUserById = async (id: string) => {
+export const findUserById = async (id: string): Promise<IUser> => {
   const user = await User.findOne({ id })
-  return user
+  return user as IUser
 }

@@ -8,7 +8,7 @@ const Page = () => {
     return state.user.user
   })
 
-  return <UserDetailPage params={{ id: user!._id }} />
+  return <UserDetailPage params={{ id: user?._id ?? '' }} />
 }
 
 export default Page

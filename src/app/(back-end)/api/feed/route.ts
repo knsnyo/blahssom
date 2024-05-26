@@ -15,6 +15,7 @@ export const GET = async (request: Request) => {
 
     return Response.json({ items: feeds, hasNext }, { status: 200 })
   } catch (error) {
+    console.error(error)
     return handleError(error)
   }
 }
