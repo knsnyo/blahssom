@@ -4,7 +4,7 @@ import useLogic from 'src/app/(front-end)/(route)/(auth)/set-nickname/logic'
 import Shared from 'src/app/(front-end)/___shared'
 
 const Page = () => {
-  const { nickname, SnackBar, handler } = useLogic()
+  const { value, SnackBar, handler } = useLogic()
 
   return (
     <>
@@ -15,9 +15,9 @@ const Page = () => {
           placeholder='닉네임'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
           onChange={handler.nickname}
-          value={nickname}
+          value={value.nickname}
         />
-        <Shared.UI.Element.Button onClick={handler.submit} disabled={!nickname}>
+        <Shared.UI.Element.Button onClick={handler.submit} disabled={!value.nickname}>
           시작하기
         </Shared.UI.Element.Button>
       </>

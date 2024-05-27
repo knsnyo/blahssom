@@ -22,15 +22,8 @@ const useLogic = () => {
 
   return {
     SnackBar,
-    value: {
-      email,
-      password,
-    },
-    handler: {
-      email: setEmail,
-      password: setPassword,
-      submit,
-    },
+    value: { email, password },
+    handler: { email: setEmail, password: setPassword, submit },
   }
 }
 

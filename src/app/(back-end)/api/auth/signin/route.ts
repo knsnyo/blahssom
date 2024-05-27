@@ -1,38 +1,31 @@
-// import bcrypt from 'bcryptjs'
-// import { cookies } from 'next/headers'
-// import { IUser } from 'src/@types/user'
-// import connectDB from 'src/app/(back-end)/_config/db'
-// import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
-// import handleError from 'src/app/(back-end)/_config/error/handler'
-// import verifyBasicToken from 'src/app/(back-end)/_middleware/basic'
-// import { generateAccessToken, generateRefreshToken } from 'src/app/(back-end)/_services/token'
-// import { findUser, findUserById } from 'src/app/(back-end)/_services/user'
+import bcrypt from 'bcryptjs'
+import { cookies } from 'next/headers'
+import ServerError, { AUTH_ERROR } from 'src/app/(back-end)/_config/error'
+import handleError from 'src/app/(back-end)/_config/error/handler'
+import verifyBasicToken from 'src/app/(back-end)/_middleware/basic'
+import service from 'src/app/(back-end)/_services'
+import { generateAccessToken, generateRefreshToken } from 'src/app/(back-end)/_services/token'
 
-// export const GET = async () => {
-//   try {
-//     const [id, password] = verifyBasicToken()
+export const GET = async () => {
+  try {
+    const [email, password] = verifyBasicToken()
 
-//     await connectDB()
+    const user = await service.user.findUserByEmail(email)
+    if (!user) throw new ServerError(AUTH_ERROR.NO_USER)
 
-//     const find: IUser = await findUserById(id)
-//     if (!find) throw new ServerError(AUTH_ERROR.NO_USER)
+    const verify = await bcrypt.compare(password, user.password!)
+    if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
 
-//     const verify = await bcrypt.compare(password, find.password!)
-//     if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
+    const { id } = user
 
-//     const { _id } = find
+    const accessToken = generateAccessToken({ id, email })
+    const refreshToken = generateRefreshToken({ id, email })
 
-//     const accessToken = generateAccessToken({ _id })
+    cookies().set('accessToken', accessToken)
+    cookies().set('refreshToken', refreshToken)
 
-//     const refreshToken = generateRefreshToken({ _id })
-
-//     cookies().set('accessToken', accessToken)
-//     cookies().set('refreshToken', refreshToken)
-
-//     const user = await findUser(_id)
-
-//     return Response.json({ item: user }, { status: 200 })
-//   } catch (error) {
-//     return handleError(error)
-//   }
-// }
+    return Response.json({ item: user }, { status: 200 })
+  } catch (error) {
+    return handleError(error)
+  }
+}

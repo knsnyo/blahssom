@@ -15,7 +15,7 @@ const Page = () => {
           type='text'
           placeholder='아이디'
           prefixicon={<Shared.UI.Element.Icon.Person size={Shared.STYLE.SIZE.icon.input} />}
-          value={value.id}
+          value={value.email}
           onChange={handler.id}
         />
         <Shared.UI.Element.Input

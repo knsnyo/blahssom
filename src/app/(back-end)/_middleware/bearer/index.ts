@@ -10,9 +10,9 @@ const verifyBearerToken = (): string => {
   }
   token = token.replace('Bearer ', '')
 
-  const { _id } = verifyAccessToken(token) as jwt.JwtPayload
+  const { id } = verifyAccessToken(token) as jwt.JwtPayload
 
-  return _id
+  return id
 }
 
 export default verifyBearerToken

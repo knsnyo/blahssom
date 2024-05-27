@@ -23,12 +23,9 @@ const useLogic = () => {
   }
 
   return {
-    nickname,
+    value: { nickname },
     SnackBar,
-    handler: {
-      submit,
-      nickname: setNickname,
-    },
+    handler: { submit, nickname: setNickname },
   }
 }
 
