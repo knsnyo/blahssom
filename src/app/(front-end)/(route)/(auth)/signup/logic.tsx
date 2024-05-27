@@ -5,13 +5,13 @@ import Feature from 'src/app/(front-end)/__features'
 const useLogic = () => {
   const router = useRouter()
   const { open, SnackBar } = Shared.UI.Common.useSnackBar()
-  const { value: id, setValue: setId } = Shared.Hooks.useInput()
+  const { value: email, setValue: setEmail } = Shared.Hooks.useInput()
   const { value: password, setValue: setPassword } = Shared.Hooks.useInput()
 
   const submit: React.MouseEventHandler<HTMLButtonElement> = async () => {
     let response
     try {
-      response = await Feature.Auth.Api.signUp({ id, password })
+      response = await Feature.Auth.Api.signUp({ email, password })
       if (!response.ok) throw response
 
       router.replace('/signin')
@@ -21,11 +21,13 @@ const useLogic = () => {
   }
 
   return {
-    id,
-    password,
     SnackBar,
+    value: {
+      email,
+      password,
+    },
     handler: {
-      id: setId,
+      email: setEmail,
       password: setPassword,
       submit,
     },

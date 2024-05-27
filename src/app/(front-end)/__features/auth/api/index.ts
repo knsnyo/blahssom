@@ -1,15 +1,11 @@
-import { IUser } from 'src/@types/user'
+import { User } from '@prisma/client'
+import { IAuth } from 'src/@types/user/body'
 import { METHOD } from 'src/app/(front-end)/__features/_hooks/fetch'
 import { generateData } from 'src/app/(front-end)/__features/_utils'
 
-interface AuthBody {
-  id: string
-  password: string
-}
-
-const signUp = async ({ id, password }: AuthBody) => {
+const signUp = async ({ email, password }: IAuth) => {
   const URL = `/api/auth/signup`
-  const plainText = `${id}:${password}`
+  const plainText = `${email}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
     method: METHOD.GET,
@@ -20,16 +16,16 @@ const signUp = async ({ id, password }: AuthBody) => {
   return json
 }
 
-const signIn = async ({ id, password }: AuthBody) => {
+const signIn = async ({ email, password }: IAuth) => {
   const URL = `/api/auth/signin`
-  const plainText = `${id}:${password}`
+  const plainText = `${email}:${password}`
   const encoded = Buffer.from(plainText).toString('base64')
   const response = await fetch(URL, {
     method: METHOD.GET,
     headers: { Authorization: `Basic ${encoded}` },
   })
 
-  const json = await generateData<IUser>(response)
+  const json = await generateData<User>(response)
   return json
 }
 

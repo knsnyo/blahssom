@@ -1,17 +1,24 @@
-import { IUser } from 'src/@types/user'
-import User from 'src/app/(back-end)/_models/user'
+import { User } from '@prisma/client'
+import { IAuth } from 'src/@types/user/body'
+import { db } from 'src/app/(back-end)/_config/db'
 
-export const findUser = async (_id: string): Promise<IUser | null> => {
-  const user = await User.findById(_id).select('-password')
+const user = {
+  findUserByEmail: async (email: string): Promise<User | null> => {
+    const find: User | null = await db.user.findUnique({ where: { email } })
 
-  return user ? (user as IUser) : null
+    return find
+  },
+  findUserById: async (id: string): Promise<User | null> => {
+    const find: User | null = await db.user.findUnique({ where: { id } })
+
+    return find
+  },
+  createUser: async (data: IAuth) => {
+    await db.user.create({ data })
+  },
+  changeNickname: async () => {
+    // await db.user.update({})
+  },
 }
 
-export const changeUserNickname = async (_id: string, nickname: string) => {
-  await User.findByIdAndUpdate(_id, { nickname }, { new: true })
-}
-
-export const findUserById = async (id: string): Promise<IUser> => {
-  const user = await User.findOne({ id })
-  return user as IUser
-}
+export default user
