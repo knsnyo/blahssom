@@ -4,6 +4,9 @@
 // import Feed from 'src/app/(back-end)/_models/feed'
 // import { queryFeeds } from 'src/app/(back-end)/_services/feed'
 
+import handleError from 'src/app/(back-end)/_config/error/handler'
+import verifyBearerToken from 'src/app/(back-end)/_middleware/bearer'
+
 // export const GET = async (request: Request) => {
 //   try {
 //     verifyBearerToken()
@@ -19,16 +22,14 @@
 //   }
 // }
 
-// export const POST = async (request: Request) => {
-//   try {
-//     const author = verifyBearerToken()
-//     await connectDB()
+export const POST = async (request: Request) => {
+  try {
+    const author = verifyBearerToken()
 
-//     const { content, feed } = await request.json()
-//     await new Feed({ author, content, feed }).save()
+    const { content, feed } = await request.json()
 
-//     return Response.json({}, { status: 201 })
-//   } catch (error) {
-//     return handleError(error)
-//   }
-// }
+    return Response.json({}, { status: 201 })
+  } catch (error) {
+    return handleError(error)
+  }
+}

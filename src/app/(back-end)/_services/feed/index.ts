@@ -32,3 +32,7 @@
 
 //   return feed
 // }
+
+const feed = {
+  createFeed: async () => {},
+}

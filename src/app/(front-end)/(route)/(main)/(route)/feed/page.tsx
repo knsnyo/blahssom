@@ -6,7 +6,7 @@ import Widget from 'src/app/(front-end)/_widget'
 const Page = () => {
   return (
     <Shared.UI.Element.Stack $fullWidth $direction='column' $paddingX={3}>
-      <Widget.Feed.List />
+      {/* <Widget.Feed.List /> */}
       <Widget.Write.FloatingWriteButton />
     </Shared.UI.Element.Stack>
   )

@@ -17,6 +17,7 @@ export const GET = async () => {
     if (!verify) throw new ServerError(AUTH_ERROR.UNAUTHENTICATED)
 
     const { id } = user
+    const { password: _, ...info } = user
 
     const accessToken = generateAccessToken({ id, email })
     const refreshToken = generateRefreshToken({ id, email })
@@ -24,7 +25,7 @@ export const GET = async () => {
     cookies().set('accessToken', accessToken)
     cookies().set('refreshToken', refreshToken)
 
-    return Response.json({ item: user }, { status: 200 })
+    return Response.json({ item: info }, { status: 200 })
   } catch (error) {
     return handleError(error)
   }

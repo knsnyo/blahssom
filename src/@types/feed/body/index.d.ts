@@ -1,4 +1,4 @@
-export interface IFeedBody {
-  feed?: string
+export interface ICreateFeed {
+  author?: string
   content: string
 }

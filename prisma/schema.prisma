@@ -20,14 +20,24 @@ model User {
   password String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  posts Feed[]
+
+  my Feed[]
+
+  followedBy    User[]   @relation("UserFollows", fields: [followedByIDs], references: [id])
+  followedByIDs String[] @db.ObjectId
+  following     User[]   @relation("UserFollows", fields: [followingIDs], references: [id])
+  followingIDs  String[] @db.ObjectId
 }
 
 model Feed {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  content String
-  author User @relation(fields: [authorId], references: [id])
+  content String?
   authorId String @db.ObjectId
+  author User @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  parentId String? @db.ObjectId
+  // parent Feed? @relation("ParentStudent", fields: [parentId], references: [id])
+  // children Feed[] @relation("ParentStudent")
 }
